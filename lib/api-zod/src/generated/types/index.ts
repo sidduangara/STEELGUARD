@@ -22,6 +22,8 @@ export * from './notFoundResponse';
 export * from './plantZone';
 export * from './riskDistribution';
 export * from './riskLevelParameter';
+export * from './riskPrediction';
+export * from './riskPredictionInput';
 export * from './searchParameter';
 export * from './shiftRisk';
 export * from './trendPoint';

@@ -172,6 +172,24 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Analytics"
+  /predict-risk:
+    post:
+      operationId: predictRisk
+      tags: [safety]
+      summary: Predict worker risk and fan out a simulated authority message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskPredictionInput"
+      responses:
+        "200":
+          description: Risk prediction with simulated notification result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskPrediction"
   /authorities:
     get:
       operationId: getAuthorities
@@ -398,6 +416,35 @@ components:
           items:
             $ref: "#/components/schemas/ShiftRisk"
       required: [departments, hazards, shifts]
+    RiskPredictionInput:
+      type: object
+      properties:
+        workerId: { type: string }
+        workerName: { type: string }
+        temperature: { type: number }
+        humidity: { type: number }
+        gasLevel: { type: number }
+        fatigueScore: { type: number }
+        ppeCompliance: { type: number }
+        workingHours: { type: number }
+        hazardDistance: { type: number }
+        previousIncidents: { type: integer }
+      required: [workerId, workerName, temperature, humidity, gasLevel, fatigueScore, ppeCompliance, workingHours, hazardDistance, previousIncidents]
+    RiskPrediction:
+      type: object
+      properties:
+        workerId: { type: string }
+        workerName: { type: string }
+        riskScore: { type: integer }
+        riskLevel: { type: string }
+        hazardType: { type: string }
+        confidence: { type: number }
+        recommendation: { type: string }
+        notificationMode: { type: string }
+        notificationMessage: { type: string }
+        notificationsSent: { type: integer }
+        auditId: { type: string }
+      required: [workerId, workerName, riskScore, riskLevel, hazardType, confidence, recommendation, notificationMode, notificationMessage, notificationsSent, auditId]
     DepartmentRisk:
       type: object
       properties:

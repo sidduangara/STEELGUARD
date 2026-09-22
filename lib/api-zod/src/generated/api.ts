@@ -269,6 +269,37 @@ export const GetAnalyticsResponse = zod.object({
 
 
 /**
+ * @summary Predict worker risk and fan out a simulated authority message
+ */
+export const PredictRiskBody = zod.object({
+  "workerId": zod.string(),
+  "workerName": zod.string(),
+  "temperature": zod.number(),
+  "humidity": zod.number(),
+  "gasLevel": zod.number(),
+  "fatigueScore": zod.number(),
+  "ppeCompliance": zod.number(),
+  "workingHours": zod.number(),
+  "hazardDistance": zod.number(),
+  "previousIncidents": zod.number().int()
+})
+
+export const PredictRiskResponse = zod.object({
+  "workerId": zod.string(),
+  "workerName": zod.string(),
+  "riskScore": zod.number().int(),
+  "riskLevel": zod.string(),
+  "hazardType": zod.string(),
+  "confidence": zod.number(),
+  "recommendation": zod.string(),
+  "notificationMode": zod.string(),
+  "notificationMessage": zod.string(),
+  "notificationsSent": zod.number().int(),
+  "auditId": zod.string()
+})
+
+
+/**
  * @summary Get escalation authority hierarchy
  */
 export const GetAuthoritiesResponseItem = zod.object({

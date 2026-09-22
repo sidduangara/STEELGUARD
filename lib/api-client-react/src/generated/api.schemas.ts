@@ -123,6 +123,33 @@ export interface Analytics {
   shifts: ShiftRisk[];
 }
 
+export interface RiskPredictionInput {
+  workerId: string;
+  workerName: string;
+  temperature: number;
+  humidity: number;
+  gasLevel: number;
+  fatigueScore: number;
+  ppeCompliance: number;
+  workingHours: number;
+  hazardDistance: number;
+  previousIncidents: number;
+}
+
+export interface RiskPrediction {
+  workerId: string;
+  workerName: string;
+  riskScore: number;
+  riskLevel: string;
+  hazardType: string;
+  confidence: number;
+  recommendation: string;
+  notificationMode: string;
+  notificationMessage: string;
+  notificationsSent: number;
+  auditId: string;
+}
+
 export interface Authority {
   level: number;
   role: string;

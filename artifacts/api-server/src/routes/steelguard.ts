@@ -15,6 +15,8 @@ import {
   GetWorkerResponse,
   GetWorkersQueryParams,
   GetWorkersResponse,
+  PredictRiskBody,
+  PredictRiskResponse,
   ResetEmergencyShutdownResponse,
   TriggerEmergencyShutdownBody,
   TriggerEmergencyShutdownResponse,
@@ -473,6 +475,100 @@ router.get("/analytics", (_req, res) => {
         { shift: "Evening", risk: 48 },
         { shift: "Night", risk: 61 },
       ],
+    }),
+  );
+});
+
+router.post("/predict-risk", (req, res) => {
+  const parsed = PredictRiskBody.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: "Risk prediction inputs are incomplete." });
+    return;
+  }
+
+  const input = parsed.data;
+  const riskScore = Math.min(
+    99,
+    Math.max(
+      0,
+      Math.round(
+        input.temperature * 0.8 +
+          input.fatigueScore * 4 +
+          (100 - input.ppeCompliance) * 0.55 +
+          input.gasLevel * 0.45 +
+          (8 - Math.min(input.hazardDistance, 8)) * 2 +
+          input.previousIncidents * 4 +
+          input.workingHours * 1.2 -
+          32,
+      ),
+    ),
+  );
+  const riskLevel =
+    riskScore >= 90
+      ? "CRITICAL"
+      : riskScore >= 75
+        ? "HIGH"
+        : riskScore >= 48
+          ? "MEDIUM"
+          : "LOW";
+  const hazardType =
+    riskScore >= 90
+      ? "Multiple Hazards"
+      : input.temperature >= 43
+        ? "Heat Stress"
+        : input.gasLevel >= 35
+          ? "Gas Exposure"
+          : input.ppeCompliance < 70
+            ? "PPE Violation"
+            : input.fatigueScore >= 8
+              ? "Fatigue"
+              : input.hazardDistance < 2.5
+                ? "Equipment Hazard"
+                : "Routine Monitoring";
+  const confidence = Math.min(
+    97,
+    Math.round(
+      78 +
+        Math.abs(riskScore - 50) * 0.18 +
+        (input.previousIncidents > 0 ? 2 : 0),
+    ),
+  );
+  const recommendation =
+    riskScore >= 75
+      ? "Simulated authority message sent. Schedule a supervisor review and move the worker away from the highest-risk condition."
+      : "Simulated authority message sent. Continue routine monitoring and scheduled break cadence.";
+  const auditId = `PRED-${Date.now().toString().slice(-8)}`;
+  const notificationMessage = `SIMULATED MESSAGE: ${riskLevel} risk prediction for ${input.workerName} (${input.workerId}) — score ${riskScore}/100, ${hazardType}. Review required according to prototype workflow.`;
+
+  alerts = [
+    {
+      id: `ALT-P-${Date.now().toString().slice(-8)}`,
+      severity: riskLevel,
+      title: `Risk prediction received for ${input.workerName}`,
+      description: `${hazardType} prediction automatically fanned out through the simulated authority hierarchy.`,
+      workerId: input.workerId,
+      zone: "Prediction context",
+      riskScore,
+      timestamp: new Date().toISOString(),
+      status: riskScore >= 48 ? "ACTIVE" : "MONITORING",
+      authorityNotified: true,
+    },
+    ...alerts,
+  ];
+
+  res.json(
+    PredictRiskResponse.parse({
+      workerId: input.workerId,
+      workerName: input.workerName,
+      riskScore,
+      riskLevel,
+      hazardType,
+      confidence,
+      recommendation,
+      notificationMode: "SIMULATION ONLY · HIERARCHY FAN-OUT",
+      notificationMessage,
+      notificationsSent: authorities.length,
+      auditId,
     }),
   );
 });

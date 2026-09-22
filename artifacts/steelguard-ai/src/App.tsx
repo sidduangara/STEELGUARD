@@ -10,9 +10,9 @@ import {
   getGetAlertsQueryKey, getGetDashboardQueryKey, getGetEmergencyStatusQueryKey, getGetPlantQueryKey, getGetWorkerQueryKey, getGetWorkersQueryKey, getHealthCheckQueryKey,
   useAcknowledgeAlert, useCreateWorker, useDeleteWorker, useGetAlerts, useGetAnalytics, useGetAuthorities,
   useGetDashboard, useGetEmergencyStatus, useGetPlant, useGetWorker, useGetWorkers, useHealthCheck,
-  useResetEmergencyShutdown, useTriggerEmergencyShutdown, useUpdateWorker,
+  usePredictRisk, useResetEmergencyShutdown, useTriggerEmergencyShutdown, useUpdateWorker,
 } from '@workspace/api-client-react';
-import type { Alert, Analytics, Authority, Dashboard, EmergencyStatus, PlantZone, Worker } from '@workspace/api-client-react';
+import type { Alert, Analytics, Authority, Dashboard, EmergencyStatus, PlantZone, RiskPrediction, Worker } from '@workspace/api-client-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -89,7 +89,7 @@ function Dashboard() {
   const d = dashboard.data as Dashboard | undefined;
   const openAlerts = (alerts.data || []).filter((a) => a.status !== 'ACKNOWLEDGED');
   return <div className="space-y-7">
-    <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><div className="steel-label flex items-center gap-2"><span className="size-2 rounded-full bg-emerald-400 status-pulse" /> Live simulated status</div><h2 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">See the risk before it becomes an incident.</h2><p className="mt-2 max-w-2xl text-sm text-muted-foreground">A single operational view of workforce condition, plant zones, and response readiness.</p></div><div className="font-mono text-xs text-muted-foreground">LAST SYNC / {formatTime(d?.updatedAt)}</div></div>
+     <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><div className="steel-label flex items-center gap-2"><span className="size-2 rounded-full bg-emerald-400 status-pulse" /> Live simulated status</div><h2 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">See the risk before it becomes an incident.</h2><p className="mt-2 max-w-2xl text-sm text-muted-foreground">A single operational view of workforce condition, plant zones, and response readiness.</p></div><div className="flex items-center gap-3"><Link href="/emergency" data-testid="button-dashboard-emergency" className="inline-flex items-center gap-2 rounded border border-red-400/50 bg-red-400/10 px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-red-300 hover:bg-red-400/20"><OctagonAlert size={14} /> Emergency control</Link><div className="font-mono text-xs text-muted-foreground">LAST SYNC / {formatTime(d?.updatedAt)}</div></div></div>
     <StateBlock loading={dashboard.isLoading} error={dashboard.isError} onRetry={() => dashboard.refetch()}>{d && <><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5"><Metric label="Workers tracked" value={d.totalWorkers} sub="Digital twins online" icon={Users} /><Metric label="High-risk workers" value={d.highRiskWorkers} sub={`${d.totalWorkers ? Math.round(d.highRiskWorkers / d.totalWorkers * 100) : 0}% of active workforce`} icon={AlertTriangle} accent="red" /><Metric label="Active alerts" value={d.activeAlerts} sub="Awaiting acknowledgement" icon={Bell} accent="cyan" /><Metric label="Average risk score" value={d.averageRiskScore} sub="Model score / 100" icon={Gauge} /><Metric label="PPE compliance" value={`${d.ppeCompliance}%`} sub="Across current shift" icon={HardHat} accent="cyan" /></div>
       <div className="grid gap-5 xl:grid-cols-[1.35fr_.8fr]"><div className="steel-panel scanline p-5"><SectionTitle eyebrow="Risk telemetry / 07 day window" title="Risk score and alert velocity" action={<Badge tone="low">Within simulation</Badge>} /><div className="grid gap-5 sm:grid-cols-[1fr_180px]"><div><div className="relative h-44"><div className="absolute inset-x-0 top-0 border-t border-border/60" /><div className="absolute inset-x-0 top-1/2 border-t border-border/60" /><div className="absolute inset-x-0 bottom-0 border-t border-border/60" /><svg viewBox="0 0 500 150" preserveAspectRatio="none" className="absolute inset-0 h-full w-full"><polyline fill="none" stroke="#e8a93a" strokeWidth="3" points={(d.riskTrend || []).map((p, i, arr) => `${i * (500 / Math.max(arr.length - 1, 1))},${150 - p.score * 1.22}`).join(' ')} /></svg><div className="absolute bottom-0 left-0 right-0 flex justify-between font-mono text-[9px] text-muted-foreground">{(d.riskTrend || []).map((p) => <span key={p.label}>{p.label}</span>)}</div></div></div><div><div className="steel-label mb-3">Risk distribution</div><div className="space-y-3">{(d.riskDistribution || []).map((r) => <div key={r.name}><div className="mb-1 flex justify-between text-xs"><span>{r.name}</span><span className="font-mono text-muted-foreground">{r.value}</span></div><div className="h-1.5 bg-muted"><div className="h-full" style={{ width: `${Math.min(100, r.value)}%`, background: r.color || '#e8a93a' }} /></div></div>)}</div></div></div></div><div className="steel-panel p-5"><SectionTitle eyebrow="Escalation queue" title="Recent alerts" action={<Link href="/alerts" data-testid="link-view-alerts" className="text-xs text-primary hover:underline">View all <ChevronRight className="inline" size={13} /></Link>} /><div className="space-y-3">{openAlerts.slice(0, 4).map((a) => <div key={a.id} data-testid={`card-alert-${a.id}`} className="border-l-2 border-primary/70 bg-muted/60 p-3"><div className="flex justify-between gap-2"><Badge tone={toneClass(a.severity).replace('tone-', '')}>{a.severity}</Badge><span className="font-mono text-[10px] text-muted-foreground">{formatTime(a.timestamp)}</span></div><div className="mt-2 text-sm font-semibold">{a.title}</div><div className="mt-1 text-xs text-muted-foreground">{a.zone} / risk {a.riskScore}</div></div>)}{!openAlerts.length && <p className="py-6 text-center text-sm text-muted-foreground">No open alerts in the current cycle.</p>}</div></div></div>
       <div className="grid gap-5 lg:grid-cols-[1fr_1fr_.75fr]"><div className="steel-panel p-5"><SectionTitle eyebrow="Plant digital twin" title="Zones under watch" action={<Link href="/plant" data-testid="link-view-plant" className="text-xs text-primary">Open map <ChevronRight className="inline" size={13} /></Link>} /><div className="grid grid-cols-2 gap-2">{(plant.data || []).slice(0, 6).map((z) => <div key={z.id} className="border border-border bg-muted/40 p-3"><div className="flex items-center justify-between"><span className="text-xs font-medium">{z.name}</span><span className={cn('size-2 rounded-full', riskTone(z.hazardLevel) === 'low' ? 'bg-emerald-400' : riskTone(z.hazardLevel) === 'medium' ? 'bg-primary' : 'bg-red-400')} /></div><div className="mt-2 font-mono text-lg">{z.riskScore}</div><div className="text-[10px] text-muted-foreground">{z.workerCount} workers / {z.equipmentStatus}</div></div>)}</div></div><div className="steel-panel p-5"><SectionTitle eyebrow="Response readiness" title="Control posture" /><div className="space-y-4"><div className="flex justify-between text-sm"><span className="text-muted-foreground">Authority chain</span><span className="text-emerald-300">Ready</span></div><div className="h-2 bg-muted"><div className="h-full w-[82%] bg-accent" /></div><div className="flex justify-between text-sm"><span className="text-muted-foreground">Notification paths</span><span className="text-emerald-300">4 / 4 online</span></div><div className="h-2 bg-muted"><div className="h-full w-full bg-emerald-400" /></div><div className="border border-primary/30 bg-primary/5 p-3 text-xs leading-5 text-muted-foreground"><Info size={14} className="mr-1 inline text-primary" /> All telemetry and recommended actions are synthetic prototype data.</div></div></div><div className="steel-panel border-primary/30 p-5"><div className="steel-label">Incidents / this cycle</div><div className="mt-3 text-5xl font-semibold text-primary">{d.incidents}</div><div className="mt-2 text-xs text-muted-foreground">Simulated events recorded</div><div className="mt-7 flex items-center gap-2 text-xs text-muted-foreground"><ClipboardCheck size={14} className="text-primary" /> Audit logging active</div></div></div></>}</StateBlock>
@@ -101,11 +101,94 @@ function WorkerDetail({ workerId, onClose }: { workerId: string; onClose: () => 
   const worker = useGetWorker(workerId, { query: { enabled: Boolean(workerId), queryKey: getGetWorkerQueryKey(workerId) } });
   const update = useUpdateWorker();
   const remove = useDeleteWorker();
+  const predict = usePredictRisk();
   const w = worker.data as Worker | undefined;
+  const [prediction, setPrediction] = useState<RiskPrediction>();
   const [zone, setZone] = useState('');
   const [shift, setShift] = useState('');
   if (!workerId) return null;
-  return <div className="fixed inset-y-0 right-0 z-50 w-full max-w-md overflow-y-auto border-l border-border bg-card p-5 shadow-2xl rise-in sm:p-7"><div className="flex items-center justify-between"><div><div className="steel-label">Worker digital twin</div><h2 className="mt-1 text-xl font-semibold">{w?.name || 'Loading worker'}</h2></div><button data-testid="button-close-worker" onClick={onClose} className="rounded p-2 hover:bg-muted"><X size={18} /></button></div><StateBlock loading={worker.isLoading} error={worker.isError} onRetry={() => worker.refetch()}>{w && <div className="mt-7 space-y-6"><div className="flex items-center gap-3"><div className="grid size-12 place-items-center border border-primary/40 bg-primary/10 font-mono text-sm text-primary">{w.initials}</div><div><div className="font-medium">{w.role}</div><div className="text-sm text-muted-foreground">{w.department} / {w.shift}</div></div><Badge tone={riskTone(w.riskLevel)}>{w.riskLevel}</Badge></div><div className="grid grid-cols-2 gap-2">{[['Risk score', w.riskScore], ['Temperature', `${w.temperature}°C`], ['Humidity', `${w.humidity}%`], ['Gas level', `${w.gasLevel} ppm`], ['Fatigue', `${w.fatigueScore}%`], ['Hazard distance', `${w.hazardDistance}m`]].map(([label, value]) => <div key={String(label)} className="border border-border bg-muted/40 p-3"><div className="steel-label">{label}</div><div className="mt-2 font-mono text-lg">{value}</div></div>)}</div><div className="border border-border p-4"><div className="steel-label">Model recommendation</div><p className="mt-2 text-sm leading-6 text-muted-foreground">{w.recommendation}</p><div className="mt-3 text-xs text-primary">Synthetic recommendation — not a medical or safety directive.</div></div><div className="space-y-3 border-t border-border pt-5"><div className="steel-label">Operator controls</div><label className="block text-xs text-muted-foreground">Assign zone<input data-testid="input-worker-zone" defaultValue={w.zone} onChange={(e) => setZone(e.target.value)} className="mt-1 w-full rounded border border-input bg-background px-3 py-2 text-sm" /></label><label className="block text-xs text-muted-foreground">Shift<input data-testid="input-worker-shift" defaultValue={w.shift} onChange={(e) => setShift(e.target.value)} className="mt-1 w-full rounded border border-input bg-background px-3 py-2 text-sm" /></label><div className="flex gap-2"><button data-testid="button-save-worker" disabled={update.isPending} onClick={() => update.mutate({ workerId: w.workerId, data: { zone: zone || w.zone, shift: shift || w.shift } }, { onSuccess: () => { queryClient.invalidateQueries({ queryKey: getGetWorkerQueryKey(w.workerId) }); queryClient.invalidateQueries({ queryKey: getGetWorkersQueryKey() }); } })} className="flex-1 rounded bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110">{update.isPending ? 'Saving...' : 'Save twin state'}</button><button data-testid="button-delete-worker" onClick={() => { if (window.confirm('Remove this simulated worker from the roster?')) remove.mutate({ workerId: w.workerId }, { onSuccess: () => { queryClient.invalidateQueries({ queryKey: getGetWorkersQueryKey() }); onClose(); } }); }} className="rounded border border-red-400/40 px-3 py-2 text-red-300 hover:bg-red-400/10">Remove</button></div></div></div>}</StateBlock></div>;
+  return (
+    <div className="fixed inset-y-0 right-0 z-50 w-full max-w-md overflow-y-auto border-l border-border bg-card p-5 shadow-2xl rise-in sm:p-7">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="steel-label">Worker digital twin</div>
+          <h2 className="mt-1 text-xl font-semibold">{w?.name || 'Loading worker'}</h2>
+        </div>
+        <button data-testid="button-close-worker" onClick={onClose} className="rounded p-2 hover:bg-muted"><X size={18} /></button>
+      </div>
+      <StateBlock loading={worker.isLoading} error={worker.isError} onRetry={() => worker.refetch()}>
+        {w && (
+          <div className="mt-7 space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="grid size-12 place-items-center border border-primary/40 bg-primary/10 font-mono text-sm text-primary">{w.initials}</div>
+              <div><div className="font-medium">{w.role}</div><div className="text-sm text-muted-foreground">{w.department} / {w.shift}</div></div>
+              <Badge tone={riskTone(w.riskLevel)}>{w.riskLevel}</Badge>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {[['Risk score', w.riskScore], ['Temperature', `${w.temperature}°C`], ['Humidity', `${w.humidity}%`], ['Gas level', `${w.gasLevel} ppm`], ['Fatigue', `${w.fatigueScore}%`], ['Hazard distance', `${w.hazardDistance}m`]].map(([label, value]) => (
+                <div key={String(label)} className="border border-border bg-muted/40 p-3"><div className="steel-label">{label}</div><div className="mt-2 font-mono text-lg">{value}</div></div>
+              ))}
+            </div>
+            <div className="border border-border p-4">
+              <div className="steel-label">Model recommendation</div>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{w.recommendation}</p>
+              <div className="mt-3 text-xs text-primary">Synthetic recommendation — not a medical or safety directive.</div>
+            </div>
+            <div className="border border-accent/30 bg-accent/5 p-4">
+              <div className="flex items-start justify-between gap-3">
+                <div><div className="steel-label text-accent">Risk engine / automatic message</div><p className="mt-2 text-xs leading-5 text-muted-foreground">Run a prediction for this worker. Every prediction automatically creates a simulated authority message and audit record.</p></div>
+                <Activity size={18} className="shrink-0 text-accent" />
+              </div>
+              <button
+                data-testid="button-predict-risk"
+                disabled={predict.isPending}
+                onClick={() => predict.mutate({
+                  data: {
+                    workerId: w.workerId,
+                    workerName: w.name,
+                    temperature: w.temperature,
+                    humidity: w.humidity,
+                    gasLevel: w.gasLevel,
+                    fatigueScore: w.fatigueScore,
+                    ppeCompliance: w.ppeCompliance,
+                    workingHours: w.workingHours,
+                    hazardDistance: w.hazardDistance,
+                    previousIncidents: w.previousIncidents,
+                  },
+                }, {
+                  onSuccess: (result) => {
+                    setPrediction(result);
+                    queryClient.invalidateQueries({ queryKey: getGetAlertsQueryKey() });
+                    queryClient.invalidateQueries({ queryKey: getGetDashboardQueryKey() });
+                  },
+                })}
+                className="mt-4 inline-flex items-center gap-2 rounded bg-accent px-3 py-2 text-xs font-bold text-accent-foreground hover:brightness-110"
+              >
+                <Bell size={14} /> {predict.isPending ? 'Predicting and messaging...' : 'Predict risk + send message'}
+              </button>
+              {prediction && (
+                <div className="mt-4 border-t border-accent/20 pt-4">
+                  <div className="flex items-center justify-between gap-2"><span className="steel-label">Latest prediction</span><Badge tone={riskTone(prediction.riskLevel)}>{prediction.riskScore} / {prediction.riskLevel}</Badge></div>
+                  <div className="mt-3 text-xs text-muted-foreground">{prediction.hazardType} · {prediction.confidence}% confidence</div>
+                  <p className="mt-3 text-xs leading-5 text-accent">{prediction.notificationMessage}</p>
+                  <div className="mt-3 flex justify-between font-mono text-[10px] text-muted-foreground"><span>{prediction.notificationsSent} simulated authorities notified</span><span>{prediction.auditId}</span></div>
+                </div>
+              )}
+            </div>
+            <div className="space-y-3 border-t border-border pt-5">
+              <div className="steel-label">Operator controls</div>
+              <label className="block text-xs text-muted-foreground">Assign zone<input data-testid="input-worker-zone" defaultValue={w.zone} onChange={(e) => setZone(e.target.value)} className="mt-1 w-full rounded border border-input bg-background px-3 py-2 text-sm" /></label>
+              <label className="block text-xs text-muted-foreground">Shift<input data-testid="input-worker-shift" defaultValue={w.shift} onChange={(e) => setShift(e.target.value)} className="mt-1 w-full rounded border border-input bg-background px-3 py-2 text-sm" /></label>
+              <div className="flex gap-2">
+                <button data-testid="button-save-worker" disabled={update.isPending} onClick={() => update.mutate({ workerId: w.workerId, data: { zone: zone || w.zone, shift: shift || w.shift } }, { onSuccess: () => { queryClient.invalidateQueries({ queryKey: getGetWorkerQueryKey(w.workerId) }); queryClient.invalidateQueries({ queryKey: getGetWorkersQueryKey() }); } })} className="flex-1 rounded bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110">{update.isPending ? 'Saving...' : 'Save twin state'}</button>
+                <button data-testid="button-delete-worker" onClick={() => { if (window.confirm('Remove this simulated worker from the roster?')) remove.mutate({ workerId: w.workerId }, { onSuccess: () => { queryClient.invalidateQueries({ queryKey: getGetWorkersQueryKey() }); onClose(); } }); }} className="rounded border border-red-400/40 px-3 py-2 text-red-300 hover:bg-red-400/10">Remove</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </StateBlock>
+    </div>
+  );
 }
 
 function Workforce() {

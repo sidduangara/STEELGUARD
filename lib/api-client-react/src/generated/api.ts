@@ -30,6 +30,8 @@ import type {
   HealthStatus,
   NotFoundResponse,
   PlantZone,
+  RiskPrediction,
+  RiskPredictionInput,
   Worker,
   WorkerInput,
   WorkerUpdate
@@ -932,6 +934,94 @@ export function useGetAnalytics<TData = Awaited<ReturnType<typeof getAnalytics>>
 
 
 
+
+export const getPredictRiskUrl = () => {
+
+
+
+
+  return `/api/predict-risk`
+}
+
+/**
+ * @summary Predict worker risk and fan out a simulated authority message
+ */
+export const predictRisk = async (riskPredictionInput: RiskPredictionInput, options?: Parameters<typeof customFetch>[1]): Promise<RiskPrediction> => {
+
+    const getHeaders = (h?: NonNullable<RequestInit['headers']>): Record<string, string | readonly string[]> => {
+    if (!h) return {};
+    if (h instanceof Headers) return Object.fromEntries(h.entries());
+    if (Symbol.iterator in h) {
+      return Object.fromEntries(
+        Array.from(h as Iterable<Iterable<string>>, (entry) => Array.from(entry) as [string, string]),
+      );
+    }
+    const headers: Record<string, string | readonly string[]> = {};
+    for (const [name, value] of Object.entries<string | readonly string[] | undefined>(h)) {
+      if (value !== undefined) headers[name] = value;
+    }
+    return headers;
+  };
+return customFetch<RiskPrediction>(getPredictRiskUrl(),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...getHeaders(options?.headers) },
+    body: JSON.stringify(riskPredictionInput)
+  }
+);}
+
+
+
+
+
+export const getPredictRiskMutationKey = () => ['predictRisk'] as const;
+
+export const getPredictRiskMutationOptions = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof predictRisk>>, TError,PredictRiskMutationVariables, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof predictRisk>>, TError,PredictRiskMutationVariables, TContext> => {
+
+const mutationKey = getPredictRiskMutationKey();
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof predictRisk>>, PredictRiskMutationVariables> = (props) => {
+          const {data} = props ?? {};
+
+          return  predictRisk(data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type PredictRiskMutationResult = NonNullable<Awaited<ReturnType<typeof predictRisk>>>
+    export type PredictRiskMutationBody = BodyType<RiskPredictionInput>
+    export type PredictRiskMutationError = ErrorType<unknown>
+    export type PredictRiskMutationVariables = {data: BodyType<RiskPredictionInput>}
+
+    /**
+ * @summary Predict worker risk and fan out a simulated authority message
+ */
+export const usePredictRisk = <TError = ErrorType<unknown>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof predictRisk>>, TError,PredictRiskMutationVariables, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof predictRisk>>,
+        TError,
+        PredictRiskMutationVariables,
+        TContext
+      > => {
+      return useMutation(getPredictRiskMutationOptions(options));
+    }
 
 export const getGetAuthoritiesUrl = () => {
 
