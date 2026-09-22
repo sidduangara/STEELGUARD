@@ -1,0 +1,1 @@
+- [Safety simulation boundary](steelguard-safety-boundaries.md) — emergency controls and authority escalation must remain explicitly simulated and non-operational.

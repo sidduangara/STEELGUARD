@@ -3,20 +3,23 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: SteelGuard AI simulated industrial safety command center API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
-    description: Health operations
+  - name: dashboard
+  - name: workers
+  - name: safety
+  - name: plant
+  - name: emergency
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +27,426 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /dashboard:
+    get:
+      operationId: getDashboard
+      tags: [dashboard]
+      summary: Get command center dashboard summary
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+  /workers:
+    get:
+      operationId: getWorkers
+      tags: [workers]
+      summary: List workforce digital twins
+      parameters:
+        - $ref: "#/components/parameters/Department"
+        - $ref: "#/components/parameters/RiskLevel"
+        - $ref: "#/components/parameters/Search"
+      responses:
+        "200":
+          description: Workforce
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Worker"
+    post:
+      operationId: createWorker
+      tags: [workers]
+      summary: Add a simulated worker
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkerInput"
+      responses:
+        "201":
+          description: Created worker
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Worker"
+  /workers/{workerId}:
+    get:
+      operationId: getWorker
+      tags: [workers]
+      summary: Get a worker digital twin
+      parameters:
+        - $ref: "#/components/parameters/WorkerId"
+      responses:
+        "200":
+          description: Worker
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Worker"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      operationId: updateWorker
+      tags: [workers]
+      summary: Update a simulated worker
+      parameters:
+        - $ref: "#/components/parameters/WorkerId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkerUpdate"
+      responses:
+        "200":
+          description: Updated worker
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Worker"
+    delete:
+      operationId: deleteWorker
+      tags: [workers]
+      summary: Remove a simulated worker
+      parameters:
+        - $ref: "#/components/parameters/WorkerId"
+      responses:
+        "204":
+          description: Deleted
+  /alerts:
+    get:
+      operationId: getAlerts
+      tags: [safety]
+      summary: List safety alerts
+      responses:
+        "200":
+          description: Alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alert"
+  /alerts/{alertId}/acknowledge:
+    post:
+      operationId: acknowledgeAlert
+      tags: [safety]
+      summary: Acknowledge a safety alert
+      parameters:
+        - $ref: "#/components/parameters/AlertId"
+      responses:
+        "200":
+          description: Acknowledged alert
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alert"
+  /plant:
+    get:
+      operationId: getPlant
+      tags: [plant]
+      summary: Get plant digital twin zones
+      responses:
+        "200":
+          description: Plant zones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PlantZone"
+  /analytics:
+    get:
+      operationId: getAnalytics
+      tags: [dashboard]
+      summary: Get plant risk analytics
+      responses:
+        "200":
+          description: Analytics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Analytics"
+  /authorities:
+    get:
+      operationId: getAuthorities
+      tags: [emergency]
+      summary: Get escalation authority hierarchy
+      responses:
+        "200":
+          description: Authority hierarchy
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Authority"
+  /emergency/status:
+    get:
+      operationId: getEmergencyStatus
+      tags: [emergency]
+      summary: Get simulated emergency system status
+      responses:
+        "200":
+          description: Emergency status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmergencyStatus"
+  /emergency/shutdown:
+    post:
+      operationId: triggerEmergencyShutdown
+      tags: [emergency]
+      summary: Trigger the simulated plant shutdown workflow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmergencyShutdownInput"
+      responses:
+        "200":
+          description: Shutdown workflow started
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmergencyStatus"
+        "409":
+          description: Shutdown already active
+  /emergency/reset:
+    post:
+      operationId: resetEmergencyShutdown
+      tags: [emergency]
+      summary: Reset the simulated shutdown state
+      responses:
+        "200":
+          description: Reset status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmergencyStatus"
 components:
+  parameters:
+    WorkerId:
+      name: workerId
+      in: path
+      required: true
+      schema:
+        type: string
+    AlertId:
+      name: alertId
+      in: path
+      required: true
+      schema:
+        type: string
+    Department:
+      name: department
+      in: query
+      required: false
+      schema:
+        type: string
+    RiskLevel:
+      name: riskLevel
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [LOW, MEDIUM, HIGH, CRITICAL]
+    Search:
+      name: search
+      in: query
+      required: false
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
   schemas:
     HealthStatus:
       type: object
       properties:
         status:
           type: string
-      required:
-        - status
-
+      required: [status]
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]
+    Dashboard:
+      type: object
+      properties:
+        totalWorkers: { type: integer }
+        highRiskWorkers: { type: integer }
+        activeAlerts: { type: integer }
+        averageRiskScore: { type: integer }
+        ppeCompliance: { type: number }
+        incidents: { type: integer }
+        riskDistribution:
+          type: array
+          items:
+            $ref: "#/components/schemas/RiskDistribution"
+        riskTrend:
+          type: array
+          items:
+            $ref: "#/components/schemas/TrendPoint"
+        updatedAt: { type: string }
+      required: [totalWorkers, highRiskWorkers, activeAlerts, averageRiskScore, ppeCompliance, incidents, riskDistribution, riskTrend, updatedAt]
+    RiskDistribution:
+      type: object
+      properties:
+        name: { type: string }
+        value: { type: integer }
+        color: { type: string }
+      required: [name, value, color]
+    TrendPoint:
+      type: object
+      properties:
+        label: { type: string }
+        score: { type: integer }
+        alerts: { type: integer }
+      required: [label, score, alerts]
+    Worker:
+      type: object
+      properties:
+        workerId: { type: string }
+        name: { type: string }
+        initials: { type: string }
+        department: { type: string }
+        role: { type: string }
+        shift: { type: string }
+        zone: { type: string }
+        temperature: { type: number }
+        humidity: { type: number }
+        gasLevel: { type: number }
+        fatigueScore: { type: number }
+        ppeCompliance: { type: number }
+        workingHours: { type: number }
+        hazardDistance: { type: number }
+        previousIncidents: { type: integer }
+        equipmentStatus: { type: string }
+        riskScore: { type: integer }
+        riskLevel: { type: string }
+        hazardType: { type: string }
+        status: { type: string }
+        recommendation: { type: string }
+      required: [workerId, name, initials, department, role, shift, zone, temperature, humidity, gasLevel, fatigueScore, ppeCompliance, workingHours, hazardDistance, previousIncidents, equipmentStatus, riskScore, riskLevel, hazardType, status, recommendation]
+    WorkerInput:
+      type: object
+      properties:
+        workerId: { type: string }
+        name: { type: string }
+        department: { type: string }
+        role: { type: string }
+        shift: { type: string }
+        zone: { type: string }
+      required: [workerId, name, department, role, shift, zone]
+    WorkerUpdate:
+      type: object
+      properties:
+        zone: { type: string }
+        shift: { type: string }
+        status: { type: string }
+    Alert:
+      type: object
+      properties:
+        id: { type: string }
+        severity: { type: string }
+        title: { type: string }
+        description: { type: string }
+        workerId: { type: string }
+        zone: { type: string }
+        riskScore: { type: integer }
+        timestamp: { type: string }
+        status: { type: string }
+        authorityNotified: { type: boolean }
+      required: [id, severity, title, description, workerId, zone, riskScore, timestamp, status, authorityNotified]
+    PlantZone:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        workerCount: { type: integer }
+        temperature: { type: number }
+        hazardLevel: { type: string }
+        equipmentStatus: { type: string }
+        riskScore: { type: integer }
+      required: [id, name, workerCount, temperature, hazardLevel, equipmentStatus, riskScore]
+    Analytics:
+      type: object
+      properties:
+        departments:
+          type: array
+          items:
+            $ref: "#/components/schemas/DepartmentRisk"
+        hazards:
+          type: array
+          items:
+            $ref: "#/components/schemas/HazardSummary"
+        shifts:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShiftRisk"
+      required: [departments, hazards, shifts]
+    DepartmentRisk:
+      type: object
+      properties:
+        department: { type: string }
+        risk: { type: integer }
+        workers: { type: integer }
+      required: [department, risk, workers]
+    HazardSummary:
+      type: object
+      properties:
+        name: { type: string }
+        count: { type: integer }
+        level: { type: string }
+        trend: { type: string }
+      required: [name, count, level, trend]
+    ShiftRisk:
+      type: object
+      properties:
+        shift: { type: string }
+        risk: { type: integer }
+      required: [shift, risk]
+    Authority:
+      type: object
+      properties:
+        level: { type: integer }
+        role: { type: string }
+        name: { type: string }
+        channel: { type: string }
+        status: { type: string }
+        responseTime: { type: string }
+      required: [level, role, name, channel, status, responseTime]
+    EmergencyStatus:
+      type: object
+      properties:
+        mode: { type: string }
+        state: { type: string }
+        initiatedAt: { type: string }
+        initiatedBy: { type: string }
+        reason: { type: string }
+        affectedZones:
+          type: array
+          items: { type: string }
+        notificationsSent: { type: integer }
+        auditId: { type: string }
+      required: [mode, state, initiatedAt, initiatedBy, reason, affectedZones, notificationsSent, auditId]
+    EmergencyShutdownInput:
+      type: object
+      properties:
+        reason: { type: string, minLength: 3 }
+        confirmed: { type: boolean }
+        initiatedBy: { type: string }
+      required: [reason, confirmed, initiatedBy]

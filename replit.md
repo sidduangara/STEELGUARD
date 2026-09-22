@@ -1,10 +1,11 @@
-# [Project name]
+# SteelGuard AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+SteelGuard AI is a simulated industrial safety command center for workforce digital twins, predictive risk analytics, hazard monitoring, alerts, and tabletop emergency escalation.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/steelguard-ai run dev` — run the web command center
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,15 +23,20 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/steelguard-ai/src/App.tsx` — routed command center UI and operator workflows
+- `artifacts/steelguard-ai/src/index.css` — dark industrial theme tokens and utility styles
+- `artifacts/api-server/src/routes/steelguard.ts` — synthetic workforce, alert, plant, analytics, authority, and emergency APIs
+- `lib/api-spec/openapi.yaml` — source-of-truth API contract
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The app uses deterministic synthetic data for 100 workforce digital twins; no physical sensors, cameras, or industrial controls are connected.
+- The emergency shutdown is a two-step, audited simulation state change only; it never controls equipment or contacts emergency services.
+- Authority escalation is represented by an in-prototype hierarchy and notification ledger; real outbound channels are not configured.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The command center provides a dark industrial dashboard, worker and plant twins, risk analytics, alert acknowledgement, authority readiness, a two-step simulated shutdown flow with audit IDs, and configurable prototype settings.
 
 ## User preferences
 
@@ -38,7 +44,8 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Re-run API codegen after changing `lib/api-spec/openapi.yaml`.
+- The API stores prototype state in memory; restarting the API resets worker mutations, alert acknowledgements, and emergency state.
 
 ## Pointers
 
