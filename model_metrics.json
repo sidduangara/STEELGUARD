@@ -1,0 +1,114 @@
+{
+  "accuracy": 0.9421,
+  "precision": 0.9499,
+  "recall": 0.9425,
+  "f1Score": 0.9449,
+  "datasetSize": 950,
+  "trainSize": 760,
+  "testSize": 190,
+  "labels": [
+    "HIGH",
+    "LOW",
+    "MEDIUM"
+  ],
+  "perClass": [
+    {
+      "label": "HIGH",
+      "precision": 1.0,
+      "recall": 0.9636,
+      "f1Score": 0.9815,
+      "support": 55
+    },
+    {
+      "label": "LOW",
+      "precision": 0.9667,
+      "recall": 0.8923,
+      "f1Score": 0.928,
+      "support": 65
+    },
+    {
+      "label": "MEDIUM",
+      "precision": 0.8831,
+      "recall": 0.9714,
+      "f1Score": 0.9252,
+      "support": 70
+    }
+  ],
+  "confusionMatrix": [
+    [
+      53,
+      0,
+      2
+    ],
+    [
+      0,
+      58,
+      7
+    ],
+    [
+      0,
+      2,
+      68
+    ]
+  ],
+  "featureImportances": [
+    {
+      "feature": "ppe_compliance",
+      "importance": 19.89
+    },
+    {
+      "feature": "gas_level",
+      "importance": 18.68
+    },
+    {
+      "feature": "hazard_distance",
+      "importance": 15.69
+    },
+    {
+      "feature": "working_hours",
+      "importance": 14.86
+    },
+    {
+      "feature": "temperature",
+      "importance": 12.03
+    },
+    {
+      "feature": "fatigue_score",
+      "importance": 11.71
+    },
+    {
+      "feature": "previous_incidents",
+      "importance": 3.45
+    },
+    {
+      "feature": "humidity",
+      "importance": 2.92
+    },
+    {
+      "feature": "equipment_status_Malfunction",
+      "importance": 0.26
+    },
+    {
+      "feature": "equipment_status_Needs Maintenance",
+      "importance": 0.25
+    },
+    {
+      "feature": "equipment_status_Normal",
+      "importance": 0.25
+    }
+  ],
+  "modelFile": "steel_safety_model.pkl",
+  "algorithm": "RandomForestClassifier (n_estimators=100)",
+  "features": [
+    "temperature",
+    "humidity",
+    "gas_level",
+    "fatigue_score",
+    "ppe_compliance",
+    "working_hours",
+    "hazard_distance",
+    "previous_incidents",
+    "equipment_status"
+  ],
+  "evaluatedAt": "2026-09-24T12:40:37.341943"
+}

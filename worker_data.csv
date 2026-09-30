@@ -1,0 +1,951 @@
+worker_id,worker_name,age,experience_years,department,job_role,shift,zone,temperature,humidity,gas_level,noise_level,fatigue_score,ppe_compliance,working_hours,hazard_distance,previous_incidents,equipment_status,weather,heat_stress,risk_score,risk_level,hazard_type
+W1001,Priya Singh,22,4.0,Crane Operations,Crane Operator,Night,Crane Area,27.4,59.8,6.6,66.2,4,0.65,9.0,8.6,1,Normal,Clear,No,32,LOW,
+W1002,Kavita Menon,47,1.5,Storage,Warehouse Handler,Night,Storage Area,28.7,52.5,10.8,95.5,2,0.59,6.5,12.8,1,Malfunction,Hot,No,37,LOW,
+W1003,Ganesh Yadav,23,5.0,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,44.4,57.7,23.4,72.7,2,0.57,7.1,4.7,0,Normal,Rainy,No,63,MEDIUM,Multiple Hazards
+W1004,Suresh Gupta,27,2.9,Casting,Casting Operator,Afternoon,Casting Bay,42.0,69.6,0.0,92.3,2,0.82,6.9,11.1,0,Needs Maintenance,Rainy,Yes,41,LOW,
+W1005,Sanjay Joshi,45,1.9,Crane Operations,Crane Operator,Morning,Crane Area,27.7,47.3,11.1,101.5,10,0.94,7.6,10.0,0,Malfunction,Clear,No,41,LOW,
+W1006,Sunil Joshi,30,1.8,Crane Operations,Rigger,Night,Crane Area,24.5,79.9,1.7,85.4,2,0.89,10.3,2.7,0,Malfunction,Hot,No,33,LOW,
+W1007,Sanjay Malhotra,25,2.9,Casting,Casting Operator,Night,Casting Bay,43.2,71.9,19.1,78.6,5,0.75,8.3,14.3,0,Normal,Clear,Yes,60,MEDIUM,Multiple Hazards
+W1008,Lakshmi Yadav,53,8.6,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,43.7,72.3,20.9,86.2,1,0.82,8.4,2.1,0,Needs Maintenance,Rainy,Yes,56,MEDIUM,Multiple Hazards
+W1009,Prakash Mishra,36,0.4,Rolling Mill,Mill Technician,Morning,Rolling Mill,39.0,61.6,7.4,87.0,5,0.79,9.0,14.5,0,Needs Maintenance,Overcast,No,46,MEDIUM,Fatigue
+W1010,Geeta Menon,33,7.5,Quality Control,Lab Technician,Night,Quality Lab,28.6,47.2,0.0,65.8,9,0.65,7.1,1.5,0,Normal,Hot,No,57,MEDIUM,Fatigue
+W1011,Priya Sharma,35,0.4,Furnace,Furnace Operator,Night,Furnace-B,41.4,52.5,20.0,70.3,10,0.81,7.2,7.4,2,Malfunction,Humid,No,92,HIGH,Fatigue
+W1012,Vijay Patel,27,0.6,Quality Control,Lab Technician,Afternoon,Quality Lab,32.7,79.4,0.0,68.9,7,0.88,10.0,2.1,0,Normal,Hot,No,42,LOW,
+W1013,Ramesh Patel,55,3.6,Quality Control,Lab Technician,Afternoon,Quality Lab,28.9,75.1,18.6,87.0,1,0.84,8.7,0.7,0,Normal,Humid,No,28,LOW,
+W1014,Suresh Gupta,31,3.1,Casting,Mold Technician,Morning,Casting Bay,38.2,58.7,23.8,102.1,8,0.68,9.5,11.1,1,Normal,Humid,No,86,HIGH,Fatigue
+W1015,Pooja Menon,52,1.0,Storage,Warehouse Handler,Night,Storage Area,30.7,47.0,4.9,88.4,9,0.96,8.7,1.3,1,Normal,Overcast,No,46,MEDIUM,Fatigue
+W1016,Arjun Verma,32,0.4,Rolling Mill,Mill Technician,Morning,Rolling Mill,44.3,46.4,16.2,68.3,10,0.8,7.6,4.3,0,Needs Maintenance,Overcast,No,77,HIGH,Fatigue
+W1017,Sunita Nair,36,1.9,Conveyor,Line Attendant,Afternoon,Conveyor Area,30.9,79.9,21.6,104.8,2,0.79,8.5,2.4,1,Normal,Clear,No,40,LOW,
+W1018,Prakash Verma,36,2.8,Conveyor,Line Attendant,Night,Conveyor Area,31.2,64.4,17.7,102.3,2,0.97,6.7,2.2,0,Normal,Overcast,No,30,LOW,
+W1019,Vikram Menon,30,1.9,Crane Operations,Crane Operator,Night,Crane Area,29.9,76.7,23.6,98.8,2,0.84,10.1,1.1,0,Normal,Rainy,No,45,MEDIUM,Multiple Hazards
+W1020,Ravi Reddy,37,1.1,Casting,Casting Operator,Morning,Casting Bay,42.3,74.2,3.8,88.3,3,0.74,6.2,5.8,0,Needs Maintenance,Clear,Yes,48,MEDIUM,Multiple Hazards
+W1021,Geeta Sharma,43,1.4,Crane Operations,Rigger,Night,Crane Area,31.7,77.4,11.6,74.5,3,0.99,10.1,13.3,0,Normal,Hot,No,21,LOW,
+W1022,Rajesh Rao,42,9.2,Quality Control,Lab Technician,Morning,Quality Lab,34.1,75.1,5.9,73.9,8,0.71,10.1,13.1,0,Normal,Clear,No,52,MEDIUM,Fatigue
+W1023,Deepak Kumar,33,3.0,Storage,Inventory Clerk,Afternoon,Storage Area,32.8,74.5,11.3,78.2,1,0.6,10.9,3.1,1,Normal,Overcast,No,52,MEDIUM,PPE Violation
+W1024,Manoj Sharma,27,5.4,Maintenance,Electrician,Night,Maintenance Area,29.3,65.2,4.9,75.2,7,0.55,10.6,8.3,0,Normal,Overcast,No,53,MEDIUM,Multiple Hazards
+W1025,Anita Patel,44,3.4,Maintenance,Fitter,Morning,Maintenance Area,27.9,59.3,0.0,81.1,5,0.8,7.0,10.1,1,Normal,Rainy,No,20,LOW,
+W1026,Sunil Rao,57,2.1,Furnace,Furnace Technician,Morning,Furnace-B,43.4,56.3,14.0,82.7,4,0.78,10.0,14.4,0,Normal,Hot,No,57,MEDIUM,Multiple Hazards
+W1027,Anita Rao,26,2.0,Maintenance,Maintenance Engineer,Night,Maintenance Area,32.2,50.2,12.0,66.8,8,0.83,9.8,7.1,0,Needs Maintenance,Rainy,No,46,MEDIUM,Fatigue
+W1028,Lakshmi Agarwal,33,7.6,Quality Control,Lab Technician,Morning,Quality Lab,35.2,75.1,7.8,100.4,7,0.65,10.0,10.6,0,Normal,Humid,No,47,MEDIUM,Multiple Hazards
+W1029,Naveen Sharma,56,1.7,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,42.9,78.3,42.6,100.7,10,0.92,10.5,6.7,0,Normal,Overcast,Yes,99,HIGH,Multiple Hazards
+W1030,Geeta Menon,49,13.7,Casting,Mold Technician,Morning,Casting Bay,41.5,53.4,12.3,82.6,5,0.66,7.7,13.4,0,Normal,Rainy,No,51,MEDIUM,Multiple Hazards
+W1031,Suresh Reddy,30,1.6,Conveyor,Conveyor Operator,Afternoon,Conveyor Area,32.1,59.6,15.5,73.3,7,0.73,9.8,14.2,0,Malfunction,Hot,No,53,MEDIUM,Multiple Hazards
+W1032,Rajesh Agarwal,45,3.9,Maintenance,Electrician,Afternoon,Maintenance Area,34.5,76.4,22.1,84.5,5,0.75,6.1,5.4,0,Normal,Overcast,No,54,MEDIUM,Multiple Hazards
+W1033,Sunita Choudhary,31,11.0,Conveyor,Line Attendant,Night,Conveyor Area,25.2,60.0,2.3,99.7,3,0.57,7.9,3.6,0,Normal,Overcast,No,36,LOW,
+W1034,Ravi Nair,45,2.0,Quality Control,QC Inspector,Afternoon,Quality Lab,27.7,78.3,8.1,74.0,2,0.9,9.3,11.4,0,Normal,Clear,No,14,LOW,
+W1035,Deepak Patel,22,4.0,Crane Operations,Rigger,Night,Crane Area,32.0,61.3,12.7,75.2,6,0.63,9.0,11.3,0,Normal,Clear,No,47,MEDIUM,Multiple Hazards
+W1036,Vikram Rao,40,0.7,Furnace,Shift Supervisor,Night,Furnace-B,45.3,51.9,14.1,88.7,4,0.6,9.9,12.8,0,Normal,Hot,No,65,MEDIUM,Multiple Hazards
+W1037,Ganesh Singh,57,9.2,Maintenance,Fitter,Afternoon,Maintenance Area,32.4,45.4,0.0,81.8,8,0.6,10.8,9.7,1,Normal,Clear,No,69,MEDIUM,Multiple Hazards
+W1038,Rekha Joshi,30,3.4,Storage,Inventory Clerk,Afternoon,Storage Area,32.4,53.6,4.8,102.4,5,0.95,7.2,7.2,1,Malfunction,Overcast,No,34,LOW,
+W1039,Ganesh Choudhary,42,0.2,Maintenance,Electrician,Morning,Maintenance Area,29.1,75.8,15.8,93.0,5,0.8,8.6,3.3,0,Malfunction,Rainy,No,48,MEDIUM,Multiple Hazards
+W1040,Deepak Malhotra,52,4.9,Crane Operations,Rigger,Afternoon,Crane Area,27.1,59.2,14.2,74.7,10,0.72,8.8,5.5,0,Normal,Clear,No,58,MEDIUM,Fatigue
+W1041,Anita Menon,42,2.6,Casting,Mold Technician,Afternoon,Casting Bay,44.2,56.0,10.9,94.7,3,0.64,9.7,4.5,0,Normal,Humid,No,58,MEDIUM,Multiple Hazards
+W1042,Mahesh Pillai,39,21.0,Crane Operations,Crane Operator,Afternoon,Crane Area,24.3,63.7,18.5,76.0,1,0.8,9.5,2.3,0,Malfunction,Humid,No,44,LOW,
+W1043,Shanti Desai,27,9.0,Storage,Inventory Clerk,Afternoon,Storage Area,32.3,53.8,15.9,99.5,2,0.92,8.0,1.6,0,Needs Maintenance,Rainy,No,35,LOW,
+W1044,Priya Sharma,30,1.0,Storage,Warehouse Handler,Morning,Storage Area,32.8,72.7,12.2,74.0,9,0.72,10.5,4.8,0,Normal,Overcast,No,63,MEDIUM,Fatigue
+W1045,Mahesh Malhotra,40,5.0,Furnace,Furnace Operator,Night,Furnace-A,42.9,50.5,10.5,72.0,2,0.62,8.0,10.5,0,Malfunction,Humid,No,53,MEDIUM,Multiple Hazards
+W1046,Kiran Mishra,23,1.6,Storage,Warehouse Handler,Night,Storage Area,31.9,66.9,20.1,91.4,4,0.74,8.7,9.9,0,Malfunction,Humid,No,49,MEDIUM,Multiple Hazards
+W1047,Geeta Yadav,30,0.4,Conveyor,Line Attendant,Afternoon,Conveyor Area,31.1,69.5,35.2,102.7,9,0.79,8.2,9.2,0,Normal,Clear,No,68,MEDIUM,Multiple Hazards
+W1048,Lakshmi Malhotra,41,5.6,Furnace,Furnace Operator,Night,Furnace-A,47.1,80.0,18.4,91.9,5,0.81,9.8,3.0,0,Normal,Overcast,Yes,77,HIGH,Multiple Hazards
+W1049,Arjun Joshi,38,1.2,Quality Control,QC Inspector,Afternoon,Quality Lab,28.3,68.5,15.1,99.3,6,0.74,8.5,10.1,0,Normal,Rainy,No,38,LOW,
+W1050,Sunil Menon,23,3.6,Maintenance,Electrician,Morning,Maintenance Area,33.7,45.0,3.5,99.8,8,0.74,6.9,5.7,0,Normal,Hot,No,47,MEDIUM,Fatigue
+W1051,Meena Desai,49,8.6,Crane Operations,Crane Operator,Afternoon,Crane Area,26.3,79.1,16.6,89.4,4,0.87,7.6,0.7,0,Normal,Hot,No,40,LOW,
+W1052,Vijay Verma,35,17.0,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,45.6,55.2,24.3,93.2,7,0.93,10.9,4.0,0,Normal,Humid,No,93,HIGH,Multiple Hazards
+W1053,Karthik Reddy,45,1.3,Conveyor,Line Attendant,Afternoon,Conveyor Area,28.2,45.1,0.0,94.0,10,0.81,9.3,13.0,1,Normal,Rainy,No,56,MEDIUM,Fatigue
+W1054,Naveen Menon,51,2.5,Quality Control,Lab Technician,Morning,Quality Lab,30.7,75.0,0.0,81.4,6,0.89,9.5,12.3,0,Normal,Humid,No,38,LOW,
+W1055,Sunil Reddy,52,20.1,Conveyor,Conveyor Operator,Afternoon,Conveyor Area,34.1,45.5,13.1,70.8,3,0.58,9.9,4.3,1,Normal,Clear,No,52,MEDIUM,PPE Violation
+W1056,Ganesh Choudhary,26,8.0,Quality Control,Lab Technician,Night,Quality Lab,27.9,67.1,22.4,101.8,4,0.89,8.2,1.9,0,Normal,Clear,No,41,LOW,
+W1057,Priya Singh,49,1.1,Storage,Warehouse Handler,Afternoon,Storage Area,30.3,60.1,14.5,74.8,7,0.8,10.0,3.0,1,Malfunction,Clear,No,57,MEDIUM,Multiple Hazards
+W1058,Suresh Chauhan,45,5.8,Crane Operations,Crane Operator,Morning,Crane Area,27.4,68.3,9.7,101.0,8,0.96,9.4,2.8,0,Malfunction,Hot,No,42,LOW,
+W1059,Naveen Iyer,58,2.1,Quality Control,Lab Technician,Afternoon,Quality Lab,36.3,48.7,0.0,80.3,6,0.81,11.0,4.8,0,Normal,Humid,No,50,MEDIUM,Fatigue
+W1060,Rekha Choudhary,38,0.0,Furnace,Furnace Technician,Morning,Furnace-B,39.9,51.7,9.1,75.0,3,0.83,10.5,9.9,0,Malfunction,Overcast,No,48,MEDIUM,Multiple Hazards
+W1061,Ashok Joshi,23,5.0,Conveyor,Line Attendant,Afternoon,Conveyor Area,26.5,72.5,14.8,100.1,6,0.79,10.6,12.5,0,Needs Maintenance,Hot,No,56,MEDIUM,Fatigue
+W1062,Manoj Desai,39,8.2,Maintenance,Electrician,Morning,Maintenance Area,35.6,70.3,21.6,104.2,9,0.71,10.0,0.7,3,Needs Maintenance,Humid,No,99,HIGH,Fatigue
+W1063,Karthik Singh,50,2.8,Storage,Inventory Clerk,Morning,Storage Area,23.2,75.9,9.9,87.5,10,0.65,6.3,12.4,1,Normal,Humid,No,51,MEDIUM,Fatigue
+W1064,Geeta Mishra,47,0.7,Furnace,Furnace Technician,Afternoon,Furnace-A,37.4,63.8,10.3,80.5,6,0.85,9.7,14.2,0,Normal,Clear,No,53,MEDIUM,Fatigue
+W1065,Vijay Agarwal,30,12.0,Rolling Mill,Mill Technician,Afternoon,Rolling Mill,39.0,60.6,11.5,74.4,6,0.59,9.4,8.4,0,Malfunction,Clear,No,68,MEDIUM,Multiple Hazards
+W1066,Priya Iyer,24,3.0,Crane Operations,Rigger,Morning,Crane Area,35.7,46.8,11.8,78.3,3,0.9,7.0,12.5,0,Normal,Humid,No,33,LOW,
+W1067,Karthik Patel,58,1.5,Crane Operations,Crane Operator,Night,Crane Area,30.6,50.1,3.2,70.2,5,0.91,6.5,13.1,0,Malfunction,Clear,No,26,LOW,
+W1068,Anil Kumar,43,9.4,Crane Operations,Crane Operator,Morning,Crane Area,29.8,59.7,7.8,69.5,2,0.76,9.9,7.9,0,Normal,Rainy,No,19,LOW,
+W1069,Vikram Joshi,53,1.5,Furnace,Furnace Technician,Night,Furnace-B,45.6,74.7,5.5,82.1,2,0.77,10.5,1.6,0,Normal,Clear,Yes,68,MEDIUM,Multiple Hazards
+W1070,Suresh Nair,30,0.4,Storage,Inventory Clerk,Night,Storage Area,31.6,66.2,6.7,69.0,2,0.93,9.3,11.6,0,Malfunction,Overcast,No,21,LOW,
+W1071,Anita Patel,48,3.6,Crane Operations,Rigger,Afternoon,Crane Area,33.6,55.9,8.1,77.5,5,0.72,6.8,13.9,0,Normal,Hot,No,33,LOW,
+W1072,Suresh Verma,26,0.6,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,45.7,64.7,24.5,91.8,7,0.71,9.3,11.4,0,Normal,Clear,Yes,86,HIGH,Multiple Hazards
+W1073,Shanti Sharma,39,5.5,Maintenance,Fitter,Night,Maintenance Area,33.6,52.8,0.0,69.3,9,0.72,9.8,8.8,0,Needs Maintenance,Humid,No,60,MEDIUM,Fatigue
+W1074,Pooja Malhotra,56,22.0,Furnace,Furnace Operator,Morning,Furnace-B,45.5,57.3,22.4,72.3,3,0.8,8.0,2.6,1,Malfunction,Rainy,No,77,HIGH,Multiple Hazards
+W1075,Priya Kumar,26,8.0,Crane Operations,Rigger,Afternoon,Crane Area,29.4,70.3,1.8,96.1,10,0.82,10.4,2.8,0,Needs Maintenance,Rainy,No,62,MEDIUM,Fatigue
+W1076,Meena Chauhan,24,6.0,Storage,Inventory Clerk,Afternoon,Storage Area,28.6,52.5,1.8,85.5,6,0.74,7.4,10.3,0,Normal,Overcast,No,29,LOW,
+W1077,Kiran Pillai,40,0.3,Quality Control,QC Inspector,Morning,Quality Lab,33.5,71.7,11.1,76.6,2,0.55,9.7,3.0,1,Needs Maintenance,Rainy,No,48,MEDIUM,PPE Violation
+W1078,Sunil Menon,35,4.2,Maintenance,Electrician,Night,Maintenance Area,27.5,77.2,13.5,99.5,10,0.74,8.0,9.8,1,Normal,Clear,No,51,MEDIUM,Fatigue
+W1079,Ashok Singh,46,0.1,Maintenance,Fitter,Afternoon,Maintenance Area,29.5,48.7,9.2,82.4,7,0.79,8.0,5.0,0,Normal,Rainy,No,29,LOW,
+W1080,Ravi Gupta,42,9.1,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,41.6,50.1,33.5,72.9,10,0.62,9.8,1.6,1,Needs Maintenance,Rainy,No,99,HIGH,Multiple Hazards
+W1081,Meena Desai,50,8.4,Casting,Mold Technician,Morning,Casting Bay,43.7,67.1,18.2,96.9,10,0.58,8.5,5.0,0,Normal,Hot,Yes,85,HIGH,Fatigue
+W1082,Naveen Sharma,24,2.8,Storage,Warehouse Handler,Night,Storage Area,30.4,65.3,5.3,103.2,1,0.75,10.0,10.0,2,Normal,Overcast,No,31,LOW,
+W1083,Ravi Chauhan,51,4.2,Furnace,Furnace Operator,Afternoon,Furnace-B,43.3,46.4,24.0,93.3,8,0.79,9.0,5.8,0,Normal,Clear,No,73,MEDIUM,Fatigue
+W1084,Geeta Mishra,45,3.2,Maintenance,Fitter,Night,Maintenance Area,28.0,64.5,20.0,80.5,5,0.88,9.3,13.6,1,Normal,Rainy,No,40,LOW,
+W1085,Shanti Reddy,42,0.5,Conveyor,Line Attendant,Night,Conveyor Area,31.7,77.8,14.3,77.4,7,0.84,7.6,2.4,0,Needs Maintenance,Hot,No,44,LOW,
+W1086,Kavita Pillai,26,6.2,Quality Control,QC Inspector,Afternoon,Quality Lab,33.6,57.0,0.0,95.6,4,0.65,6.7,1.6,1,Needs Maintenance,Rainy,No,56,MEDIUM,Multiple Hazards
+W1087,Shanti Singh,53,8.8,Furnace,Shift Supervisor,Morning,Furnace-B,38.0,51.3,14.8,92.7,10,0.91,6.8,6.8,0,Normal,Overcast,No,61,MEDIUM,Fatigue
+W1088,Vijay Iyer,36,18.0,Storage,Warehouse Handler,Night,Storage Area,35.8,72.5,3.7,101.2,4,0.72,10.7,14.8,1,Malfunction,Humid,No,57,MEDIUM,Multiple Hazards
+W1089,Naveen Mishra,45,4.2,Quality Control,QC Inspector,Night,Quality Lab,25.7,61.8,10.3,79.8,2,0.87,8.6,2.3,0,Malfunction,Humid,No,31,LOW,
+W1090,Suresh Rao,38,3.6,Conveyor,Conveyor Operator,Morning,Conveyor Area,32.7,59.5,1.4,80.9,6,0.66,11.0,5.9,0,Malfunction,Hot,No,60,MEDIUM,Multiple Hazards
+W1091,Rajesh Nair,27,9.0,Maintenance,Maintenance Engineer,Morning,Maintenance Area,32.0,49.9,22.8,93.2,8,0.83,10.5,0.8,0,Normal,Rainy,No,72,MEDIUM,Fatigue
+W1092,Ramesh Reddy,56,16.9,Quality Control,Lab Technician,Morning,Quality Lab,26.4,59.7,1.2,96.8,8,0.58,10.2,7.7,0,Normal,Rainy,No,51,MEDIUM,Multiple Hazards
+W1093,Karthik Kumar,53,5.1,Conveyor,Line Attendant,Morning,Conveyor Area,28.4,59.6,0.0,91.6,2,0.79,7.8,14.3,1,Malfunction,Overcast,No,27,LOW,
+W1094,Karthik Pillai,53,4.8,Quality Control,QC Inspector,Night,Quality Lab,28.2,45.6,0.0,96.5,6,0.66,9.3,2.0,1,Malfunction,Hot,No,53,MEDIUM,Multiple Hazards
+W1095,Mahesh Nair,29,0.3,Maintenance,Fitter,Afternoon,Maintenance Area,32.8,47.2,8.1,96.0,8,0.57,7.0,12.0,0,Needs Maintenance,Hot,No,52,MEDIUM,Multiple Hazards
+W1096,Lakshmi Sharma,41,16.3,Quality Control,Lab Technician,Morning,Quality Lab,28.9,72.3,30.8,99.6,6,0.67,10.0,6.8,0,Malfunction,Humid,No,72,MEDIUM,Multiple Hazards
+W1097,Sunil Joshi,45,2.5,Conveyor,Line Attendant,Afternoon,Conveyor Area,35.6,70.4,0.3,68.2,10,1.0,6.9,4.8,0,Malfunction,Overcast,No,50,MEDIUM,Fatigue
+W1098,Vikram Verma,41,6.5,Storage,Inventory Clerk,Morning,Storage Area,31.0,70.4,0.0,101.5,10,1.0,7.4,14.7,0,Malfunction,Hot,No,45,MEDIUM,Fatigue
+W1099,Amit Verma,46,2.7,Conveyor,Conveyor Operator,Night,Conveyor Area,23.8,53.3,2.7,90.8,6,0.72,8.8,9.3,0,Normal,Hot,No,26,LOW,
+W1100,Sunita Joshi,44,2.8,Rolling Mill,Mill Technician,Afternoon,Rolling Mill,40.5,49.0,23.7,94.4,8,0.78,10.6,2.2,0,Malfunction,Rainy,No,97,HIGH,Multiple Hazards
+W1101,Meena Yadav,49,1.4,Storage,Warehouse Handler,Morning,Storage Area,27.6,76.5,26.3,82.8,2,0.91,10.8,14.8,2,Normal,Humid,No,53,MEDIUM,Gas Exposure
+W1102,Sunita Iyer,25,4.8,Storage,Warehouse Handler,Night,Storage Area,29.6,49.2,11.0,73.0,3,0.66,8.5,5.7,0,Malfunction,Humid,No,26,LOW,
+W1103,Mahesh Iyer,50,9.8,Conveyor,Conveyor Operator,Afternoon,Conveyor Area,30.0,71.9,20.4,97.9,2,0.61,7.6,1.6,0,Normal,Hot,No,41,LOW,
+W1104,Naveen Pillai,43,0.8,Conveyor,Line Attendant,Night,Conveyor Area,30.1,55.6,10.6,71.5,4,0.71,10.7,13.5,3,Normal,Clear,No,55,MEDIUM,Multiple Hazards
+W1105,Shanti Verma,37,1.3,Storage,Inventory Clerk,Night,Storage Area,30.0,50.9,8.5,102.7,3,0.63,9.1,13.6,1,Normal,Overcast,No,33,LOW,
+W1106,Ravi Agarwal,23,5.0,Furnace,Furnace Operator,Night,Furnace-A,40.8,71.8,4.3,81.7,1,0.77,9.1,4.7,0,Malfunction,Overcast,Yes,43,LOW,
+W1107,Ashok Desai,36,9.8,Quality Control,Lab Technician,Morning,Quality Lab,27.2,61.9,20.8,73.2,10,0.61,10.3,5.1,0,Needs Maintenance,Clear,No,74,MEDIUM,Fatigue
+W1108,Shanti Iyer,46,0.8,Maintenance,Electrician,Morning,Maintenance Area,31.2,53.7,9.1,68.9,5,0.98,10.3,6.6,1,Normal,Hot,No,42,LOW,
+W1109,Shanti Rao,41,16.3,Maintenance,Maintenance Engineer,Afternoon,Maintenance Area,33.1,55.8,25.6,65.9,7,0.78,10.8,3.6,1,Normal,Overcast,No,73,MEDIUM,Multiple Hazards
+W1110,Prakash Sharma,24,2.0,Casting,Casting Operator,Morning,Casting Bay,44.7,70.5,32.9,95.6,6,0.57,6.3,8.6,0,Needs Maintenance,Hot,Yes,96,HIGH,Multiple Hazards
+W1111,Prakash Menon,39,0.5,Casting,Casting Operator,Morning,Casting Bay,42.6,79.5,0.4,87.3,6,0.89,7.0,7.9,0,Normal,Clear,Yes,51,MEDIUM,Multiple Hazards
+W1112,Arjun Sharma,23,0.2,Maintenance,Fitter,Afternoon,Maintenance Area,32.9,49.9,10.0,102.3,6,0.62,11.0,11.2,1,Normal,Humid,No,49,MEDIUM,Multiple Hazards
+W1113,Ashok Agarwal,42,4.2,Casting,Mold Technician,Morning,Casting Bay,45.8,79.3,4.2,88.3,1,0.82,7.3,10.0,1,Malfunction,Rainy,Yes,49,MEDIUM,Multiple Hazards
+W1114,Meena Agarwal,57,1.5,Furnace,Furnace Operator,Night,Furnace-B,40.4,68.8,15.2,66.3,2,0.64,8.2,6.6,3,Normal,Overcast,Yes,57,MEDIUM,Multiple Hazards
+W1115,Vijay Patel,47,4.2,Casting,Casting Operator,Night,Casting Bay,37.5,68.2,17.1,86.0,6,0.98,8.3,8.2,0,Normal,Humid,No,44,LOW,
+W1116,Karthik Iyer,37,5.7,Crane Operations,Rigger,Night,Crane Area,33.4,79.4,0.0,95.8,4,0.86,8.4,7.5,0,Needs Maintenance,Rainy,No,31,LOW,
+W1117,Karthik Yadav,39,0.8,Quality Control,Lab Technician,Morning,Quality Lab,28.2,70.0,17.6,78.9,8,0.85,9.7,3.6,0,Normal,Rainy,No,51,MEDIUM,Fatigue
+W1118,Rekha Menon,38,16.2,Storage,Warehouse Handler,Night,Storage Area,27.2,68.4,0.0,86.2,4,0.57,8.1,10.9,0,Needs Maintenance,Overcast,No,29,LOW,
+W1119,Vikram Reddy,21,3.0,Conveyor,Line Attendant,Afternoon,Conveyor Area,28.4,67.6,0.0,101.3,2,0.84,7.2,11.2,0,Malfunction,Humid,No,18,LOW,
+W1120,Shanti Sharma,32,3.2,Conveyor,Line Attendant,Afternoon,Conveyor Area,29.6,45.3,7.0,87.7,2,0.97,7.7,7.1,1,Malfunction,Humid,No,19,LOW,
+W1121,Priya Menon,54,4.1,Conveyor,Line Attendant,Morning,Conveyor Area,26.3,61.1,10.1,75.3,3,0.56,7.7,4.8,1,Malfunction,Clear,No,41,LOW,
+W1122,Sunita Patel,32,5.7,Quality Control,Lab Technician,Morning,Quality Lab,26.5,49.9,0.6,77.9,4,0.55,7.9,7.0,0,Normal,Hot,No,32,LOW,
+W1123,Manoj Nair,40,5.2,Furnace,Shift Supervisor,Afternoon,Furnace-B,42.9,61.3,0.0,71.4,9,0.97,10.4,11.7,0,Normal,Humid,Yes,63,MEDIUM,Fatigue
+W1124,Kavita Singh,39,2.7,Crane Operations,Crane Operator,Afternoon,Crane Area,28.7,66.2,16.5,81.6,9,0.96,9.8,12.1,1,Normal,Humid,No,50,MEDIUM,Fatigue
+W1125,Rekha Patel,36,6.8,Rolling Mill,Mill Technician,Morning,Rolling Mill,43.1,64.2,29.2,85.2,10,0.79,6.8,12.9,0,Normal,Overcast,Yes,95,HIGH,Multiple Hazards
+W1126,Naveen Singh,34,7.6,Casting,Mold Technician,Morning,Casting Bay,38.4,61.0,9.9,67.3,8,0.85,7.5,0.8,0,Needs Maintenance,Hot,No,57,MEDIUM,Fatigue
+W1127,Manoj Kumar,34,5.2,Furnace,Furnace Technician,Night,Furnace-B,45.0,77.7,7.2,67.8,8,0.56,8.0,11.7,0,Normal,Clear,Yes,71,MEDIUM,Multiple Hazards
+W1128,Meena Malhotra,44,26.0,Quality Control,Lab Technician,Afternoon,Quality Lab,28.4,75.1,18.6,69.7,9,0.73,6.6,14.7,0,Normal,Clear,No,54,MEDIUM,Fatigue
+W1129,Rekha Kumar,22,4.0,Casting,Mold Technician,Morning,Casting Bay,40.9,54.6,9.4,102.5,2,0.56,9.3,9.4,0,Normal,Humid,No,45,MEDIUM,Multiple Hazards
+W1130,Geeta Kumar,36,1.4,Rolling Mill,Mill Technician,Night,Rolling Mill,46.3,59.1,14.1,74.4,4,0.89,9.9,2.5,0,Needs Maintenance,Clear,No,65,MEDIUM,Multiple Hazards
+W1131,Ashok Gupta,57,2.3,Maintenance,Electrician,Morning,Maintenance Area,30.7,54.6,27.1,87.3,10,0.95,10.6,9.6,0,Needs Maintenance,Overcast,No,71,MEDIUM,Fatigue
+W1132,Vijay Menon,52,0.3,Maintenance,Fitter,Afternoon,Maintenance Area,27.4,58.2,4.4,95.2,8,0.66,7.1,12.9,0,Normal,Hot,No,39,LOW,
+W1133,Anil Joshi,24,5.0,Quality Control,Lab Technician,Morning,Quality Lab,27.7,47.8,3.1,83.0,6,0.59,9.6,3.3,0,Needs Maintenance,Rainy,No,45,MEDIUM,Multiple Hazards
+W1134,Manoj Choudhary,23,5.0,Crane Operations,Rigger,Morning,Crane Area,32.8,45.5,0.0,102.5,2,0.89,9.8,13.8,3,Malfunction,Rainy,No,49,MEDIUM,Equipment Hazard
+W1135,Kavita Chauhan,34,3.0,Crane Operations,Rigger,Afternoon,Crane Area,30.8,55.8,0.0,79.4,8,0.76,10.0,11.0,2,Normal,Hot,No,59,MEDIUM,Fatigue
+W1136,Meena Nair,34,2.8,Quality Control,QC Inspector,Night,Quality Lab,28.5,77.7,0.8,88.2,7,0.68,7.0,3.8,0,Normal,Humid,No,37,LOW,
+W1137,Mahesh Gupta,52,4.8,Maintenance,Electrician,Night,Maintenance Area,27.5,72.8,15.5,71.8,9,0.77,10.6,8.4,0,Normal,Hot,No,60,MEDIUM,Fatigue
+W1138,Priya Sharma,54,0.2,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,37.4,50.3,12.4,73.7,8,0.72,9.1,10.2,0,Needs Maintenance,Humid,No,56,MEDIUM,Fatigue
+W1139,Ganesh Desai,52,0.1,Quality Control,QC Inspector,Night,Quality Lab,31.4,45.6,8.5,97.5,7,0.91,10.5,2.1,0,Normal,Rainy,No,41,LOW,
+W1140,Vikram Pillai,30,1.7,Storage,Inventory Clerk,Afternoon,Storage Area,34.9,61.1,0.0,74.7,4,0.68,10.1,1.7,0,Malfunction,Clear,No,57,MEDIUM,Multiple Hazards
+W1141,Shanti Sharma,26,3.1,Quality Control,QC Inspector,Night,Quality Lab,25.7,74.6,8.5,90.8,6,0.8,10.3,1.9,0,Needs Maintenance,Clear,No,45,MEDIUM,Fatigue
+W1142,Arjun Sharma,35,1.4,Casting,Casting Operator,Morning,Casting Bay,43.6,46.2,29.1,102.2,6,0.56,7.0,2.6,0,Normal,Rainy,No,93,HIGH,Multiple Hazards
+W1143,Rekha Choudhary,25,2.1,Crane Operations,Rigger,Afternoon,Crane Area,26.3,79.1,0.0,67.1,7,0.65,6.4,9.3,0,Normal,Humid,No,37,LOW,
+W1144,Ganesh Chauhan,46,20.8,Maintenance,Fitter,Afternoon,Maintenance Area,28.0,64.4,12.9,80.0,3,0.86,9.3,1.7,1,Normal,Hot,No,45,MEDIUM,Multiple Hazards
+W1145,Ganesh Mishra,36,7.5,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,41.0,48.7,13.9,65.2,5,0.75,9.8,2.0,0,Normal,Humid,No,64,MEDIUM,Multiple Hazards
+W1146,Suresh Rao,48,3.6,Quality Control,QC Inspector,Morning,Quality Lab,26.3,65.9,13.4,78.0,7,0.56,8.1,11.8,0,Normal,Rainy,No,49,MEDIUM,Multiple Hazards
+W1147,Anita Menon,36,5.1,Conveyor,Conveyor Operator,Morning,Conveyor Area,29.5,50.1,4.7,71.7,5,0.74,8.4,1.6,0,Malfunction,Rainy,No,41,LOW,
+W1148,Manoj Gupta,52,5.4,Crane Operations,Crane Operator,Morning,Crane Area,35.5,56.6,1.2,89.8,6,0.75,8.2,12.4,0,Normal,Rainy,No,32,LOW,
+W1149,Priya Chauhan,29,2.1,Crane Operations,Rigger,Morning,Crane Area,28.4,69.3,24.8,84.6,10,0.9,7.6,4.6,0,Malfunction,Hot,No,61,MEDIUM,Fatigue
+W1150,Pooja Choudhary,44,0.7,Crane Operations,Crane Operator,Night,Crane Area,30.7,55.2,16.9,92.7,7,0.85,6.7,4.9,0,Needs Maintenance,Hot,No,42,LOW,
+W2603,Rahul Verma,57,3.3,Logistics,Loader,Night,Loading Yard,49.6,84.6,18.9,97.5,7,0.41,11.5,1.9,5,Malfunction,Clear,Yes,82,HIGH,Gas Leak
+W2531,Manoj Gaikwad,47,21.3,Maintenance,Electrician,Afternoon,Maintenance Bay,32.1,64.3,17.9,83.7,4,0.8,8.2,6.7,1,Needs Maintenance,Hot,No,67,MEDIUM,Equipment Wear
+W2451,Rekha Kulkarni,44,5.3,Quality Control,QC Inspector,Morning,QC Lab,40.2,51.7,17.9,79.4,6,0.63,9.6,11.5,0,Needs Maintenance,Rainy,Yes,68,MEDIUM,Noise Hazard
+W2010,Sachin Gupta,38,9.0,Storage,Material Checker,Afternoon,Storage Area,26.6,37.9,5.4,53.5,3,0.95,4.3,29.7,0,Normal,Clear,No,30,LOW,None
+W2309,Amit Sawant,51,15.0,Logistics,Loader,Morning,Loading Yard,33.8,54.4,14.3,86.5,4,0.7,9.5,6.8,0,Needs Maintenance,Humid,Yes,57,MEDIUM,Heat Stress
+W2049,Ramesh Yadav,57,24.3,Steel Melting Shop,Tapper,Night,SMS Area,33.1,49.7,4.7,52.4,1,0.87,5.9,13.5,1,Needs Maintenance,Hot,No,13,LOW,None
+W2128,Bharat Chavan,54,16.8,Storage,Material Checker,Morning,Storage Area,25.2,50.2,8.6,70.8,3,0.85,6.7,14.1,1,Needs Maintenance,Hot,No,30,LOW,None
+W2644,Nitin Nair,55,14.5,Storage,Warehouse Handler,Afternoon,Storage Area,47.7,68.6,18.1,97.4,10,0.23,14.4,0.6,3,Normal,Clear,Yes,87,HIGH,Chemical Spill
+W2753,Sunil Menon,53,31.7,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,54.6,75.4,24.4,96.7,10,0.49,11.8,1.4,3,Malfunction,Windy,Yes,86,HIGH,Equipment Failure
+W2055,Meena Chauhan,47,28.9,Maintenance,Welder,Night,Maintenance Bay,32.6,37.9,1.2,67.4,3,0.91,7.5,24.7,1,Normal,Rainy,No,13,LOW,None
+W2349,Savita Patel,28,6.5,Casting,Mould Handler,Morning,Casting Bay,37.0,54.2,15.6,73.4,5,0.67,9.2,10.1,0,Needs Maintenance,Windy,No,56,MEDIUM,Minor Gas Leak
+W2524,Prakash Gupta,22,4.0,Casting,Casting Operator,Night,Casting Bay,38.5,46.4,8.5,82.1,7,0.63,10.4,5.3,2,Needs Maintenance,Hot,Yes,62,MEDIUM,Heat Stress
+W2775,Lakshmi Singh,35,1.4,Casting,Ladle Operator,Afternoon,Casting Bay,47.4,69.6,22.2,92.7,7,0.54,12.5,2.5,5,Malfunction,Humid,Yes,72,HIGH,Explosion Risk
+W2767,Sanjay Yadav,43,21.1,Quality Control,QC Inspector,Night,QC Lab,48.2,80.8,29.3,109.8,7,0.38,12.2,4.0,5,Malfunction,Rainy,Yes,73,HIGH,Equipment Failure
+W2345,Chitra Roy,37,15.9,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,44.8,57.3,17.6,73.1,5,0.65,7.1,8.0,3,Normal,Windy,Yes,60,MEDIUM,None
+W2673,Harish Reddy,43,20.3,Crane Operations,Rigger,Night,Crane Area,46.2,72.7,35.3,89.9,10,0.47,13.9,2.4,2,Malfunction,Hot,No,74,HIGH,Explosion Risk
+W2460,Leela Gaikwad,49,3.5,Casting,Casting Operator,Afternoon,Casting Bay,41.0,51.2,9.6,73.6,7,0.5,9.9,9.9,1,Malfunction,Humid,Yes,68,MEDIUM,Equipment Wear
+W2120,Naresh Roy,27,2.9,Rolling Mill,Roll Turner,Morning,Rolling Mill,24.3,44.0,4.2,72.9,4,0.84,6.3,22.6,0,Needs Maintenance,Rainy,No,39,LOW,None
+W2742,Dinesh Thakur,39,20.7,Casting,Ladle Operator,Night,Casting Bay,45.5,88.1,24.1,93.3,7,0.42,14.6,4.7,6,Malfunction,Hot,Yes,85,HIGH,Equipment Failure
+W2313,Ajay Kulkarni,32,3.0,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,40.5,70.3,20.2,86.9,7,0.74,9.7,6.1,1,Normal,Hot,Yes,53,MEDIUM,Heat Stress
+W2601,Meena Deshmukh,53,3.4,Casting,Ladle Operator,Afternoon,Casting Bay,52.7,65.9,20.8,109.1,7,0.15,12.9,3.1,5,Malfunction,Humid,No,91,HIGH,Equipment Failure
+W2726,Mohan Yadav,44,3.7,Casting,Casting Operator,Morning,Casting Bay,47.8,78.4,23.2,97.1,7,0.29,10.4,1.0,6,Malfunction,Rainy,Yes,94,HIGH,Gas Leak
+W2094,Raghav Yadav,40,13.6,Maintenance,Fitter,Morning,Maintenance Bay,29.0,46.4,7.5,60.8,3,0.78,5.1,17.3,1,Normal,Hot,No,19,LOW,None
+W2569,Ramesh Singh,35,13.7,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,45.6,76.5,19.1,95.7,10,0.47,14.8,1.5,6,Normal,Humid,Yes,98,HIGH,Gas Leak
+W2301,Vinod Nair,38,5.7,Storage,Material Checker,Morning,Storage Area,43.9,59.4,10.2,85.3,5,0.74,8.3,10.9,0,Malfunction,Clear,Yes,61,MEDIUM,Slip Hazard
+W2668,Ramesh Jadhav,50,22.4,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,50.5,70.9,37.3,103.1,9,0.15,12.4,4.5,6,Malfunction,Windy,Yes,79,HIGH,Structural Risk
+W2491,Vinod Singh,44,24.8,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,39.6,71.7,18.6,79.7,6,0.71,8.6,5.8,2,Normal,Clear,No,60,MEDIUM,Dust Exposure
+W2105,Ganesh Pillai,21,1.6,Steel Melting Shop,Tapper,Morning,SMS Area,24.6,34.6,1.6,70.4,4,0.92,6.1,17.2,1,Normal,Rainy,No,13,LOW,None
+W2663,Deepak Kulkarni,46,6.9,Steel Melting Shop,Melter,Night,SMS Area,42.1,88.6,25.2,101.6,7,0.44,14.9,4.8,5,Malfunction,Windy,No,98,HIGH,Chemical Spill
+W2305,Uma Singh,28,5.1,Steel Melting Shop,Melter,Afternoon,SMS Area,43.5,56.5,10.3,70.3,7,0.67,9.1,9.8,3,Needs Maintenance,Clear,Yes,50,MEDIUM,Heat Stress
+W2202,Harish More,33,6.9,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,32.5,46.4,8.7,55.1,4,0.78,5.1,11.1,1,Normal,Clear,No,18,LOW,None
+W2549,Dinesh Menon,25,2.6,Storage,Material Checker,Morning,Storage Area,54.0,63.6,38.5,102.1,9,0.34,10.2,2.6,5,Needs Maintenance,Humid,Yes,96,HIGH,Structural Risk
+W2347,Vinod Yadav,52,22.1,Maintenance,Fitter,Morning,Maintenance Bay,41.8,57.4,12.0,89.8,5,0.53,10.8,6.5,1,Needs Maintenance,Hot,No,43,MEDIUM,Dust Exposure
+W2072,Kamal Sawant,29,5.2,Logistics,Dispatcher,Afternoon,Loading Yard,23.0,57.3,9.9,67.5,3,0.88,5.2,26.3,1,Normal,Rainy,No,16,LOW,Noise Hazard
+W2379,Sachin Reddy,40,7.3,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,44.4,58.5,14.1,80.1,7,0.56,8.5,7.0,2,Malfunction,Rainy,No,51,MEDIUM,Dust Exposure
+W2545,Naresh Pawar,37,18.1,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,40.8,61.6,33.2,96.4,8,0.2,13.7,1.6,6,Needs Maintenance,Rainy,Yes,86,HIGH,Chemical Spill
+W2223,Hemant Menon,22,0.8,Coke Oven,Gas Handler,Afternoon,Coke Oven,25.0,35.9,6.1,60.3,1,0.96,7.6,17.1,0,Normal,Clear,No,23,LOW,None
+W2311,Pooja Shinde,58,16.8,Maintenance,Electrician,Night,Maintenance Bay,40.9,46.9,10.4,88.8,7,0.57,10.3,6.2,0,Needs Maintenance,Rainy,No,40,MEDIUM,Slip Hazard
+W2410,Prakash Reddy,36,14.7,Coke Oven,Gas Handler,Morning,Coke Oven,39.6,56.8,16.1,81.4,7,0.73,8.1,6.8,1,Normal,Windy,No,65,MEDIUM,Minor Gas Leak
+W2740,Anil Pawar,22,2.6,Logistics,Loader,Afternoon,Loading Yard,40.5,73.4,36.0,107.1,7,0.14,13.2,4.6,4,Normal,Windy,Yes,85,HIGH,Multiple Hazards
+W2074,Vikram Roy,57,12.0,Maintenance,Fitter,Morning,Maintenance Bay,27.4,56.1,8.7,51.1,1,0.76,5.5,26.2,1,Normal,Humid,No,37,LOW,None
+W2462,Indira Chauhan,58,20.3,Casting,Ladle Operator,Night,Casting Bay,36.6,47.8,11.1,81.4,7,0.68,8.0,4.5,0,Needs Maintenance,Clear,No,65,MEDIUM,Slip Hazard
+W2534,Ajay Joshi,50,4.4,Blast Furnace,Furnace Operator,Night,Blast Furnace,44.6,57.1,15.0,75.4,7,0.64,9.6,10.0,1,Needs Maintenance,Rainy,No,47,MEDIUM,Heat Stress
+W2242,Arjun Sawant,39,2.6,Blast Furnace,Slag Handler,Night,Blast Furnace,28.3,47.0,7.6,54.4,4,0.88,5.6,12.9,1,Malfunction,Hot,Yes,14,LOW,None
+W2122,Yogesh Mishra,29,1.9,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,35.0,44.1,6.0,51.7,2,0.94,4.8,28.0,1,Normal,Humid,No,12,LOW,None
+W2607,Leela Singh,32,12.1,Crane Operations,Crane Operator,Morning,Crane Area,51.3,73.6,27.1,108.4,8,0.21,10.7,3.1,3,Malfunction,Humid,Yes,95,HIGH,Chemical Spill
+W2150,Tanuja Bhosale,52,5.2,Maintenance,Fitter,Night,Maintenance Bay,30.1,54.8,6.2,55.8,2,0.76,7.5,10.4,1,Malfunction,Rainy,No,19,LOW,None
+W2470,Pooja Thakur,43,21.1,Casting,Casting Operator,Morning,Casting Bay,43.5,57.6,9.1,78.5,5,0.74,10.6,5.6,1,Needs Maintenance,Rainy,No,44,MEDIUM,Dust Exposure
+W2441,Rekha Chavan,58,10.8,Blast Furnace,Slag Handler,Morning,Blast Furnace,41.6,68.8,10.8,82.9,4,0.71,9.7,7.3,3,Malfunction,Clear,Yes,49,MEDIUM,Equipment Wear
+W2689,Kavita Patel,32,1.4,Logistics,Loader,Afternoon,Loading Yard,53.6,84.6,37.5,90.0,8,0.23,11.7,2.2,3,Malfunction,Rainy,Yes,84,HIGH,Gas Leak
+W2061,Prakash Patel,55,3.1,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,32.3,52.1,0.9,62.4,4,0.76,6.2,18.8,1,Normal,Humid,No,32,LOW,None
+W2560,Rahul Chauhan,46,10.2,Rolling Mill,Mill Helper,Night,Rolling Mill,54.7,89.0,26.7,103.2,8,0.26,14.0,4.1,3,Needs Maintenance,Hot,Yes,99,HIGH,Multiple Hazards
+W2654,Priya Kumar,45,3.4,Logistics,Driver,Afternoon,Loading Yard,50.1,67.2,34.7,104.0,10,0.24,12.5,1.4,3,Malfunction,Windy,Yes,88,HIGH,Multiple Hazards
+W2183,Savita Pawar,46,8.6,Quality Control,Sampler,Morning,QC Lab,28.2,32.9,2.4,74.7,2,0.79,6.0,22.4,1,Normal,Rainy,No,27,LOW,None
+W2266,Ramesh Gupta,21,1.0,Logistics,Loader,Night,Loading Yard,25.3,51.1,4.6,71.0,1,0.93,7.1,23.1,1,Needs Maintenance,Rainy,No,22,LOW,None
+W2725,Sanjay Kumar,23,3.9,Logistics,Driver,Morning,Loading Yard,53.8,60.4,30.2,103.5,10,0.32,10.5,4.9,5,Needs Maintenance,Rainy,Yes,97,HIGH,Multiple Hazards
+W2525,Anil Chauhan,48,16.4,Coke Oven,Oven Helper,Morning,Coke Oven,32.3,57.1,11.3,71.1,6,0.72,7.4,8.9,0,Malfunction,Windy,No,55,MEDIUM,None
+W2185,Shanti Bhosale,54,34.7,Maintenance,Fitter,Morning,Maintenance Bay,22.4,32.2,4.0,53.3,1,0.89,6.8,26.0,0,Needs Maintenance,Windy,No,34,LOW,None
+W2177,Balaji Pillai,46,4.6,Quality Control,Lab Technician,Afternoon,QC Lab,24.8,30.9,6.5,59.2,4,0.97,5.9,29.4,0,Needs Maintenance,Hot,No,32,LOW,None
+W2728,Jagdish Shinde,41,14.1,Storage,Forklift Operator,Afternoon,Storage Area,41.8,61.1,19.2,105.9,9,0.15,10.3,2.5,4,Needs Maintenance,Rainy,No,91,HIGH,Structural Risk
+W2250,Rahul Kumar,31,3.9,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,22.1,41.7,4.8,50.5,1,0.81,7.0,12.7,0,Normal,Hot,No,38,LOW,None
+W2667,Zeenat Jadhav,29,1.1,Quality Control,Sampler,Night,QC Lab,46.9,84.9,36.3,102.7,7,0.15,15.0,3.5,5,Malfunction,Windy,No,90,HIGH,Fire Hazard
+W2650,Tushar Singh,58,16.9,Casting,Mould Handler,Morning,Casting Bay,44.2,72.0,35.9,85.3,10,0.39,14.0,4.1,6,Needs Maintenance,Hot,Yes,94,HIGH,Structural Risk
+W2625,Gaurav More,42,21.4,Logistics,Dispatcher,Night,Loading Yard,42.5,65.5,22.5,94.7,8,0.12,12.4,2.8,4,Malfunction,Humid,Yes,82,HIGH,Multiple Hazards
+W2170,Ashok Patil,24,0.7,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,34.1,32.9,9.4,67.2,1,0.77,5.2,24.2,0,Malfunction,Clear,No,19,LOW,None
+W2788,Mohan More,37,10.7,Storage,Warehouse Handler,Morning,Storage Area,47.0,64.0,38.4,106.7,7,0.42,10.6,4.0,6,Malfunction,Hot,Yes,74,HIGH,Equipment Failure
+W2627,Mukesh Shinde,39,15.4,Storage,Warehouse Handler,Night,Storage Area,48.6,77.0,37.3,98.9,7,0.53,10.3,0.9,4,Malfunction,Clear,Yes,73,HIGH,Gas Leak
+W2191,Ganesh Mane,24,4.3,Maintenance,Electrician,Afternoon,Maintenance Bay,29.2,50.1,2.3,74.9,1,0.99,6.6,14.0,0,Needs Maintenance,Windy,No,16,LOW,None
+W2761,Anand Gaikwad,54,19.5,Coke Oven,Gas Handler,Afternoon,Coke Oven,44.2,68.4,26.9,110.0,8,0.12,13.5,0.9,4,Malfunction,Humid,Yes,74,HIGH,Multiple Hazards
+W2577,Tushar Chavan,35,5.4,Storage,Warehouse Handler,Morning,Storage Area,41.2,89.8,21.4,109.7,9,0.54,14.8,3.5,5,Needs Maintenance,Humid,Yes,72,HIGH,Explosion Risk
+W2087,Deepak Reddy,54,5.2,Maintenance,Fitter,Afternoon,Maintenance Bay,24.3,32.5,1.2,61.5,4,0.8,5.5,20.1,0,Needs Maintenance,Rainy,No,36,LOW,None
+W2642,Sunil Pillai,30,1.2,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,45.3,83.4,30.4,91.5,7,0.41,13.4,4.1,2,Malfunction,Hot,Yes,74,HIGH,Structural Risk
+W2023,Ravi Bhat,33,7.8,Logistics,Driver,Morning,Loading Yard,34.8,36.8,6.7,69.0,1,0.81,6.9,17.4,0,Normal,Rainy,No,36,LOW,None
+W2123,Pooja Pawar,58,18.7,Crane Operations,Crane Operator,Morning,Crane Area,24.7,35.3,0.4,61.8,2,0.89,4.3,25.5,1,Normal,Rainy,No,30,LOW,None
+W2261,Priya Verma,33,4.1,Coke Oven,Oven Helper,Morning,Coke Oven,24.7,33.4,6.2,69.4,3,0.91,6.1,10.8,0,Normal,Rainy,No,24,LOW,None
+W2285,Zeenat Mishra,28,7.4,Logistics,Loader,Night,Loading Yard,37.7,64.7,18.7,73.5,6,0.68,7.5,10.0,2,Malfunction,Humid,No,63,MEDIUM,Heat Stress
+W2367,Tushar Patel,50,10.4,Rolling Mill,Roll Turner,Morning,Rolling Mill,32.7,47.0,13.6,76.5,6,0.57,8.1,10.4,1,Malfunction,Windy,No,69,MEDIUM,Noise Hazard
+W2677,Jagdish More,51,15.9,Quality Control,Sampler,Night,QC Lab,50.9,87.9,27.5,88.0,7,0.33,12.1,2.2,3,Malfunction,Humid,Yes,97,HIGH,Fire Hazard
+W2793,Amit Das,31,6.2,Casting,Ladle Operator,Morning,Casting Bay,49.4,62.3,20.5,86.2,10,0.22,10.8,1.7,3,Needs Maintenance,Hot,Yes,75,HIGH,Fire Hazard
+W2444,Deepak Patil,53,34.6,Logistics,Driver,Afternoon,Loading Yard,41.7,69.7,14.1,75.7,6,0.63,9.9,4.1,3,Normal,Windy,Yes,56,MEDIUM,Equipment Wear
+W2474,Jagdish Deshmukh,24,4.3,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,40.5,64.1,8.1,74.8,6,0.7,8.9,4.0,0,Malfunction,Windy,No,40,MEDIUM,Minor Gas Leak
+W2361,Ramesh Sawant,53,10.4,Maintenance,Fitter,Morning,Maintenance Bay,41.0,48.6,12.2,77.9,5,0.74,8.1,5.7,1,Normal,Windy,Yes,60,MEDIUM,Heat Stress
+W2119,Lakshmi Roy,46,27.1,Storage,Forklift Operator,Morning,Storage Area,26.5,39.7,7.4,61.3,2,0.81,5.8,12.8,1,Normal,Windy,No,21,LOW,None
+W2702,Chandan Singh,20,1.0,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,43.1,82.2,30.0,107.1,8,0.35,13.2,1.4,2,Needs Maintenance,Clear,No,75,HIGH,Multiple Hazards
+W2520,Omkar Kumar,53,33.3,Maintenance,Fitter,Morning,Maintenance Bay,36.6,47.5,14.8,90.3,7,0.51,8.2,5.7,1,Needs Maintenance,Rainy,No,63,MEDIUM,Dust Exposure
+W2682,Chitra Kulkarni,28,10.0,Storage,Warehouse Handler,Night,Storage Area,41.5,81.2,25.6,85.2,9,0.28,11.4,4.2,2,Needs Maintenance,Windy,Yes,81,HIGH,Explosion Risk
+W2404,Ravi Kumar,53,3.9,Rolling Mill,Mill Helper,Night,Rolling Mill,35.0,62.1,11.1,77.1,7,0.75,9.9,4.8,1,Needs Maintenance,Hot,No,58,MEDIUM,Dust Exposure
+W2035,Rekha Joshi,45,15.0,Casting,Mould Handler,Morning,Casting Bay,30.4,35.0,9.4,73.8,3,0.98,5.5,10.3,0,Normal,Rainy,No,30,LOW,None
+W2282,Ajay Kulkarni,39,15.1,Blast Furnace,Furnace Operator,Night,Blast Furnace,36.7,54.0,8.4,70.5,7,0.75,8.1,8.1,3,Malfunction,Rainy,No,46,MEDIUM,Minor Gas Leak
+W2089,Bharat Verma,32,13.6,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,22.8,37.8,8.1,68.7,2,0.8,4.8,17.4,0,Normal,Clear,No,14,LOW,None
+W2011,Ramesh Sharma,43,19.2,Quality Control,Sampler,Night,QC Lab,32.0,35.6,0.1,70.4,1,0.93,6.9,25.4,1,Normal,Windy,No,21,LOW,Noise Hazard
+W2641,Omkar Roy,40,8.7,Steel Melting Shop,SMS Operator,Morning,SMS Area,42.4,74.2,30.2,99.3,7,0.19,14.5,0.6,6,Malfunction,Clear,Yes,78,HIGH,Explosion Risk
+W2730,Gaurav Kulkarni,50,16.7,Crane Operations,Rigger,Night,Crane Area,45.0,69.5,20.3,94.2,7,0.14,14.6,4.8,4,Malfunction,Hot,Yes,71,HIGH,Explosion Risk
+W2132,Lakshmi Gaikwad,30,11.5,Steel Melting Shop,Melter,Morning,SMS Area,34.3,51.4,1.4,71.7,4,0.87,7.6,26.0,0,Normal,Windy,No,30,LOW,None
+W2403,Krishna Deshmukh,23,2.1,Rolling Mill,Mill Helper,Night,Rolling Mill,39.3,65.8,15.0,70.3,6,0.5,8.4,11.4,0,Normal,Humid,Yes,41,MEDIUM,Dust Exposure
+W2099,Rekha Reddy,47,24.6,Rolling Mill,Mill Helper,Night,Rolling Mill,29.4,37.8,7.7,54.7,1,0.83,5.7,20.2,1,Normal,Windy,No,34,LOW,None
+W2015,Ravi Roy,35,5.1,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,22.3,33.0,0.3,65.9,2,0.83,6.0,28.2,1,Normal,Hot,No,23,LOW,None
+W2771,Shanti Das,20,0.7,Steel Melting Shop,SMS Operator,Night,SMS Area,42.1,77.1,37.1,99.6,8,0.42,12.2,0.9,5,Malfunction,Rainy,Yes,83,HIGH,Fire Hazard
+W2559,Nitin Menon,21,2.0,Coke Oven,Oven Helper,Morning,Coke Oven,47.7,69.3,30.6,93.1,9,0.12,11.6,0.5,6,Malfunction,Rainy,No,80,HIGH,Structural Risk
+W2171,Dinesh Deshmukh,46,10.8,Casting,Mould Handler,Afternoon,Casting Bay,22.9,46.3,3.5,65.5,4,0.76,7.5,29.5,1,Normal,Humid,Yes,37,LOW,None
+W2526,Tushar Mishra,29,0.5,Casting,Ladle Operator,Night,Casting Bay,35.7,49.7,13.3,87.6,6,0.62,10.0,5.0,2,Needs Maintenance,Windy,Yes,64,MEDIUM,Equipment Wear
+W2066,Rahul Pillai,41,7.7,Rolling Mill,Mill Helper,Morning,Rolling Mill,28.4,30.3,4.7,51.4,3,0.78,4.5,23.0,1,Normal,Hot,No,22,LOW,None
+W2762,Arjun Patil,37,1.5,Casting,Casting Operator,Night,Casting Bay,42.3,73.2,29.2,91.5,8,0.24,10.5,1.9,6,Malfunction,Rainy,Yes,84,HIGH,Equipment Failure
+W2648,Balaji Gupta,28,7.4,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,42.7,68.1,22.4,91.2,8,0.24,13.3,3.1,6,Malfunction,Humid,No,98,HIGH,Multiple Hazards
+W2780,Gopal Mishra,33,4.6,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,46.2,81.1,22.8,94.2,7,0.28,15.9,4.8,5,Malfunction,Windy,No,81,HIGH,Equipment Failure
+W2254,Naresh Gaikwad,44,9.5,Crane Operations,Signal Man,Morning,Crane Area,32.2,55.0,9.6,69.7,2,0.83,6.8,18.8,1,Needs Maintenance,Hot,No,39,LOW,None
+W2283,Meena Chavan,45,16.0,Storage,Material Checker,Morning,Storage Area,35.9,70.4,11.6,79.5,6,0.76,10.4,5.5,2,Needs Maintenance,Windy,Yes,42,MEDIUM,Slip Hazard
+W2575,Jagdish More,43,20.6,Casting,Ladle Operator,Morning,Casting Bay,44.5,66.9,27.0,91.0,7,0.4,15.0,3.5,2,Needs Maintenance,Windy,No,77,HIGH,Equipment Failure
+W2710,Leela Joshi,21,1.1,Steel Melting Shop,Tapper,Night,SMS Area,51.2,74.5,22.8,109.2,9,0.42,15.7,2.4,3,Malfunction,Rainy,Yes,99,HIGH,Multiple Hazards
+W2396,Rahul Deshmukh,29,7.9,Blast Furnace,Furnace Operator,Morning,Blast Furnace,44.5,59.3,11.4,81.0,7,0.7,7.3,6.2,1,Needs Maintenance,Hot,No,60,MEDIUM,None
+W2574,Omkar Patil,23,2.7,Steel Melting Shop,Melter,Afternoon,SMS Area,45.9,80.9,22.3,101.0,9,0.22,15.3,4.5,6,Malfunction,Clear,Yes,100,HIGH,Equipment Failure
+W2175,Lakshmi Joshi,34,13.1,Blast Furnace,Furnace Operator,Night,Blast Furnace,30.5,37.7,9.5,53.8,3,0.86,7.8,18.4,1,Normal,Windy,No,31,LOW,None
+W2727,Kiran Shinde,20,1.5,Blast Furnace,Furnace Operator,Morning,Blast Furnace,52.6,67.2,22.3,97.6,8,0.45,10.4,3.1,6,Needs Maintenance,Clear,Yes,86,HIGH,Explosion Risk
+W2001,Gopal Verma,35,4.2,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,26.9,56.6,7.3,65.0,1,0.79,4.6,11.2,1,Normal,Clear,No,17,LOW,None
+W2532,Tushar Patil,44,2.8,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,33.0,57.0,11.7,77.6,7,0.75,10.7,5.5,1,Normal,Rainy,No,64,MEDIUM,Noise Hazard
+W2622,Rohit Singh,48,4.8,Quality Control,Sampler,Morning,QC Lab,48.3,84.8,31.9,104.6,7,0.37,12.5,4.8,2,Malfunction,Windy,Yes,94,HIGH,Fire Hazard
+W2690,Priya Patel,40,19.0,Coke Oven,Gas Handler,Afternoon,Coke Oven,45.9,76.3,21.5,102.3,8,0.18,11.9,2.8,2,Malfunction,Humid,Yes,93,HIGH,Gas Leak
+W2388,Yogesh Pawar,54,28.4,Storage,Forklift Operator,Afternoon,Storage Area,35.8,65.9,15.3,77.7,4,0.61,7.0,6.4,1,Needs Maintenance,Hot,Yes,54,MEDIUM,Equipment Wear
+W2452,Mukesh Joshi,33,8.1,Coke Oven,Oven Helper,Morning,Coke Oven,32.8,67.3,12.1,79.8,6,0.51,8.2,8.0,0,Normal,Clear,No,54,MEDIUM,Equipment Wear
+W2273,Rekha Shinde,26,6.4,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,41.7,50.5,21.4,78.1,7,0.6,7.6,6.4,2,Needs Maintenance,Rainy,No,59,MEDIUM,Minor Gas Leak
+W2543,Kavita Shinde,50,24.4,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,40.5,79.8,29.7,87.6,7,0.18,13.4,1.8,2,Needs Maintenance,Hot,Yes,71,HIGH,Structural Risk
+W2484,Chandan Gupta,53,4.1,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,37.6,45.8,11.6,70.7,5,0.76,8.0,8.5,2,Needs Maintenance,Rainy,Yes,59,MEDIUM,Heat Stress
+W2227,Pankaj Joshi,28,4.1,Coke Oven,Oven Helper,Morning,Coke Oven,29.7,43.9,9.9,53.4,1,0.92,5.6,18.6,0,Normal,Hot,No,21,LOW,None
+W2376,Mukesh Deshmukh,26,3.9,Storage,Forklift Operator,Afternoon,Storage Area,44.5,47.4,17.6,80.9,6,0.62,9.5,9.6,2,Normal,Rainy,No,48,MEDIUM,Slip Hazard
+W2134,Rajesh Singh,31,6.7,Storage,Warehouse Handler,Afternoon,Storage Area,32.9,57.6,5.3,54.3,1,0.82,4.1,28.3,1,Needs Maintenance,Windy,No,16,LOW,Noise Hazard
+W2748,Amit Gupta,51,21.3,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,49.0,79.9,27.2,102.5,7,0.28,13.0,0.5,6,Malfunction,Hot,Yes,78,HIGH,Multiple Hazards
+W2385,Chandan Verma,29,3.7,Storage,Forklift Operator,Morning,Storage Area,38.4,55.9,15.4,83.1,5,0.5,8.9,11.7,2,Needs Maintenance,Windy,No,62,MEDIUM,Minor Gas Leak
+W2428,Chandan Joshi,48,22.5,Coke Oven,Oven Helper,Night,Coke Oven,43.2,49.8,19.2,82.2,5,0.62,7.5,10.9,1,Needs Maintenance,Rainy,Yes,64,MEDIUM,Equipment Wear
+W2332,Hemant Pawar,57,2.1,Logistics,Driver,Morning,Loading Yard,37.1,56.4,13.8,90.0,4,0.71,9.4,6.5,2,Normal,Rainy,Yes,42,MEDIUM,Slip Hazard
+W2173,Leela Reddy,35,8.1,Quality Control,Lab Technician,Morning,QC Lab,28.4,51.6,6.8,61.1,2,0.82,8.0,18.5,0,Normal,Rainy,No,29,LOW,None
+W2695,Pankaj Deshmukh,54,10.6,Casting,Ladle Operator,Morning,Casting Bay,53.8,86.6,31.8,105.2,10,0.13,12.0,1.9,5,Normal,Hot,Yes,81,HIGH,Gas Leak
+W2585,Anand Kumar,46,5.5,Storage,Material Checker,Morning,Storage Area,52.7,61.3,34.2,93.5,9,0.32,15.6,2.0,4,Malfunction,Clear,Yes,77,HIGH,Equipment Failure
+W2779,Suresh Joshi,27,2.8,Steel Melting Shop,Tapper,Afternoon,SMS Area,45.2,78.6,30.0,88.1,10,0.23,11.4,1.5,3,Malfunction,Rainy,Yes,71,HIGH,Gas Leak
+W2567,Tushar Deshmukh,54,28.4,Maintenance,Electrician,Afternoon,Maintenance Bay,40.4,77.5,18.2,104.7,7,0.24,10.2,3.1,6,Malfunction,Windy,Yes,77,HIGH,Fire Hazard
+W2598,Arjun Shinde,45,8.1,Crane Operations,Crane Operator,Night,Crane Area,44.6,72.1,32.8,102.1,7,0.24,10.8,3.3,4,Malfunction,Hot,Yes,95,HIGH,Equipment Failure
+W2464,Jaya Pillai,56,27.7,Logistics,Loader,Night,Loading Yard,37.6,59.6,17.8,85.4,5,0.55,9.0,7.3,0,Normal,Hot,No,66,MEDIUM,Minor Gas Leak
+W2509,Jaya Gaikwad,30,7.1,Logistics,Driver,Night,Loading Yard,35.6,58.2,9.2,80.1,4,0.59,10.3,4.5,3,Malfunction,Hot,No,46,MEDIUM,Equipment Wear
+W2271,Leela Deshmukh,29,9.3,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,33.3,55.8,19.2,74.5,4,0.67,9.9,8.9,0,Needs Maintenance,Rainy,Yes,50,MEDIUM,None
+W2125,Zeenat Jadhav,25,3.9,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,33.2,56.5,3.7,56.8,1,0.91,5.6,10.5,1,Needs Maintenance,Clear,No,22,LOW,Noise Hazard
+W2339,Mukesh Chauhan,28,7.0,Steel Melting Shop,Melter,Afternoon,SMS Area,33.6,60.1,12.8,86.0,7,0.7,10.4,9.5,3,Needs Maintenance,Humid,Yes,57,MEDIUM,Heat Stress
+W2106,Krishna Kulkarni,49,25.9,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,33.4,41.0,8.2,61.0,4,0.84,5.9,16.0,0,Normal,Clear,No,26,LOW,None
+W2492,Nirmala Sawant,41,2.3,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,39.8,70.1,21.0,77.5,5,0.66,7.8,12.0,1,Normal,Rainy,No,61,MEDIUM,Noise Hazard
+W2506,Vinod Gupta,35,12.7,Rolling Mill,Mill Helper,Morning,Rolling Mill,33.7,51.9,13.0,84.8,5,0.52,7.8,10.5,0,Needs Maintenance,Humid,No,68,MEDIUM,Minor Gas Leak
+W2382,Anil Yadav,44,8.4,Storage,Material Checker,Morning,Storage Area,40.5,64.9,12.4,84.2,7,0.62,9.9,5.6,1,Needs Maintenance,Rainy,No,40,MEDIUM,Heat Stress
+W2521,Ramesh Yadav,21,2.7,Blast Furnace,Furnace Helper,Morning,Blast Furnace,35.1,69.5,14.6,80.3,6,0.73,7.6,7.9,3,Normal,Windy,No,65,MEDIUM,Slip Hazard
+W2553,Kiran Sharma,49,3.8,Maintenance,Welder,Afternoon,Maintenance Bay,41.6,70.6,27.1,101.9,10,0.4,10.4,2.3,3,Needs Maintenance,Humid,Yes,73,HIGH,Multiple Hazards
+W2457,Nirmala Chauhan,55,11.5,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,44.4,53.8,13.0,81.1,5,0.78,10.5,4.8,1,Needs Maintenance,Rainy,No,50,MEDIUM,Equipment Wear
+W2519,Raghav Bhosale,49,3.2,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,32.0,68.5,19.1,83.8,6,0.73,7.6,7.7,0,Needs Maintenance,Hot,Yes,62,MEDIUM,Noise Hazard
+W2436,Ajay Mishra,30,8.8,Maintenance,Fitter,Morning,Maintenance Bay,41.2,56.4,12.9,78.7,4,0.58,7.8,7.9,3,Normal,Clear,Yes,62,MEDIUM,Minor Gas Leak
+W2197,Priya Joshi,46,11.2,Coke Oven,Oven Helper,Morning,Coke Oven,33.1,43.8,2.5,71.8,2,0.86,6.1,17.2,0,Normal,Windy,No,18,LOW,None
+W2597,Ravi Bhat,58,13.7,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,46.7,76.0,37.2,109.9,8,0.36,14.9,2.0,3,Normal,Rainy,No,72,HIGH,Gas Leak
+W2068,Gaurav Shinde,23,1.4,Maintenance,Welder,Night,Maintenance Bay,34.5,30.3,9.7,51.1,3,0.97,6.1,29.9,1,Needs Maintenance,Hot,No,10,LOW,Noise Hazard
+W2420,Savita Bhosale,53,2.0,Blast Furnace,Furnace Helper,Morning,Blast Furnace,39.1,64.2,10.3,87.2,6,0.68,10.8,4.3,1,Normal,Clear,No,41,MEDIUM,Minor Gas Leak
+W2754,Lakshmi Kumar,26,5.5,Logistics,Dispatcher,Morning,Loading Yard,41.9,68.9,35.2,96.8,7,0.2,11.0,2.0,3,Malfunction,Hot,No,76,HIGH,Fire Hazard
+W2391,Amit Chavan,29,1.1,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,41.7,57.8,8.8,91.1,7,0.78,10.1,11.9,1,Needs Maintenance,Clear,No,66,MEDIUM,Minor Gas Leak
+W2423,Prakash Mane,53,11.0,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,44.0,63.8,18.2,89.0,5,0.58,10.2,5.6,0,Needs Maintenance,Humid,Yes,60,MEDIUM,Slip Hazard
+W2649,Ajay Shinde,48,8.6,Coke Oven,Gas Handler,Night,Coke Oven,46.4,78.5,19.8,87.2,9,0.18,13.1,1.5,3,Malfunction,Rainy,Yes,70,HIGH,Multiple Hazards
+W2118,Uma Joshi,48,7.4,Crane Operations,Rigger,Morning,Crane Area,26.4,52.5,0.0,58.3,4,0.85,6.1,28.4,0,Normal,Rainy,Yes,24,LOW,None
+W2639,Ramesh Shinde,50,16.3,Logistics,Dispatcher,Morning,Loading Yard,42.0,64.8,38.9,107.0,8,0.51,15.9,1.4,2,Malfunction,Clear,Yes,96,HIGH,Multiple Hazards
+W2707,Sachin Singh,58,32.0,Maintenance,Fitter,Afternoon,Maintenance Bay,52.7,70.9,35.5,108.5,8,0.38,14.4,4.1,6,Malfunction,Humid,No,77,HIGH,Gas Leak
+W2281,Yogesh Reddy,33,4.4,Crane Operations,Crane Operator,Afternoon,Crane Area,33.5,56.1,19.8,78.4,4,0.67,9.4,5.5,0,Needs Maintenance,Windy,Yes,45,MEDIUM,Equipment Wear
+W2722,Zeenat Bhosale,44,15.4,Quality Control,Sampler,Night,QC Lab,47.9,70.0,29.4,89.9,7,0.46,11.1,0.9,2,Needs Maintenance,Humid,No,81,HIGH,Explosion Risk
+W2479,Anil Kulkarni,29,9.3,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,35.5,50.5,12.4,75.3,5,0.56,8.7,11.3,3,Normal,Humid,Yes,58,MEDIUM,Dust Exposure
+W2037,Sunil Reddy,32,2.5,Crane Operations,Signal Man,Morning,Crane Area,33.1,38.9,1.7,63.9,4,0.98,6.8,21.4,0,Normal,Hot,No,28,LOW,None
+W2494,Kamal Thakur,24,4.9,Logistics,Driver,Night,Loading Yard,40.8,63.3,13.2,90.7,7,0.55,9.0,9.5,3,Malfunction,Rainy,Yes,50,MEDIUM,Heat Stress
+W2071,Gopal Bhosale,28,8.7,Logistics,Dispatcher,Afternoon,Loading Yard,27.9,47.4,2.8,54.7,3,0.87,5.4,21.7,1,Needs Maintenance,Humid,No,19,LOW,None
+W2713,Dilip Pawar,49,10.0,Quality Control,QC Inspector,Night,QC Lab,48.3,64.6,34.0,100.0,8,0.43,14.6,4.9,5,Malfunction,Hot,Yes,79,HIGH,Chemical Spill
+W2691,Vikram Sawant,33,5.0,Steel Melting Shop,SMS Operator,Night,SMS Area,51.9,82.2,32.2,88.9,8,0.35,10.5,2.2,6,Malfunction,Humid,Yes,76,HIGH,Chemical Spill
+W2337,Sachin Chauhan,28,6.9,Logistics,Loader,Morning,Loading Yard,40.0,68.6,18.1,72.7,6,0.77,7.3,8.3,0,Malfunction,Clear,Yes,54,MEDIUM,Slip Hazard
+W2063,Suresh Patel,39,12.7,Casting,Casting Operator,Night,Casting Bay,23.1,49.6,0.7,70.5,4,0.93,4.3,11.7,0,Normal,Rainy,No,22,LOW,Noise Hazard
+W2262,Kamal Bhosale,44,9.5,Casting,Ladle Operator,Afternoon,Casting Bay,34.6,52.4,2.9,74.5,4,0.9,6.3,25.0,0,Normal,Clear,No,37,LOW,None
+W2368,Ramesh Reddy,35,14.9,Maintenance,Welder,Morning,Maintenance Bay,44.1,55.9,20.7,77.1,5,0.64,7.9,9.1,1,Normal,Hot,Yes,64,MEDIUM,Heat Stress
+W2750,Bharat Chavan,21,1.5,Quality Control,QC Inspector,Night,QC Lab,53.6,81.5,30.8,104.9,10,0.49,12.7,2.6,2,Malfunction,Windy,Yes,92,HIGH,Explosion Risk
+W2057,Priya More,54,4.9,Casting,Ladle Operator,Morning,Casting Bay,26.8,51.7,3.4,73.3,3,0.96,5.7,25.0,0,Normal,Clear,No,13,LOW,Noise Hazard
+W2168,Raghav Roy,32,8.2,Blast Furnace,Slag Handler,Morning,Blast Furnace,25.7,47.3,9.8,65.8,3,0.81,6.5,20.8,1,Normal,Hot,No,28,LOW,None
+W2270,Anand Kulkarni,29,1.8,Quality Control,Sampler,Afternoon,QC Lab,31.9,34.5,4.6,50.2,2,0.81,6.9,29.8,0,Needs Maintenance,Hot,No,23,LOW,None
+W2633,Tanuja Sawant,46,3.5,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,44.7,71.8,23.2,87.4,9,0.18,14.8,3.5,2,Malfunction,Windy,Yes,79,HIGH,Equipment Failure
+W2528,Gaurav Chauhan,25,2.6,Logistics,Driver,Night,Loading Yard,32.2,67.3,15.3,87.1,5,0.57,8.4,4.2,2,Needs Maintenance,Hot,Yes,67,MEDIUM,Minor Gas Leak
+W2495,Ganesh Thakur,27,2.3,Coke Oven,Gas Handler,Night,Coke Oven,41.1,62.5,11.9,73.4,7,0.69,9.4,5.4,1,Normal,Windy,Yes,42,MEDIUM,Heat Stress
+W2643,Arjun Chavan,27,0.9,Coke Oven,Oven Helper,Morning,Coke Oven,51.0,78.3,28.7,88.3,8,0.22,12.5,3.2,5,Malfunction,Windy,Yes,100,HIGH,Gas Leak
+W2117,Zeenat Mishra,28,6.2,Quality Control,QC Inspector,Morning,QC Lab,23.6,55.8,8.7,63.0,2,0.9,5.6,11.1,0,Normal,Hot,No,21,LOW,None
+W2471,Dilip Sharma,25,1.4,Maintenance,Welder,Afternoon,Maintenance Bay,32.9,68.7,13.5,81.9,7,0.79,7.3,9.2,1,Needs Maintenance,Humid,No,66,MEDIUM,Minor Gas Leak
+W2476,Jaya Patil,36,1.6,Storage,Material Checker,Afternoon,Storage Area,41.8,66.7,15.3,73.1,5,0.7,9.5,9.9,0,Normal,Windy,Yes,63,MEDIUM,Equipment Wear
+W2399,Rohit Nair,20,1.7,Storage,Material Checker,Night,Storage Area,44.5,50.3,21.3,91.9,5,0.71,10.9,8.6,0,Normal,Humid,Yes,59,MEDIUM,Noise Hazard
+W2465,Tanuja Nair,40,12.4,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,43.3,62.0,15.5,72.5,6,0.68,7.5,6.7,3,Needs Maintenance,Hot,Yes,66,MEDIUM,Equipment Wear
+W2021,Rajesh Bhosale,56,9.0,Crane Operations,Rigger,Night,Crane Area,34.5,37.0,5.0,57.5,1,0.82,4.1,22.2,1,Normal,Clear,No,20,LOW,Noise Hazard
+W2140,Naresh Yadav,36,3.9,Quality Control,Lab Technician,Night,QC Lab,24.8,30.9,2.6,64.9,2,0.76,6.0,21.9,1,Normal,Rainy,No,30,LOW,None
+W2548,Vinod Pillai,27,7.0,Crane Operations,Signal Man,Afternoon,Crane Area,43.3,71.4,35.8,105.6,10,0.27,12.8,1.9,2,Malfunction,Clear,Yes,81,HIGH,Multiple Hazards
+W2159,Sachin More,50,3.7,Rolling Mill,Mill Helper,Morning,Rolling Mill,27.2,51.2,7.0,53.8,2,0.95,4.9,14.5,1,Normal,Clear,No,25,LOW,None
+W2589,Pankaj Nair,28,1.4,Maintenance,Electrician,Night,Maintenance Bay,53.8,72.2,21.2,102.9,10,0.23,13.2,3.6,3,Malfunction,Windy,Yes,74,HIGH,Structural Risk
+W2756,Amit Verma,47,27.3,Steel Melting Shop,Melter,Morning,SMS Area,50.6,89.5,19.1,87.4,8,0.42,11.7,1.3,2,Needs Maintenance,Windy,Yes,90,HIGH,Multiple Hazards
+W2785,Chandan Roy,52,27.0,Rolling Mill,Mill Helper,Morning,Rolling Mill,49.1,87.5,21.4,103.8,9,0.36,11.6,2.6,3,Malfunction,Windy,No,71,HIGH,Explosion Risk
+W2454,Dinesh Menon,49,12.3,Casting,Casting Operator,Night,Casting Bay,35.4,49.3,10.2,71.6,4,0.56,9.7,11.1,2,Malfunction,Clear,No,59,MEDIUM,None
+W2257,Chitra Mane,29,8.6,Casting,Mould Handler,Night,Casting Bay,28.7,49.0,0.4,52.1,1,0.93,4.3,11.4,1,Normal,Rainy,No,28,LOW,None
+W2561,Rajesh Mishra,30,0.7,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,54.2,72.0,35.2,91.6,10,0.55,10.2,3.2,5,Malfunction,Clear,No,78,HIGH,Gas Leak
+W2253,Meena Chauhan,57,35.0,Blast Furnace,Furnace Helper,Morning,Blast Furnace,24.0,39.1,7.4,61.9,2,0.84,5.6,19.2,0,Normal,Clear,No,39,LOW,None
+W2198,Ravi Patel,47,8.4,Maintenance,Fitter,Afternoon,Maintenance Bay,29.7,34.6,3.9,74.2,1,0.81,6.6,16.5,1,Normal,Humid,No,30,LOW,None
+W2024,Krishna Deshmukh,53,0.8,Storage,Material Checker,Night,Storage Area,30.2,47.7,5.4,52.3,1,0.96,5.3,13.7,0,Normal,Rainy,No,33,LOW,None
+W2053,Sachin Verma,58,24.7,Coke Oven,Oven Helper,Afternoon,Coke Oven,34.2,40.8,9.6,72.6,1,0.8,4.3,12.0,0,Normal,Windy,No,25,LOW,None
+W2377,Rajesh Chauhan,58,7.4,Blast Furnace,Furnace Helper,Night,Blast Furnace,32.1,49.5,18.0,84.7,5,0.79,10.0,11.6,2,Needs Maintenance,Windy,No,55,MEDIUM,None
+W2218,Dilip Patel,28,8.0,Logistics,Dispatcher,Morning,Loading Yard,34.1,31.7,9.3,58.8,3,0.78,5.9,15.1,1,Normal,Clear,No,32,LOW,None
+W2738,Suresh Patil,54,7.1,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,43.4,78.5,18.9,93.2,9,0.31,10.9,4.9,4,Needs Maintenance,Humid,No,74,HIGH,Chemical Spill
+W2614,Krishna Sawant,30,7.7,Coke Oven,Oven Helper,Afternoon,Coke Oven,41.2,77.0,38.0,94.9,10,0.23,10.9,1.2,3,Malfunction,Clear,Yes,85,HIGH,Gas Leak
+W2749,Sanjay Thakur,50,32.0,Rolling Mill,Roll Turner,Night,Rolling Mill,50.4,79.8,18.8,94.2,9,0.54,12.5,2.8,6,Malfunction,Humid,Yes,92,HIGH,Explosion Risk
+W2604,Pankaj More,39,6.9,Rolling Mill,Mill Helper,Night,Rolling Mill,49.2,86.9,35.8,99.6,10,0.43,12.2,3.4,6,Needs Maintenance,Humid,Yes,99,HIGH,Explosion Risk
+W2398,Rekha Patel,54,12.5,Maintenance,Fitter,Night,Maintenance Bay,34.7,46.3,19.8,91.6,6,0.74,10.4,5.9,1,Needs Maintenance,Humid,Yes,49,MEDIUM,None
+W2201,Jaya Reddy,40,8.6,Maintenance,Welder,Afternoon,Maintenance Bay,24.2,34.7,0.4,68.4,1,0.92,5.9,26.9,0,Normal,Rainy,No,31,LOW,None
+W2736,Shanti More,44,17.2,Coke Oven,Oven Helper,Night,Coke Oven,53.2,79.5,37.8,100.6,8,0.16,11.9,1.4,3,Malfunction,Humid,Yes,73,HIGH,Gas Leak
+W2697,Sachin Pawar,45,23.2,Maintenance,Electrician,Afternoon,Maintenance Bay,43.0,67.1,24.6,101.1,7,0.37,14.2,2.1,4,Malfunction,Clear,No,80,HIGH,Multiple Hazards
+W2696,Indira Shinde,40,9.3,Rolling Mill,Roll Turner,Morning,Rolling Mill,49.5,70.7,21.3,99.9,8,0.47,12.3,1.1,6,Malfunction,Rainy,Yes,90,HIGH,Multiple Hazards
+W2409,Kavita Shinde,37,17.5,Crane Operations,Rigger,Night,Crane Area,34.9,46.1,8.5,73.9,5,0.76,8.1,11.6,0,Needs Maintenance,Windy,Yes,44,MEDIUM,Slip Hazard
+W2539,Meena Joshi,43,19.6,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,39.7,56.7,10.3,72.6,5,0.66,10.6,6.8,0,Needs Maintenance,Rainy,No,66,MEDIUM,Noise Hazard
+W2229,Kiran Deshmukh,25,2.1,Casting,Casting Operator,Night,Casting Bay,25.6,32.2,0.9,72.4,3,0.8,5.3,14.5,0,Needs Maintenance,Windy,No,19,LOW,None
+W2374,Kiran Gaikwad,35,9.7,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,32.0,51.7,18.4,77.0,5,0.53,8.4,6.2,1,Needs Maintenance,Hot,Yes,53,MEDIUM,Minor Gas Leak
+W2026,Priya Mishra,28,6.6,Storage,Warehouse Handler,Afternoon,Storage Area,24.3,49.3,3.9,73.4,4,0.78,5.4,12.3,1,Normal,Hot,No,38,LOW,None
+W2060,Shanti Nair,39,18.1,Steel Melting Shop,Melter,Afternoon,SMS Area,29.5,47.7,4.5,57.3,1,0.83,6.7,25.0,0,Needs Maintenance,Rainy,No,16,LOW,None
+W2338,Sunil More,57,5.8,Logistics,Dispatcher,Night,Loading Yard,33.8,45.3,13.9,76.5,6,0.65,9.3,4.3,3,Needs Maintenance,Rainy,Yes,65,MEDIUM,Noise Hazard
+W2517,Ashok Shinde,34,5.5,Logistics,Dispatcher,Afternoon,Loading Yard,36.9,66.5,13.1,71.9,7,0.67,10.4,10.4,2,Needs Maintenance,Windy,Yes,54,MEDIUM,Minor Gas Leak
+W2630,Chitra Pillai,46,2.8,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,45.4,89.7,33.1,108.7,8,0.16,12.3,3.0,5,Malfunction,Humid,Yes,91,HIGH,Chemical Spill
+W2580,Rajesh Patel,35,9.0,Logistics,Driver,Night,Loading Yard,48.3,83.4,18.4,105.5,10,0.12,15.3,5.0,4,Malfunction,Hot,No,74,HIGH,Equipment Failure
+W2599,Rahul Jadhav,26,6.7,Logistics,Driver,Night,Loading Yard,41.9,77.4,33.3,102.5,10,0.44,15.2,2.7,5,Needs Maintenance,Hot,Yes,88,HIGH,Chemical Spill
+W2623,Bharat Shinde,22,2.8,Steel Melting Shop,SMS Operator,Night,SMS Area,48.1,78.2,22.9,100.6,7,0.36,11.1,0.8,6,Normal,Hot,Yes,98,HIGH,Multiple Hazards
+W2324,Sachin Nair,29,0.9,Storage,Warehouse Handler,Afternoon,Storage Area,39.8,69.1,14.2,83.4,4,0.69,9.4,9.6,2,Needs Maintenance,Windy,No,51,MEDIUM,Heat Stress
+W2544,Ganesh Yadav,39,14.2,Rolling Mill,Mill Helper,Morning,Rolling Mill,54.1,84.6,39.6,91.5,8,0.54,12.6,2.1,6,Normal,Clear,Yes,81,HIGH,Gas Leak
+W2794,Tanuja Kumar,24,1.3,Steel Melting Shop,Tapper,Afternoon,SMS Area,45.8,88.3,31.4,105.9,10,0.42,10.7,3.8,5,Malfunction,Hot,Yes,93,HIGH,Explosion Risk
+W2669,Deepak Nair,22,2.2,Coke Oven,Coke Oven Operator,Morning,Coke Oven,40.7,88.8,32.9,100.8,8,0.22,11.5,4.7,5,Needs Maintenance,Hot,Yes,93,HIGH,Explosion Risk
+W2769,Lakshmi Chavan,22,3.8,Storage,Material Checker,Night,Storage Area,48.6,70.3,35.8,91.0,7,0.2,13.0,1.7,4,Malfunction,Humid,Yes,79,HIGH,Equipment Failure
+W2718,Yogesh Patil,24,2.7,Maintenance,Electrician,Morning,Maintenance Bay,52.9,80.0,27.6,108.8,10,0.42,15.6,2.9,6,Malfunction,Clear,No,100,HIGH,Equipment Failure
+W2497,Uma Patel,57,2.7,Rolling Mill,Mill Helper,Morning,Rolling Mill,39.9,63.9,19.7,87.7,7,0.79,9.1,7.9,1,Needs Maintenance,Clear,Yes,50,MEDIUM,None
+W2675,Prakash Menon,37,16.6,Casting,Ladle Operator,Night,Casting Bay,46.5,87.6,25.6,86.4,10,0.19,12.5,1.5,3,Needs Maintenance,Windy,No,95,HIGH,Multiple Hazards
+W2764,Amit Yadav,35,16.1,Rolling Mill,Roll Turner,Morning,Rolling Mill,54.2,62.7,21.6,109.0,7,0.34,10.1,1.7,2,Needs Maintenance,Windy,Yes,85,HIGH,Explosion Risk
+W2746,Lakshmi Deshmukh,41,13.9,Blast Furnace,Furnace Operator,Morning,Blast Furnace,49.1,73.3,34.3,90.7,8,0.13,11.8,2.6,2,Malfunction,Humid,Yes,79,HIGH,Multiple Hazards
+W2562,Kavita Mishra,44,15.0,Maintenance,Welder,Afternoon,Maintenance Bay,49.9,80.6,20.6,108.5,7,0.18,13.7,1.5,5,Malfunction,Windy,Yes,80,HIGH,Structural Risk
+W2264,Yogesh Patel,58,31.2,Blast Furnace,Furnace Helper,Morning,Blast Furnace,27.6,42.3,6.1,73.6,1,0.81,4.5,13.9,1,Normal,Clear,No,32,LOW,None
+W2581,Savita Chavan,40,17.7,Casting,Mould Handler,Morning,Casting Bay,44.4,66.3,34.8,91.3,10,0.49,10.6,1.1,4,Malfunction,Clear,No,100,HIGH,Explosion Risk
+W2463,Bharat Patil,46,7.1,Quality Control,Lab Technician,Morning,QC Lab,37.1,51.3,11.1,91.1,5,0.68,9.2,7.3,3,Needs Maintenance,Windy,Yes,66,MEDIUM,Dust Exposure
+W2660,Prakash Gupta,50,8.0,Coke Oven,Oven Helper,Afternoon,Coke Oven,41.6,67.5,25.0,105.2,9,0.49,11.8,4.4,6,Needs Maintenance,Clear,No,94,HIGH,Chemical Spill
+W2671,Vandana Patil,43,1.6,Maintenance,Fitter,Morning,Maintenance Bay,45.5,70.7,25.6,98.0,8,0.3,15.3,2.8,4,Malfunction,Hot,No,93,HIGH,Fire Hazard
+W2772,Deepak Nair,48,5.3,Quality Control,Lab Technician,Afternoon,QC Lab,46.9,71.8,37.1,91.1,7,0.54,15.7,1.6,4,Needs Maintenance,Humid,Yes,73,HIGH,Fire Hazard
+W2542,Naresh More,29,7.7,Crane Operations,Crane Operator,Afternoon,Crane Area,47.0,63.6,39.6,90.4,8,0.13,13.6,3.8,3,Normal,Hot,Yes,94,HIGH,Explosion Risk
+W2783,Chitra Nair,26,1.1,Crane Operations,Crane Operator,Night,Crane Area,40.1,72.3,25.2,102.3,9,0.44,11.8,4.2,4,Needs Maintenance,Windy,No,76,HIGH,Chemical Spill
+W2334,Anand Bhosale,43,24.0,Casting,Ladle Operator,Morning,Casting Bay,32.8,61.3,17.6,72.5,5,0.62,8.8,7.0,0,Needs Maintenance,Windy,No,52,MEDIUM,Equipment Wear
+W2478,Shanti Patil,29,7.4,Logistics,Driver,Afternoon,Loading Yard,40.5,69.0,16.1,83.9,6,0.55,8.9,9.7,1,Needs Maintenance,Hot,No,67,MEDIUM,Heat Stress
+W2576,Sunil Deshmukh,43,22.6,Quality Control,Lab Technician,Night,QC Lab,52.4,71.9,21.4,103.4,8,0.26,14.0,1.7,5,Malfunction,Clear,No,82,HIGH,Equipment Failure
+W2621,Vandana Jadhav,35,3.0,Steel Melting Shop,Melter,Night,SMS Area,46.6,61.5,36.1,105.7,8,0.36,12.1,4.1,3,Needs Maintenance,Humid,Yes,83,HIGH,Structural Risk
+W2248,Priya Menon,34,2.5,Casting,Casting Operator,Afternoon,Casting Bay,30.0,38.6,6.2,63.2,1,0.86,4.5,27.7,1,Needs Maintenance,Rainy,No,12,LOW,None
+W2755,Ashok Patil,42,7.0,Logistics,Dispatcher,Night,Loading Yard,54.1,70.3,39.7,97.1,10,0.18,15.3,2.6,2,Malfunction,Windy,Yes,90,HIGH,Fire Hazard
+W2210,Deepak Gaikwad,54,7.0,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,30.6,58.0,0.5,74.4,4,0.85,7.5,25.6,0,Normal,Hot,No,26,LOW,Noise Hazard
+W2335,Sunil Kumar,42,5.5,Quality Control,QC Inspector,Night,QC Lab,33.6,56.3,18.5,71.6,5,0.52,8.4,11.5,1,Needs Maintenance,Windy,No,48,MEDIUM,Noise Hazard
+W2566,Lakshmi Nair,55,6.7,Storage,Material Checker,Morning,Storage Area,53.0,87.8,27.2,86.3,8,0.12,13.4,2.3,6,Malfunction,Windy,Yes,96,HIGH,Multiple Hazards
+W2445,Tushar Sharma,56,17.6,Logistics,Loader,Night,Loading Yard,39.7,61.6,16.9,75.3,7,0.71,7.4,5.6,1,Malfunction,Humid,Yes,49,MEDIUM,Noise Hazard
+W2591,Pooja Sawant,48,2.1,Maintenance,Fitter,Morning,Maintenance Bay,44.1,66.5,32.6,100.8,8,0.37,10.1,3.8,3,Malfunction,Clear,Yes,92,HIGH,Structural Risk
+W2007,Nitin Kumar,51,13.4,Logistics,Dispatcher,Night,Loading Yard,22.4,55.5,2.6,66.6,2,0.83,6.1,20.9,1,Normal,Humid,No,27,LOW,None
+W2616,Sachin Pillai,27,5.7,Blast Furnace,Furnace Operator,Morning,Blast Furnace,41.2,74.3,31.9,105.7,8,0.45,11.7,4.7,5,Malfunction,Windy,Yes,81,HIGH,Explosion Risk
+W2590,Rohit Mane,47,8.6,Storage,Material Checker,Afternoon,Storage Area,53.5,83.8,32.9,102.0,9,0.53,11.8,0.5,6,Malfunction,Windy,No,80,HIGH,Multiple Hazards
+W2259,Sanjay Pawar,20,1.9,Storage,Warehouse Handler,Night,Storage Area,30.6,35.2,1.7,52.5,1,0.92,7.1,15.3,0,Normal,Humid,Yes,29,LOW,None
+W2732,Arjun Joshi,58,7.2,Rolling Mill,Roll Turner,Morning,Rolling Mill,47.2,82.7,24.2,93.0,7,0.52,10.3,2.7,3,Malfunction,Windy,Yes,96,HIGH,Multiple Hazards
+W2124,Rajesh Chavan,51,19.9,Maintenance,Fitter,Morning,Maintenance Bay,27.9,44.7,4.4,60.0,2,0.89,4.6,13.6,0,Normal,Windy,No,21,LOW,None
+W2213,Dilip Patel,51,21.2,Logistics,Loader,Night,Loading Yard,26.2,40.3,4.0,67.4,2,0.85,5.8,14.8,1,Normal,Hot,No,36,LOW,None
+W2635,Rajesh Bhat,42,2.1,Maintenance,Fitter,Morning,Maintenance Bay,54.9,67.2,37.2,105.8,10,0.2,12.4,2.3,6,Malfunction,Humid,Yes,80,HIGH,Explosion Risk
+W2136,Ravi Bhat,54,10.5,Coke Oven,Gas Handler,Afternoon,Coke Oven,22.1,33.8,9.0,71.8,2,0.9,6.4,23.3,1,Normal,Hot,No,16,LOW,None
+W2138,Indira Pillai,56,3.0,Quality Control,Lab Technician,Afternoon,QC Lab,31.6,32.3,6.0,56.1,4,0.85,5.2,17.1,1,Normal,Clear,No,38,LOW,None
+W2295,Manoj Mane,45,1.0,Coke Oven,Coke Oven Operator,Morning,Coke Oven,40.5,59.7,8.9,81.3,5,0.74,8.8,4.4,0,Normal,Hot,Yes,51,MEDIUM,Dust Exposure
+W2518,Mukesh Gupta,50,22.9,Quality Control,Sampler,Night,QC Lab,34.3,63.2,11.1,74.8,6,0.76,8.0,6.1,3,Normal,Windy,No,62,MEDIUM,None
+W2300,Priya Singh,25,6.4,Coke Oven,Coke Oven Operator,Night,Coke Oven,38.8,52.8,19.1,82.7,5,0.69,10.2,7.2,0,Normal,Humid,Yes,63,MEDIUM,Heat Stress
+W2304,Vikram More,23,4.9,Casting,Casting Operator,Morning,Casting Bay,38.6,71.1,13.8,91.7,7,0.7,9.5,5.3,3,Normal,Clear,No,45,MEDIUM,Equipment Wear
+W2004,Pooja Joshi,43,14.6,Steel Melting Shop,SMS Operator,Night,SMS Area,23.8,38.2,3.7,61.4,1,0.95,4.8,20.3,0,Needs Maintenance,Clear,Yes,37,LOW,None
+W2203,Ravi Nair,58,17.0,Steel Melting Shop,Melter,Afternoon,SMS Area,28.9,56.2,0.4,53.1,4,0.86,7.7,16.3,0,Needs Maintenance,Windy,No,38,LOW,None
+W2363,Mukesh Bhat,57,12.5,Storage,Material Checker,Afternoon,Storage Area,41.6,67.5,18.4,73.1,5,0.73,10.1,9.3,3,Malfunction,Hot,No,48,MEDIUM,Noise Hazard
+W2608,Sunil Shinde,49,5.0,Crane Operations,Crane Operator,Afternoon,Crane Area,54.5,71.3,19.4,93.5,7,0.33,11.0,3.5,3,Normal,Clear,Yes,84,HIGH,Structural Risk
+W2180,Ashok Sawant,41,7.3,Crane Operations,Rigger,Morning,Crane Area,23.6,49.2,4.3,55.0,2,0.87,4.3,21.6,0,Normal,Hot,No,39,LOW,None
+W2319,Gopal Bhosale,54,10.4,Steel Melting Shop,Tapper,Afternoon,SMS Area,35.9,61.2,12.2,76.6,4,0.72,7.2,11.2,0,Needs Maintenance,Clear,Yes,41,MEDIUM,Noise Hazard
+W2508,Balaji Patil,23,1.8,Casting,Casting Operator,Morning,Casting Bay,39.3,66.7,9.9,82.8,7,0.65,7.6,9.0,3,Needs Maintenance,Humid,Yes,68,MEDIUM,Slip Hazard
+W2101,Rohit Joshi,40,17.2,Coke Oven,Coke Oven Operator,Night,Coke Oven,28.9,31.5,3.4,53.4,1,0.77,8.0,16.4,0,Normal,Windy,No,11,LOW,None
+W2333,Bharat Chavan,21,1.7,Maintenance,Electrician,Night,Maintenance Bay,42.7,70.8,19.5,70.0,5,0.69,7.2,6.1,3,Normal,Hot,No,49,MEDIUM,Dust Exposure
+W2554,Kamal Jadhav,21,2.9,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,42.7,64.7,36.2,86.0,9,0.29,11.0,4.5,3,Malfunction,Windy,Yes,94,HIGH,Gas Leak
+W2680,Sanjay Nair,34,4.6,Steel Melting Shop,SMS Operator,Morning,SMS Area,47.6,85.8,37.1,85.2,7,0.45,12.8,4.9,4,Needs Maintenance,Rainy,Yes,90,HIGH,Gas Leak
+W2473,Jagdish More,43,3.3,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,34.9,54.5,13.2,71.5,5,0.61,8.9,9.8,2,Needs Maintenance,Clear,Yes,68,MEDIUM,Equipment Wear
+W2645,Hemant Bhat,28,3.4,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,48.8,88.2,21.8,96.8,7,0.14,13.8,3.0,6,Malfunction,Humid,No,81,HIGH,Chemical Spill
+W2336,Zeenat Gaikwad,56,29.9,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,40.7,63.3,13.1,83.1,4,0.5,9.5,11.3,2,Normal,Humid,Yes,46,MEDIUM,Dust Exposure
+W2637,Zeenat Kulkarni,46,11.1,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,52.5,84.1,37.1,86.5,7,0.41,10.8,2.4,5,Needs Maintenance,Rainy,Yes,97,HIGH,Fire Hazard
+W2687,Rekha Deshmukh,58,32.0,Casting,Ladle Operator,Night,Casting Bay,53.6,65.7,36.1,98.6,10,0.14,15.7,1.6,3,Normal,Humid,Yes,82,HIGH,Fire Hazard
+W2766,Dilip More,54,26.4,Blast Furnace,Slag Handler,Morning,Blast Furnace,46.1,65.1,39.5,106.3,7,0.32,13.6,1.5,6,Malfunction,Windy,Yes,99,HIGH,Explosion Risk
+W2228,Uma Jadhav,48,25.9,Casting,Ladle Operator,Morning,Casting Bay,31.3,49.4,9.9,53.2,2,0.78,6.9,21.6,0,Normal,Clear,No,23,LOW,None
+W2052,Kiran Bhosale,48,7.7,Crane Operations,Crane Operator,Afternoon,Crane Area,29.6,56.3,5.8,59.7,4,0.91,5.8,20.9,1,Normal,Windy,No,15,LOW,None
+W2760,Meena Chauhan,56,30.4,Maintenance,Fitter,Night,Maintenance Bay,54.4,75.3,28.0,92.0,7,0.53,10.9,3.1,2,Malfunction,Rainy,No,82,HIGH,Fire Hazard
+W2255,Rekha Sharma,56,33.2,Coke Oven,Gas Handler,Afternoon,Coke Oven,25.3,53.5,0.4,72.5,3,0.87,6.5,23.2,0,Normal,Windy,No,17,LOW,None
+W2477,Kamal Yadav,28,5.3,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,34.2,50.3,20.5,86.5,5,0.77,10.0,8.8,2,Needs Maintenance,Rainy,Yes,63,MEDIUM,Heat Stress
+W2315,Tushar Roy,31,9.1,Logistics,Loader,Morning,Loading Yard,39.1,55.3,21.7,72.4,4,0.63,7.2,9.9,3,Normal,Hot,No,50,MEDIUM,Equipment Wear
+W2757,Rohit Patil,52,20.8,Crane Operations,Signal Man,Afternoon,Crane Area,40.6,60.7,35.0,88.4,9,0.31,13.6,2.4,5,Malfunction,Hot,No,77,HIGH,Gas Leak
+W2600,Hemant Pillai,43,15.5,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,51.0,78.6,22.1,85.6,7,0.23,12.7,3.3,2,Malfunction,Humid,No,91,HIGH,Fire Hazard
+W2481,Anand More,44,12.6,Crane Operations,Rigger,Morning,Crane Area,42.4,52.3,17.7,75.8,7,0.78,9.5,6.6,0,Needs Maintenance,Windy,No,52,MEDIUM,Dust Exposure
+W2045,Sanjay Menon,36,7.1,Casting,Ladle Operator,Morning,Casting Bay,32.3,37.6,4.4,52.0,3,0.76,7.9,26.7,1,Needs Maintenance,Humid,No,34,LOW,Noise Hazard
+W2051,Raghav Chavan,49,22.1,Coke Oven,Gas Handler,Afternoon,Coke Oven,28.5,54.0,6.6,54.1,3,0.77,6.6,10.5,1,Normal,Hot,No,28,LOW,None
+W2751,Zeenat Bhosale,27,2.0,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,45.8,89.0,33.3,87.1,7,0.49,12.9,0.8,6,Malfunction,Hot,Yes,71,HIGH,Fire Hazard
+W2299,Mukesh Roy,32,5.3,Crane Operations,Rigger,Afternoon,Crane Area,33.4,62.7,19.5,78.4,5,0.73,10.9,5.6,0,Normal,Rainy,No,62,MEDIUM,Minor Gas Leak
+W2146,Kavita Yadav,45,13.9,Storage,Forklift Operator,Morning,Storage Area,34.0,35.1,5.7,72.9,3,0.76,6.8,15.9,0,Normal,Hot,No,38,LOW,None
+W2196,Amit Patel,47,13.3,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,23.7,50.0,9.1,54.5,4,0.81,7.9,13.6,0,Normal,Windy,No,12,LOW,None
+W2456,Nirmala Mishra,48,20.3,Storage,Forklift Operator,Afternoon,Storage Area,39.0,54.6,13.0,88.2,5,0.74,8.2,11.3,2,Needs Maintenance,Hot,No,57,MEDIUM,Equipment Wear
+W2312,Krishna Joshi,55,18.5,Coke Oven,Gas Handler,Night,Coke Oven,40.4,63.7,15.2,76.7,4,0.56,7.1,6.4,1,Needs Maintenance,Clear,No,63,MEDIUM,Dust Exposure
+W2084,Omkar Mishra,27,4.5,Storage,Material Checker,Morning,Storage Area,34.7,43.8,3.3,65.8,2,0.81,4.3,12.6,1,Malfunction,Hot,No,21,LOW,None
+W2284,Nitin Sawant,37,5.3,Storage,Material Checker,Night,Storage Area,42.4,57.4,14.8,72.9,5,0.52,9.9,8.0,1,Normal,Rainy,Yes,41,MEDIUM,None
+W2681,Deepak Gupta,24,2.5,Storage,Warehouse Handler,Night,Storage Area,47.2,89.6,34.6,91.2,9,0.34,16.0,4.4,3,Needs Maintenance,Hot,Yes,93,HIGH,Explosion Risk
+W2504,Ashok Pillai,36,6.4,Coke Oven,Oven Helper,Afternoon,Coke Oven,38.1,52.3,9.4,73.7,4,0.54,10.9,10.1,0,Malfunction,Clear,Yes,65,MEDIUM,Heat Stress
+W2413,Nitin Roy,34,2.9,Logistics,Driver,Night,Loading Yard,32.9,70.4,15.1,79.0,7,0.74,10.3,6.7,0,Needs Maintenance,Humid,Yes,52,MEDIUM,Noise Hazard
+W2356,Rohit Gupta,29,5.0,Coke Oven,Oven Helper,Night,Coke Oven,44.8,58.1,20.1,83.0,6,0.61,8.1,5.6,3,Normal,Rainy,No,61,MEDIUM,Minor Gas Leak
+W2407,Hemant Deshmukh,47,24.0,Coke Oven,Oven Helper,Afternoon,Coke Oven,43.9,70.7,16.1,77.9,5,0.74,8.0,8.5,1,Needs Maintenance,Windy,No,63,MEDIUM,Slip Hazard
+W2352,Omkar Mane,52,23.4,Crane Operations,Signal Man,Morning,Crane Area,40.1,58.2,13.6,91.9,4,0.76,9.5,8.6,1,Needs Maintenance,Windy,No,41,MEDIUM,None
+W2172,Sanjay Bhat,45,14.5,Coke Oven,Coke Oven Operator,Night,Coke Oven,34.6,51.0,1.3,69.0,1,0.76,4.1,16.5,0,Malfunction,Hot,No,33,LOW,None
+W2268,Suresh Sharma,26,1.1,Storage,Material Checker,Afternoon,Storage Area,31.4,52.9,2.1,62.6,4,0.96,6.9,20.8,0,Normal,Windy,No,36,LOW,None
+W2219,Naresh Roy,26,1.5,Logistics,Loader,Afternoon,Loading Yard,25.7,38.6,8.0,63.5,3,0.83,6.4,24.3,0,Normal,Clear,No,14,LOW,None
+W2797,Sachin Das,29,3.1,Casting,Ladle Operator,Night,Casting Bay,52.3,79.4,32.2,88.2,7,0.39,15.9,4.6,2,Needs Maintenance,Rainy,Yes,79,HIGH,Gas Leak
+W2656,Naresh Jadhav,21,3.0,Storage,Warehouse Handler,Night,Storage Area,54.5,71.8,20.9,101.8,9,0.43,13.5,1.4,6,Needs Maintenance,Windy,Yes,83,HIGH,Multiple Hazards
+W2181,Ashok Thakur,35,9.6,Logistics,Dispatcher,Afternoon,Loading Yard,25.5,52.3,3.1,61.4,4,0.75,4.3,17.8,1,Normal,Humid,No,38,LOW,None
+W2211,Arjun Kulkarni,45,16.1,Coke Oven,Gas Handler,Afternoon,Coke Oven,29.4,50.7,8.8,60.1,4,0.83,6.7,26.2,0,Needs Maintenance,Rainy,No,19,LOW,Noise Hazard
+W2501,Anil Deshmukh,37,10.2,Casting,Casting Operator,Afternoon,Casting Bay,35.7,66.7,22.0,70.7,5,0.77,9.5,11.8,0,Normal,Hot,No,59,MEDIUM,Heat Stress
+W2234,Balaji Pillai,35,1.5,Rolling Mill,Mill Helper,Morning,Rolling Mill,26.5,48.6,8.0,73.2,1,0.81,5.6,13.0,1,Normal,Humid,No,31,LOW,None
+W2354,Vinod Gaikwad,50,25.4,Quality Control,Lab Technician,Afternoon,QC Lab,44.5,69.6,18.1,81.7,4,0.76,7.5,10.3,3,Needs Maintenance,Rainy,No,47,MEDIUM,None
+W2064,Kamal Nair,25,4.4,Quality Control,Sampler,Afternoon,QC Lab,34.8,40.5,3.7,70.3,3,0.99,7.9,25.1,0,Normal,Rainy,Yes,36,LOW,Noise Hazard
+W2258,Vikram Patel,47,23.1,Storage,Forklift Operator,Afternoon,Storage Area,22.2,56.8,7.4,58.8,2,0.82,5.4,25.5,1,Normal,Rainy,No,15,LOW,None
+W2158,Kiran Sharma,26,5.1,Quality Control,Sampler,Night,QC Lab,26.6,31.6,9.7,72.1,2,0.98,8.0,13.5,0,Normal,Hot,No,30,LOW,None
+W2155,Nirmala Chauhan,36,11.2,Quality Control,Lab Technician,Morning,QC Lab,24.8,56.6,7.9,52.2,3,0.85,7.5,28.9,1,Normal,Hot,Yes,19,LOW,None
+W2782,Kiran Kumar,57,13.7,Crane Operations,Signal Man,Morning,Crane Area,52.9,85.3,25.9,102.2,7,0.24,10.4,3.7,2,Malfunction,Hot,No,90,HIGH,Explosion Risk
+W2685,Gaurav Nair,55,1.5,Steel Melting Shop,SMS Operator,Morning,SMS Area,47.4,69.9,20.3,108.8,8,0.13,11.8,1.8,4,Normal,Windy,Yes,95,HIGH,Multiple Hazards
+W2190,Kamal Sawant,47,18.9,Casting,Casting Operator,Afternoon,Casting Bay,24.8,57.3,3.4,54.6,1,0.95,6.6,20.0,0,Normal,Windy,Yes,32,LOW,Noise Hazard
+W2723,Gopal Kumar,45,19.0,Casting,Ladle Operator,Morning,Casting Bay,46.5,79.7,27.6,91.9,10,0.35,12.1,4.7,2,Malfunction,Hot,No,83,HIGH,Chemical Spill
+W2296,Pankaj Deshmukh,36,14.0,Blast Furnace,Furnace Helper,Night,Blast Furnace,42.2,50.4,11.6,73.6,4,0.6,10.0,8.2,0,Normal,Clear,Yes,62,MEDIUM,Heat Stress
+W2098,Tanuja Joshi,42,2.9,Blast Furnace,Furnace Helper,Night,Blast Furnace,33.3,52.9,2.6,54.3,2,0.92,7.7,21.1,1,Normal,Hot,No,37,LOW,None
+W2108,Deepak Sharma,36,4.0,Casting,Casting Operator,Night,Casting Bay,30.1,33.3,9.4,65.7,1,0.83,4.6,25.9,0,Malfunction,Hot,No,24,LOW,None
+W2383,Omkar Das,49,30.2,Coke Oven,Oven Helper,Night,Coke Oven,43.6,52.8,13.1,71.3,7,0.53,9.1,6.1,1,Malfunction,Rainy,No,45,MEDIUM,Equipment Wear
+W2111,Tanuja Roy,44,12.3,Rolling Mill,Roll Turner,Night,Rolling Mill,23.4,53.7,1.3,59.9,4,0.95,4.6,14.6,0,Normal,Clear,No,14,LOW,Noise Hazard
+W2194,Arjun Pillai,31,9.0,Coke Oven,Gas Handler,Night,Coke Oven,29.5,42.3,7.3,62.2,1,0.97,7.6,18.4,1,Needs Maintenance,Humid,No,12,LOW,None
+W2426,Vikram Patil,54,24.1,Crane Operations,Signal Man,Morning,Crane Area,32.3,67.7,8.2,85.5,6,0.79,8.8,5.9,1,Needs Maintenance,Hot,No,64,MEDIUM,Noise Hazard
+W2744,Sunil Nair,30,7.1,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,54.7,79.3,33.8,109.4,9,0.27,14.8,2.5,3,Malfunction,Humid,No,76,HIGH,Multiple Hazards
+W2629,Vikram More,44,13.8,Logistics,Dispatcher,Morning,Loading Yard,44.4,62.3,21.7,88.2,9,0.16,13.1,1.6,6,Malfunction,Clear,No,81,HIGH,Structural Risk
+W2714,Ramesh Verma,50,3.0,Maintenance,Welder,Afternoon,Maintenance Bay,48.6,70.2,32.3,86.7,10,0.5,10.7,2.0,3,Malfunction,Humid,Yes,89,HIGH,Multiple Hazards
+W2538,Tanuja Shinde,30,6.8,Casting,Casting Operator,Afternoon,Casting Bay,42.8,48.2,18.3,81.7,6,0.59,9.0,6.4,2,Needs Maintenance,Rainy,No,66,MEDIUM,Noise Hazard
+W2626,Nirmala Joshi,33,1.8,Casting,Mould Handler,Night,Casting Bay,47.2,71.5,36.5,88.6,9,0.33,10.4,0.8,3,Malfunction,Rainy,No,87,HIGH,Chemical Spill
+W2019,Mohan Pillai,55,23.3,Storage,Forklift Operator,Afternoon,Storage Area,32.6,54.1,0.1,62.8,2,0.85,4.9,12.4,1,Normal,Hot,No,33,LOW,None
+W2701,Balaji Joshi,48,2.0,Rolling Mill,Mill Helper,Morning,Rolling Mill,40.1,74.5,20.7,92.7,10,0.52,11.0,4.8,3,Normal,Clear,Yes,77,HIGH,Fire Hazard
+W2364,Deepak Bhat,24,3.3,Steel Melting Shop,Tapper,Afternoon,SMS Area,42.0,67.8,16.6,71.9,6,0.65,7.3,7.3,2,Normal,Clear,No,58,MEDIUM,Minor Gas Leak
+W2431,Chandan Reddy,32,10.7,Blast Furnace,Furnace Helper,Morning,Blast Furnace,39.1,52.8,12.3,77.8,7,0.69,8.3,9.9,3,Normal,Hot,No,68,MEDIUM,Noise Hazard
+W2412,Rahul Bhosale,47,12.4,Blast Furnace,Furnace Helper,Morning,Blast Furnace,34.7,61.0,10.6,77.3,4,0.76,7.8,4.6,3,Needs Maintenance,Hot,No,50,MEDIUM,Equipment Wear
+W2325,Vinod Patel,53,2.9,Coke Oven,Gas Handler,Night,Coke Oven,35.1,58.8,9.5,78.5,7,0.65,9.6,11.6,3,Needs Maintenance,Hot,Yes,46,MEDIUM,Dust Exposure
+W2065,Hemant Jadhav,37,11.2,Logistics,Driver,Morning,Loading Yard,26.9,32.3,7.8,64.0,4,0.86,7.6,12.2,1,Normal,Humid,No,30,LOW,None
+W2499,Balaji Chauhan,55,6.2,Steel Melting Shop,SMS Operator,Morning,SMS Area,36.6,46.4,8.4,79.3,4,0.53,9.4,11.0,1,Needs Maintenance,Windy,No,59,MEDIUM,Minor Gas Leak
+W2002,Ramesh More,54,15.0,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,33.3,46.8,7.1,50.5,3,0.99,7.3,14.2,0,Needs Maintenance,Windy,No,23,LOW,None
+W2267,Yogesh Bhat,44,5.2,Storage,Warehouse Handler,Afternoon,Storage Area,24.3,45.3,9.8,73.4,2,0.76,4.7,12.6,1,Normal,Rainy,No,18,LOW,None
+W2498,Rajesh Jadhav,56,19.3,Steel Melting Shop,Melter,Afternoon,SMS Area,37.2,49.1,16.0,76.1,4,0.78,9.3,8.7,1,Needs Maintenance,Hot,Yes,44,MEDIUM,None
+W2731,Gaurav Reddy,58,17.2,Coke Oven,Gas Handler,Night,Coke Oven,54.6,86.0,31.2,102.5,7,0.23,13.8,2.6,4,Malfunction,Windy,No,99,HIGH,Structural Risk
+W2795,Deepak Thakur,44,1.0,Blast Furnace,Slag Handler,Morning,Blast Furnace,44.1,79.2,25.5,109.9,8,0.22,11.7,4.7,3,Needs Maintenance,Clear,Yes,100,HIGH,Multiple Hazards
+W2439,Nirmala Gaikwad,20,1.4,Maintenance,Electrician,Afternoon,Maintenance Bay,32.2,71.1,11.5,84.9,5,0.71,9.4,6.5,3,Needs Maintenance,Hot,No,59,MEDIUM,Equipment Wear
+W2487,Manoj Shinde,24,2.0,Coke Oven,Oven Helper,Morning,Coke Oven,45.0,53.8,18.5,87.7,7,0.76,11.0,5.9,2,Malfunction,Humid,Yes,66,MEDIUM,Slip Hazard
+W2256,Jagdish Singh,41,21.2,Blast Furnace,Slag Handler,Morning,Blast Furnace,33.6,47.8,6.1,51.7,3,0.88,4.6,24.7,0,Needs Maintenance,Hot,No,20,LOW,None
+W2700,Sanjay Kumar,22,3.6,Maintenance,Electrician,Night,Maintenance Bay,43.6,71.6,19.8,88.7,10,0.23,10.5,4.6,2,Needs Maintenance,Hot,No,90,HIGH,Multiple Hazards
+W2235,Priya More,28,7.2,Casting,Casting Operator,Morning,Casting Bay,34.9,56.0,5.4,71.1,3,0.88,6.5,11.8,1,Normal,Humid,No,34,LOW,Noise Hazard
+W2078,Jaya Patel,30,2.5,Logistics,Dispatcher,Night,Loading Yard,23.7,56.7,6.1,55.7,2,0.92,6.5,17.2,1,Needs Maintenance,Humid,No,24,LOW,None
+W2008,Raghav Patil,45,10.1,Logistics,Loader,Morning,Loading Yard,24.4,57.1,7.8,73.5,4,0.97,6.4,28.4,0,Needs Maintenance,Windy,No,14,LOW,None
+W2447,Vandana Kumar,38,5.5,Crane Operations,Crane Operator,Morning,Crane Area,32.8,57.4,18.3,83.3,6,0.7,7.3,11.6,2,Normal,Rainy,Yes,50,MEDIUM,Slip Hazard
+W2341,Vandana Singh,57,20.5,Blast Furnace,Slag Handler,Night,Blast Furnace,42.7,68.2,20.8,79.5,4,0.6,9.3,7.0,2,Normal,Hot,No,55,MEDIUM,Dust Exposure
+W2533,Mukesh Thakur,38,11.3,Crane Operations,Crane Operator,Morning,Crane Area,36.8,70.1,8.9,72.0,6,0.55,9.4,5.2,3,Normal,Rainy,No,40,MEDIUM,None
+W2716,Harish Joshi,49,9.1,Storage,Forklift Operator,Night,Storage Area,41.3,83.3,36.6,89.5,10,0.29,11.0,3.7,2,Malfunction,Windy,Yes,76,HIGH,Fire Hazard
+W2316,Tanuja Mane,35,5.0,Steel Melting Shop,Melter,Afternoon,SMS Area,43.9,52.6,20.0,76.4,7,0.77,10.0,10.4,1,Needs Maintenance,Rainy,No,68,MEDIUM,Dust Exposure
+W2297,Arjun Gupta,55,9.2,Steel Melting Shop,Melter,Night,SMS Area,34.7,68.7,20.3,89.2,5,0.57,8.8,11.9,0,Needs Maintenance,Hot,No,61,MEDIUM,Equipment Wear
+W2759,Deepak Thakur,34,6.4,Storage,Warehouse Handler,Morning,Storage Area,47.2,71.7,37.5,107.3,8,0.25,13.7,4.7,6,Needs Maintenance,Clear,Yes,96,HIGH,Explosion Risk
+W2040,Raghav Patel,50,14.7,Quality Control,Lab Technician,Morning,QC Lab,33.9,44.3,5.0,70.0,4,0.91,6.8,25.9,0,Normal,Rainy,No,19,LOW,None
+W2384,Vandana Pawar,56,15.5,Logistics,Loader,Night,Loading Yard,42.9,45.4,13.3,77.4,6,0.51,7.5,7.3,2,Needs Maintenance,Windy,Yes,42,MEDIUM,Minor Gas Leak
+W2306,Rekha Pawar,56,8.2,Quality Control,Sampler,Night,QC Lab,43.6,47.1,18.2,74.1,4,0.76,10.3,8.3,3,Normal,Rainy,Yes,51,MEDIUM,Dust Exposure
+W2523,Rohit Joshi,23,1.2,Crane Operations,Rigger,Afternoon,Crane Area,32.4,50.5,12.8,81.2,5,0.68,10.6,8.1,1,Normal,Humid,Yes,45,MEDIUM,None
+W2006,Kiran Mane,55,8.1,Maintenance,Electrician,Afternoon,Maintenance Bay,32.5,38.5,1.0,67.1,2,0.86,4.5,19.9,0,Needs Maintenance,Clear,No,12,LOW,None
+W2587,Deepak Bhat,23,0.7,Storage,Warehouse Handler,Morning,Storage Area,48.2,65.2,24.5,101.6,9,0.53,10.3,4.5,6,Normal,Humid,No,89,HIGH,Multiple Hazards
+W2293,Kavita Jadhav,20,1.4,Quality Control,QC Inspector,Morning,QC Lab,43.2,64.5,8.9,85.6,6,0.66,7.3,7.7,2,Needs Maintenance,Hot,Yes,58,MEDIUM,Slip Hazard
+W2355,Tanuja Bhosale,54,14.6,Rolling Mill,Mill Helper,Morning,Rolling Mill,33.6,66.4,11.9,89.3,4,0.78,7.6,7.7,0,Normal,Clear,Yes,46,MEDIUM,Dust Exposure
+W2182,Jagdish Shinde,40,20.2,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,28.2,46.8,2.9,67.4,4,0.97,7.1,10.8,0,Normal,Rainy,No,14,LOW,None
+W2224,Sunil Patel,37,2.2,Casting,Mould Handler,Afternoon,Casting Bay,25.1,51.9,2.7,70.6,1,0.86,6.7,11.9,1,Normal,Rainy,No,11,LOW,None
+W2799,Pankaj More,27,4.7,Steel Melting Shop,Tapper,Morning,SMS Area,46.4,74.1,38.4,101.0,7,0.24,13.2,0.8,4,Malfunction,Hot,Yes,73,HIGH,Equipment Failure
+W2083,Gopal Pillai,31,3.0,Storage,Forklift Operator,Night,Storage Area,33.2,56.6,1.5,73.2,3,0.87,5.0,19.2,0,Normal,Rainy,No,25,LOW,Noise Hazard
+W2353,Hemant Gupta,25,3.6,Quality Control,Sampler,Morning,QC Lab,40.1,50.4,13.5,70.9,4,0.64,9.2,5.8,3,Normal,Windy,Yes,41,MEDIUM,Dust Exposure
+W2275,Raghav Chauhan,21,1.3,Maintenance,Electrician,Afternoon,Maintenance Bay,37.1,56.1,17.7,70.1,6,0.69,8.4,10.4,3,Malfunction,Rainy,No,67,MEDIUM,Noise Hazard
+W2440,Pankaj Bhat,37,12.0,Blast Furnace,Furnace Operator,Night,Blast Furnace,35.5,61.1,20.1,90.8,4,0.53,7.6,11.6,1,Needs Maintenance,Hot,No,41,MEDIUM,Noise Hazard
+W2605,Sanjay Yadav,58,9.4,Casting,Casting Operator,Night,Casting Bay,47.0,65.7,33.4,98.9,10,0.26,15.5,0.6,6,Malfunction,Clear,Yes,70,HIGH,Fire Hazard
+W2425,Arjun Roy,34,7.0,Rolling Mill,Roll Turner,Night,Rolling Mill,44.3,58.4,13.3,73.6,7,0.74,9.9,7.1,2,Malfunction,Hot,Yes,57,MEDIUM,Noise Hazard
+W2467,Gaurav Kumar,33,10.4,Logistics,Dispatcher,Afternoon,Loading Yard,37.5,45.5,19.1,71.5,6,0.64,9.2,9.0,3,Normal,Rainy,No,42,MEDIUM,Equipment Wear
+W2102,Zeenat Pillai,51,20.2,Storage,Forklift Operator,Afternoon,Storage Area,32.5,37.1,6.8,69.0,2,0.9,5.9,18.2,0,Normal,Rainy,No,31,LOW,None
+W2085,Ajay Bhat,27,4.4,Steel Melting Shop,SMS Operator,Night,SMS Area,23.7,34.3,1.4,66.0,4,0.8,5.4,27.9,1,Normal,Rainy,No,10,LOW,None
+W2784,Vikram Kumar,46,15.6,Casting,Casting Operator,Afternoon,Casting Bay,44.4,73.4,34.0,102.3,9,0.54,11.4,3.5,4,Malfunction,Windy,Yes,99,HIGH,Structural Risk
+W2386,Priya Shinde,47,23.2,Maintenance,Electrician,Night,Maintenance Bay,38.7,63.3,12.4,87.0,4,0.73,9.1,11.8,2,Needs Maintenance,Hot,No,53,MEDIUM,Minor Gas Leak
+W2446,Kavita Nair,27,6.8,Blast Furnace,Furnace Operator,Morning,Blast Furnace,43.4,64.9,8.2,75.5,7,0.56,8.1,6.0,3,Needs Maintenance,Windy,Yes,65,MEDIUM,Dust Exposure
+W2220,Bharat Das,29,6.6,Crane Operations,Signal Man,Afternoon,Crane Area,25.5,41.6,1.2,54.5,4,0.92,4.7,20.5,1,Normal,Humid,No,34,LOW,None
+W2468,Lakshmi Thakur,28,8.6,Blast Furnace,Slag Handler,Morning,Blast Furnace,41.0,51.8,8.1,85.9,4,0.66,10.3,10.6,0,Normal,Rainy,No,51,MEDIUM,Heat Stress
+W2416,Rajesh Jadhav,46,12.1,Logistics,Driver,Afternoon,Loading Yard,32.7,71.3,11.2,76.7,6,0.59,7.9,4.0,2,Normal,Hot,Yes,49,MEDIUM,Noise Hazard
+W2651,Jaya Bhosale,24,3.5,Quality Control,QC Inspector,Night,QC Lab,54.0,60.6,21.4,107.2,7,0.31,13.4,3.5,4,Normal,Humid,Yes,89,HIGH,Equipment Failure
+W2796,Jaya Singh,26,4.6,Logistics,Driver,Afternoon,Loading Yard,40.4,80.9,34.0,105.9,8,0.54,15.9,0.8,3,Malfunction,Clear,Yes,84,HIGH,Explosion Risk
+W2469,Prakash Pillai,57,14.1,Storage,Warehouse Handler,Afternoon,Storage Area,43.0,58.1,12.7,87.4,7,0.64,7.7,10.8,3,Needs Maintenance,Humid,Yes,45,MEDIUM,Minor Gas Leak
+W2417,Leela Gaikwad,48,18.9,Coke Oven,Gas Handler,Afternoon,Coke Oven,41.5,71.1,11.1,84.6,5,0.72,10.4,7.4,1,Normal,Clear,Yes,63,MEDIUM,None
+W2269,Omkar Mane,50,18.5,Quality Control,Sampler,Morning,QC Lab,29.7,44.2,3.0,64.1,3,0.92,7.5,22.7,0,Normal,Humid,No,11,LOW,None
+W2215,Rekha Singh,34,5.0,Casting,Casting Operator,Afternoon,Casting Bay,26.9,54.2,5.2,62.0,3,0.76,5.4,17.6,0,Needs Maintenance,Hot,No,34,LOW,None
+W2232,Priya Verma,33,1.1,Logistics,Driver,Morning,Loading Yard,30.6,45.6,7.3,61.6,3,0.77,6.2,29.2,1,Normal,Humid,No,30,LOW,None
+W2602,Dilip Joshi,56,2.1,Crane Operations,Signal Man,Morning,Crane Area,48.1,62.6,19.3,87.6,7,0.36,13.3,1.6,6,Malfunction,Clear,Yes,91,HIGH,Multiple Hazards
+W2789,Omkar Gaikwad,23,3.4,Casting,Ladle Operator,Morning,Casting Bay,52.1,83.0,20.5,101.1,7,0.48,13.5,3.4,2,Needs Maintenance,Hot,Yes,81,HIGH,Equipment Failure
+W2042,Mukesh Pillai,44,23.6,Blast Furnace,Furnace Operator,Night,Blast Furnace,29.1,38.0,5.9,50.8,4,0.76,7.3,17.2,1,Normal,Clear,No,34,LOW,None
+W2208,Krishna Patel,35,9.0,Rolling Mill,Roll Turner,Night,Rolling Mill,30.9,43.9,6.2,71.7,3,0.89,4.1,28.6,1,Malfunction,Hot,No,22,LOW,None
+W2141,Manoj Jadhav,58,12.1,Logistics,Driver,Night,Loading Yard,26.3,51.6,1.1,51.9,1,0.93,6.0,23.8,0,Normal,Clear,No,28,LOW,None
+W2036,Anand Kumar,52,16.4,Maintenance,Electrician,Night,Maintenance Bay,34.1,42.0,9.7,74.1,1,0.96,5.2,17.7,1,Normal,Hot,No,20,LOW,None
+W2527,Dinesh Mane,48,10.5,Casting,Mould Handler,Morning,Casting Bay,42.0,51.4,17.5,82.4,4,0.78,8.5,4.5,1,Normal,Humid,Yes,40,MEDIUM,Minor Gas Leak
+W2503,Zeenat Kumar,37,1.5,Maintenance,Welder,Morning,Maintenance Bay,43.1,70.3,9.2,78.5,7,0.52,7.8,5.8,3,Needs Maintenance,Hot,No,41,MEDIUM,Heat Stress
+W2091,Nirmala Verma,31,1.9,Casting,Casting Operator,Morning,Casting Bay,31.3,55.1,5.1,63.3,1,0.78,5.8,20.7,1,Needs Maintenance,Hot,No,20,LOW,None
+W2326,Rohit Joshi,33,14.3,Coke Oven,Oven Helper,Night,Coke Oven,39.8,65.1,15.1,84.0,7,0.52,8.0,6.9,0,Needs Maintenance,Windy,Yes,47,MEDIUM,Dust Exposure
+W2130,Dilip Yadav,47,17.7,Rolling Mill,Roll Turner,Morning,Rolling Mill,29.6,41.8,8.9,70.4,3,0.84,5.0,17.6,1,Normal,Windy,No,19,LOW,None
+W2139,Savita Patel,28,4.6,Quality Control,Sampler,Morning,QC Lab,31.3,38.3,5.7,61.9,2,0.92,7.7,24.7,1,Normal,Clear,No,32,LOW,None
+W2613,Sachin Mane,58,29.9,Logistics,Dispatcher,Night,Loading Yard,48.3,77.9,37.2,99.4,8,0.26,14.8,2.9,4,Needs Maintenance,Humid,Yes,83,HIGH,Explosion Risk
+W2351,Uma Jadhav,52,9.4,Logistics,Driver,Night,Loading Yard,35.5,71.1,15.8,77.6,7,0.67,7.6,7.6,0,Needs Maintenance,Rainy,Yes,43,MEDIUM,Heat Stress
+W2389,Balaji Kulkarni,51,6.6,Maintenance,Electrician,Morning,Maintenance Bay,40.4,71.3,19.9,70.5,4,0.77,10.1,10.2,0,Needs Maintenance,Hot,Yes,48,MEDIUM,Noise Hazard
+W2611,Chitra Menon,53,1.2,Maintenance,Fitter,Night,Maintenance Bay,49.7,88.6,21.3,96.9,7,0.37,13.5,2.3,4,Needs Maintenance,Rainy,Yes,85,HIGH,Gas Leak
+W2443,Mukesh Bhat,24,2.1,Rolling Mill,Mill Helper,Morning,Rolling Mill,34.5,63.2,21.7,72.2,6,0.5,8.7,4.7,2,Normal,Clear,No,62,MEDIUM,Noise Hazard
+W2028,Ashok Jadhav,35,11.5,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,25.1,32.6,9.0,72.5,4,0.91,5.4,17.0,0,Needs Maintenance,Windy,No,15,LOW,Noise Hazard
+W2430,Chitra Deshmukh,43,5.0,Logistics,Loader,Afternoon,Loading Yard,40.1,60.4,19.7,89.9,7,0.5,9.7,4.4,1,Needs Maintenance,Humid,Yes,53,MEDIUM,None
+W2243,Shanti Reddy,53,14.8,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,26.8,31.9,0.3,53.4,1,0.99,6.2,29.3,0,Normal,Humid,No,22,LOW,None
+W2564,Rekha Thakur,34,10.2,Blast Furnace,Furnace Helper,Morning,Blast Furnace,53.5,62.5,26.6,87.5,7,0.11,14.0,3.2,6,Malfunction,Windy,Yes,95,HIGH,Chemical Spill
+W2640,Amit Gaikwad,54,21.4,Logistics,Loader,Afternoon,Loading Yard,45.3,80.1,28.6,95.5,7,0.26,13.6,3.1,5,Needs Maintenance,Windy,Yes,83,HIGH,Fire Hazard
+W2186,Vinod Yadav,29,0.6,Casting,Mould Handler,Night,Casting Bay,24.6,34.7,1.0,65.9,3,0.93,4.1,28.7,0,Normal,Humid,No,29,LOW,Noise Hazard
+W2414,Amit Das,56,26.2,Casting,Ladle Operator,Night,Casting Bay,41.0,65.8,17.2,73.3,6,0.76,9.2,6.3,0,Needs Maintenance,Humid,No,62,MEDIUM,Noise Hazard
+W2032,Deepak Kulkarni,47,10.4,Storage,Warehouse Handler,Afternoon,Storage Area,31.7,48.2,8.5,66.4,1,0.89,4.4,17.4,1,Needs Maintenance,Humid,No,11,LOW,None
+W2195,Jaya Deshmukh,29,8.3,Steel Melting Shop,Tapper,Afternoon,SMS Area,25.6,46.6,9.1,55.3,1,0.91,6.5,24.7,0,Normal,Rainy,No,21,LOW,None
+W2747,Yogesh Pawar,44,20.3,Logistics,Driver,Night,Loading Yard,42.5,70.6,26.8,86.4,10,0.36,15.3,1.2,5,Malfunction,Clear,Yes,81,HIGH,Gas Leak
+W2308,Hemant Das,40,5.7,Casting,Casting Operator,Afternoon,Casting Bay,42.8,54.1,10.4,85.7,5,0.75,7.4,5.9,3,Needs Maintenance,Clear,Yes,54,MEDIUM,Minor Gas Leak
+W2017,Nirmala Nair,28,4.5,Crane Operations,Crane Operator,Afternoon,Crane Area,34.1,52.6,6.3,71.8,2,0.95,4.7,27.9,0,Normal,Humid,No,27,LOW,None
+W2291,Gaurav Verma,33,11.5,Blast Furnace,Furnace Operator,Morning,Blast Furnace,34.6,60.3,14.5,91.4,5,0.68,8.4,4.9,3,Normal,Windy,No,44,MEDIUM,Equipment Wear
+W2164,Nitin Mane,35,0.6,Casting,Ladle Operator,Afternoon,Casting Bay,26.5,49.0,5.7,56.7,4,0.97,7.2,23.2,1,Malfunction,Hot,No,33,LOW,None
+W2615,Sunil Reddy,33,8.6,Steel Melting Shop,Melter,Morning,SMS Area,46.5,77.9,19.8,108.5,9,0.44,13.5,4.2,4,Needs Maintenance,Rainy,Yes,97,HIGH,Chemical Spill
+W2786,Leela Thakur,51,22.8,Crane Operations,Signal Man,Night,Crane Area,45.0,77.4,37.6,99.2,8,0.38,13.1,0.7,5,Needs Maintenance,Clear,Yes,94,HIGH,Structural Risk
+W2075,Jagdish Gaikwad,36,6.4,Casting,Casting Operator,Night,Casting Bay,34.8,34.2,5.9,59.5,1,0.99,7.4,26.8,1,Needs Maintenance,Humid,No,22,LOW,Noise Hazard
+W2734,Dilip More,21,0.9,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,47.7,63.0,18.4,109.1,9,0.27,13.6,0.9,3,Needs Maintenance,Humid,Yes,100,HIGH,Multiple Hazards
+W2483,Harish Shinde,35,12.6,Logistics,Loader,Night,Loading Yard,42.6,66.0,18.7,74.1,6,0.53,9.8,6.9,1,Needs Maintenance,Hot,Yes,40,MEDIUM,None
+W2280,Manoj Chavan,36,13.6,Coke Oven,Oven Helper,Night,Coke Oven,41.6,72.0,21.1,84.1,6,0.63,9.5,10.3,0,Needs Maintenance,Clear,Yes,58,MEDIUM,None
+W2020,Suresh Patil,50,16.3,Coke Oven,Coke Oven Operator,Night,Coke Oven,26.4,56.4,3.2,63.0,1,0.93,5.5,29.4,0,Needs Maintenance,Hot,No,12,LOW,None
+W2655,Sanjay Yadav,57,4.9,Logistics,Dispatcher,Morning,Loading Yard,54.6,79.4,38.6,92.6,9,0.45,14.6,3.6,6,Needs Maintenance,Hot,No,93,HIGH,Explosion Risk
+W2721,Indira Yadav,44,10.6,Blast Furnace,Furnace Operator,Night,Blast Furnace,51.4,77.8,22.2,101.7,8,0.38,13.6,2.7,5,Malfunction,Clear,Yes,92,HIGH,Equipment Failure
+W2059,Anil Gaikwad,56,33.2,Blast Furnace,Furnace Operator,Morning,Blast Furnace,27.1,30.3,9.1,52.3,1,0.83,7.8,29.0,1,Normal,Hot,No,17,LOW,None
+W2244,Dilip Jadhav,28,2.7,Logistics,Driver,Afternoon,Loading Yard,27.6,38.7,5.1,61.0,4,0.78,6.6,14.3,1,Normal,Rainy,No,12,LOW,Noise Hazard
+W2781,Deepak Jadhav,20,1.5,Storage,Warehouse Handler,Morning,Storage Area,52.0,67.2,19.5,92.9,9,0.22,13.0,4.0,4,Needs Maintenance,Rainy,Yes,89,HIGH,Equipment Failure
+W2360,Rohit Yadav,58,1.8,Storage,Warehouse Handler,Afternoon,Storage Area,38.6,61.9,21.0,70.4,6,0.64,9.8,9.8,0,Malfunction,Humid,No,60,MEDIUM,Minor Gas Leak
+W2703,Chandan Roy,26,6.6,Casting,Casting Operator,Afternoon,Casting Bay,42.5,87.5,25.2,94.3,8,0.44,12.0,4.8,6,Malfunction,Windy,Yes,100,HIGH,Structural Risk
+W2715,Leela Gaikwad,50,1.1,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,52.2,77.9,26.7,96.8,7,0.48,12.0,4.4,4,Malfunction,Humid,Yes,93,HIGH,Fire Hazard
+W2310,Uma Deshmukh,39,18.7,Rolling Mill,Roll Turner,Night,Rolling Mill,42.9,57.7,21.7,84.0,7,0.54,9.7,6.6,2,Needs Maintenance,Hot,Yes,47,MEDIUM,None
+W2176,Kiran Menon,55,33.2,Steel Melting Shop,Melter,Night,SMS Area,30.3,41.1,2.7,74.6,4,0.85,7.6,14.6,1,Normal,Hot,No,30,LOW,None
+W2163,Gopal Mishra,38,11.6,Casting,Casting Operator,Morning,Casting Bay,30.9,32.1,8.5,62.4,4,0.87,6.4,26.5,1,Normal,Hot,No,31,LOW,None
+W2606,Balaji Thakur,58,25.5,Maintenance,Electrician,Afternoon,Maintenance Bay,44.7,61.7,34.9,102.6,9,0.25,14.1,2.3,5,Needs Maintenance,Windy,Yes,74,HIGH,Gas Leak
+W2632,Lakshmi Sharma,51,23.6,Casting,Casting Operator,Morning,Casting Bay,40.4,70.1,21.9,87.5,7,0.53,13.6,3.8,3,Malfunction,Windy,Yes,75,HIGH,Chemical Spill
+W2206,Rahul Singh,50,3.8,Quality Control,QC Inspector,Afternoon,QC Lab,22.4,38.6,7.0,55.0,1,0.92,7.9,11.9,0,Normal,Clear,No,35,LOW,None
+W2103,Zeenat Joshi,22,1.3,Maintenance,Welder,Night,Maintenance Bay,26.5,56.0,8.3,74.1,1,0.78,6.9,28.8,0,Normal,Clear,No,14,LOW,None
+W2222,Bharat Kumar,47,24.0,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,29.2,31.2,6.3,73.8,3,0.9,7.3,27.7,1,Normal,Rainy,No,28,LOW,Noise Hazard
+W2776,Uma Sharma,52,6.8,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,48.6,89.5,23.3,102.0,9,0.42,13.6,0.9,3,Needs Maintenance,Clear,Yes,85,HIGH,Multiple Hazards
+W2204,Shanti Yadav,26,6.3,Logistics,Dispatcher,Night,Loading Yard,28.6,31.2,1.5,74.7,2,0.99,4.0,29.0,0,Normal,Rainy,No,30,LOW,None
+W2557,Manoj Das,47,4.3,Storage,Material Checker,Night,Storage Area,50.2,72.9,34.1,105.6,10,0.17,15.0,2.9,2,Malfunction,Humid,Yes,87,HIGH,Multiple Hazards
+W2694,Raghav Kulkarni,47,13.5,Crane Operations,Crane Operator,Night,Crane Area,45.7,83.3,25.5,100.7,7,0.19,10.9,4.7,5,Needs Maintenance,Hot,Yes,98,HIGH,Explosion Risk
+W2773,Vikram Thakur,46,21.0,Storage,Warehouse Handler,Morning,Storage Area,45.2,86.9,39.3,96.1,8,0.24,13.2,3.6,5,Normal,Hot,No,73,HIGH,Structural Risk
+W2044,Manoj Chavan,49,28.5,Steel Melting Shop,Tapper,Night,SMS Area,28.9,45.1,6.4,68.2,1,0.99,6.1,16.5,1,Normal,Windy,No,12,LOW,None
+W2631,Pooja Roy,45,23.6,Steel Melting Shop,Tapper,Night,SMS Area,41.2,60.1,32.7,101.0,10,0.28,12.9,2.4,5,Needs Maintenance,Humid,No,93,HIGH,Structural Risk
+W2537,Kiran Chauhan,46,18.0,Casting,Casting Operator,Afternoon,Casting Bay,36.1,63.7,11.8,74.2,6,0.56,8.4,7.4,2,Normal,Clear,No,56,MEDIUM,Noise Hazard
+W2588,Ajay Roy,44,8.2,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,48.7,76.9,29.0,86.7,8,0.14,13.6,2.0,6,Malfunction,Rainy,Yes,75,HIGH,Chemical Spill
+W2461,Bharat Patel,41,18.2,Storage,Forklift Operator,Afternoon,Storage Area,38.7,49.4,9.2,70.4,7,0.55,10.6,5.9,0,Needs Maintenance,Humid,Yes,55,MEDIUM,Minor Gas Leak
+W2274,Kiran Thakur,29,7.0,Blast Furnace,Furnace Operator,Night,Blast Furnace,43.4,71.9,13.2,79.9,4,0.72,10.5,8.7,3,Malfunction,Humid,Yes,47,MEDIUM,Heat Stress
+W2329,Vandana Yadav,33,10.2,Quality Control,QC Inspector,Morning,QC Lab,34.8,46.0,9.5,77.5,4,0.74,9.3,8.1,1,Normal,Humid,No,63,MEDIUM,None
+W2240,Amit Bhat,49,0.7,Storage,Forklift Operator,Morning,Storage Area,32.5,52.1,3.0,52.0,3,0.85,4.7,23.9,0,Normal,Rainy,No,25,LOW,Noise Hazard
+W2239,Rohit Gupta,52,23.1,Rolling Mill,Roll Turner,Morning,Rolling Mill,24.7,56.1,1.2,70.4,2,0.85,7.5,27.4,0,Malfunction,Hot,No,24,LOW,Noise Hazard
+W2179,Nirmala Pawar,32,1.2,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,23.7,30.9,9.2,65.4,1,0.95,5.9,12.3,0,Normal,Windy,No,33,LOW,None
+W2048,Tanuja Kulkarni,27,7.1,Coke Oven,Coke Oven Operator,Morning,Coke Oven,25.2,40.0,7.6,50.4,1,0.78,4.2,10.8,0,Needs Maintenance,Rainy,No,39,LOW,Noise Hazard
+W2343,Manoj Shinde,52,5.2,Logistics,Dispatcher,Morning,Loading Yard,43.6,54.3,10.2,70.6,5,0.69,9.5,6.7,3,Malfunction,Hot,Yes,64,MEDIUM,Minor Gas Leak
+W2237,Manoj Verma,26,7.2,Casting,Ladle Operator,Night,Casting Bay,25.4,40.1,0.9,73.4,2,0.89,5.2,17.9,0,Normal,Clear,No,17,LOW,None
+W2448,Rekha Kulkarni,21,2.6,Steel Melting Shop,Tapper,Morning,SMS Area,42.9,66.7,19.5,90.5,6,0.66,7.8,8.9,3,Malfunction,Rainy,No,60,MEDIUM,Noise Hazard
+W2199,Harish Gupta,28,3.4,Logistics,Driver,Afternoon,Loading Yard,32.1,33.7,9.7,61.3,4,0.81,4.3,13.4,1,Normal,Rainy,No,36,LOW,Noise Hazard
+W2115,Amit Joshi,55,13.5,Logistics,Dispatcher,Afternoon,Loading Yard,31.1,55.8,7.1,53.8,1,0.89,6.4,18.5,1,Normal,Hot,No,19,LOW,None
+W2038,Bharat Reddy,29,7.4,Steel Melting Shop,Melter,Morning,SMS Area,23.3,47.2,9.9,53.5,4,0.88,7.5,24.8,0,Normal,Clear,Yes,26,LOW,None
+W2777,Dinesh Roy,31,2.9,Rolling Mill,Roll Turner,Night,Rolling Mill,50.2,61.9,31.1,103.5,8,0.19,15.0,0.6,2,Malfunction,Hot,Yes,76,HIGH,Fire Hazard
+W2205,Deepak Singh,26,2.4,Coke Oven,Oven Helper,Night,Coke Oven,30.3,54.3,4.5,62.9,2,0.87,6.7,12.8,1,Normal,Windy,No,31,LOW,None
+W2292,Dilip Thakur,47,28.0,Steel Melting Shop,Tapper,Afternoon,SMS Area,34.0,51.1,11.5,88.7,4,0.67,9.1,4.9,1,Normal,Clear,No,68,MEDIUM,Slip Hazard
+W2082,Ajay Jadhav,28,6.5,Crane Operations,Signal Man,Night,Crane Area,27.7,55.3,3.5,62.8,3,0.95,5.6,22.4,1,Normal,Clear,No,14,LOW,None
+W2698,Harish Yadav,25,4.1,Maintenance,Electrician,Morning,Maintenance Bay,52.4,66.1,28.3,105.0,8,0.18,10.7,4.5,5,Needs Maintenance,Humid,No,75,HIGH,Explosion Risk
+W2774,Kamal Gaikwad,28,3.6,Maintenance,Welder,Afternoon,Maintenance Bay,44.1,82.1,19.1,86.2,10,0.27,12.1,1.9,3,Malfunction,Windy,Yes,70,HIGH,Fire Hazard
+W2054,Jagdish Deshmukh,51,15.1,Crane Operations,Signal Man,Morning,Crane Area,22.2,32.6,6.8,51.8,3,0.83,7.4,10.5,0,Normal,Clear,No,31,LOW,None
+W2437,Manoj Thakur,55,13.6,Quality Control,Sampler,Morning,QC Lab,35.5,52.8,17.2,91.3,5,0.68,7.3,4.6,1,Malfunction,Rainy,Yes,62,MEDIUM,Heat Stress
+W2624,Dinesh Pawar,40,20.0,Quality Control,Lab Technician,Morning,QC Lab,49.1,82.9,29.5,90.7,8,0.4,10.5,2.5,5,Malfunction,Rainy,Yes,87,HIGH,Chemical Spill
+W2005,Kiran Nair,43,4.5,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,29.7,31.3,6.1,54.3,3,0.77,7.8,29.3,0,Normal,Hot,No,33,LOW,None
+W2288,Jaya Bhosale,41,8.9,Storage,Forklift Operator,Night,Storage Area,38.3,45.9,8.9,89.9,7,0.54,9.1,7.3,0,Needs Maintenance,Rainy,No,58,MEDIUM,Equipment Wear
+W2421,Arjun Jadhav,37,12.8,Blast Furnace,Furnace Operator,Night,Blast Furnace,35.4,61.2,12.2,85.7,4,0.73,7.4,8.1,0,Needs Maintenance,Rainy,No,52,MEDIUM,Noise Hazard
+W2359,Anand More,23,1.2,Logistics,Dispatcher,Night,Loading Yard,43.1,56.9,19.9,89.6,4,0.52,10.5,7.6,1,Needs Maintenance,Clear,No,42,MEDIUM,Heat Stress
+W2126,Kavita Chauhan,24,2.4,Storage,Material Checker,Night,Storage Area,24.0,50.0,6.6,50.7,3,0.81,4.9,23.4,0,Normal,Clear,No,36,LOW,None
+W2405,Gopal Bhat,46,21.0,Casting,Mould Handler,Night,Casting Bay,37.6,45.8,14.7,84.6,6,0.54,8.2,7.2,3,Normal,Windy,No,43,MEDIUM,Noise Hazard
+W2380,Gaurav Pillai,30,2.6,Logistics,Dispatcher,Morning,Loading Yard,32.7,65.7,13.8,88.1,5,0.76,7.8,9.3,2,Malfunction,Hot,No,42,MEDIUM,Noise Hazard
+W2030,Ramesh Chavan,49,11.2,Maintenance,Fitter,Morning,Maintenance Bay,33.7,47.0,0.1,52.5,1,0.92,4.0,13.2,0,Normal,Hot,No,12,LOW,Noise Hazard
+W2330,Leela Yadav,29,0.7,Steel Melting Shop,Tapper,Night,SMS Area,35.8,70.2,13.6,71.9,4,0.69,7.5,6.8,0,Needs Maintenance,Rainy,Yes,48,MEDIUM,Equipment Wear
+W2318,Yogesh Patel,52,18.7,Casting,Mould Handler,Night,Casting Bay,33.5,64.0,15.6,72.1,4,0.57,7.0,7.8,2,Normal,Rainy,No,61,MEDIUM,Dust Exposure
+W2022,Chitra Mishra,35,4.9,Crane Operations,Signal Man,Morning,Crane Area,28.5,31.4,2.8,72.7,4,0.81,4.6,19.8,1,Needs Maintenance,Rainy,Yes,10,LOW,None
+W2502,Chandan Singh,55,8.6,Storage,Forklift Operator,Morning,Storage Area,38.0,67.9,8.9,77.4,4,0.52,10.9,10.5,2,Malfunction,Windy,No,56,MEDIUM,Noise Hazard
+W2449,Vandana Nair,54,31.4,Maintenance,Fitter,Afternoon,Maintenance Bay,41.7,64.9,15.3,71.5,4,0.61,10.7,8.7,2,Normal,Humid,No,57,MEDIUM,Equipment Wear
+W2450,Rekha Jadhav,41,18.5,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,39.0,52.3,13.2,89.7,5,0.7,10.1,7.6,2,Normal,Clear,Yes,52,MEDIUM,Dust Exposure
+W2556,Pankaj Mane,27,3.8,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,54.0,87.5,32.0,100.7,10,0.28,14.5,2.9,5,Malfunction,Humid,Yes,91,HIGH,Explosion Risk
+W2231,Tushar Mishra,28,4.2,Blast Furnace,Furnace Helper,Night,Blast Furnace,33.4,48.2,5.3,58.1,3,0.83,6.7,29.9,0,Needs Maintenance,Humid,Yes,34,LOW,None
+W2260,Tushar Das,29,4.0,Logistics,Driver,Morning,Loading Yard,22.3,32.3,9.7,57.4,3,0.94,6.5,17.6,1,Normal,Hot,No,12,LOW,None
+W2212,Anand Sharma,40,3.0,Logistics,Driver,Afternoon,Loading Yard,31.9,52.3,4.4,70.4,2,0.78,6.2,10.1,1,Normal,Clear,No,23,LOW,None
+W2558,Jagdish Das,55,30.0,Quality Control,Sampler,Night,QC Lab,52.7,72.9,26.3,107.9,10,0.21,15.1,2.7,4,Malfunction,Clear,No,89,HIGH,Multiple Hazards
+W2043,Gopal Pawar,54,28.1,Steel Melting Shop,Tapper,Morning,SMS Area,23.7,44.6,7.7,55.4,2,0.91,4.3,11.0,1,Normal,Humid,No,20,LOW,None
+W2192,Sunil Patel,56,8.8,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,30.8,32.0,0.3,56.4,3,0.87,7.5,24.5,1,Needs Maintenance,Windy,No,32,LOW,None
+W2653,Amit Chavan,39,17.1,Coke Oven,Coke Oven Operator,Morning,Coke Oven,43.5,86.9,23.6,90.5,10,0.16,15.2,2.8,4,Malfunction,Hot,Yes,92,HIGH,Multiple Hazards
+W2488,Ravi Das,32,8.7,Casting,Ladle Operator,Morning,Casting Bay,32.5,56.1,9.8,70.5,4,0.61,10.1,8.5,1,Normal,Humid,No,59,MEDIUM,Dust Exposure
+W2320,Mohan Jadhav,36,3.1,Storage,Warehouse Handler,Morning,Storage Area,43.1,63.0,16.3,89.6,5,0.56,7.3,5.9,0,Needs Maintenance,Rainy,No,59,MEDIUM,None
+W2433,Nirmala Thakur,22,2.5,Crane Operations,Signal Man,Night,Crane Area,32.7,55.1,21.2,84.1,5,0.7,9.5,5.6,2,Needs Maintenance,Clear,No,64,MEDIUM,None
+W2522,Zeenat More,53,29.5,Maintenance,Welder,Afternoon,Maintenance Bay,37.6,61.1,22.0,86.9,6,0.62,10.3,5.4,1,Malfunction,Humid,Yes,65,MEDIUM,Slip Hazard
+W2188,Shanti Gupta,53,5.6,Casting,Casting Operator,Morning,Casting Bay,32.6,32.2,8.9,63.7,3,0.95,5.8,22.9,1,Normal,Windy,No,21,LOW,Noise Hazard
+W2226,Priya More,41,18.9,Maintenance,Fitter,Afternoon,Maintenance Bay,23.2,30.7,6.4,65.2,4,0.89,4.9,17.8,0,Normal,Hot,No,35,LOW,None
+W2688,Sachin Patil,48,19.4,Maintenance,Fitter,Afternoon,Maintenance Bay,52.9,65.1,36.8,85.3,8,0.33,14.6,4.7,2,Needs Maintenance,Clear,Yes,96,HIGH,Multiple Hazards
+W2419,Ashok Pawar,54,7.8,Blast Furnace,Furnace Helper,Night,Blast Furnace,42.5,71.6,18.6,78.7,6,0.68,9.6,4.6,3,Normal,Windy,No,62,MEDIUM,Dust Exposure
+W2646,Nirmala Pillai,55,16.1,Casting,Casting Operator,Morning,Casting Bay,46.1,75.6,37.7,89.9,9,0.11,15.2,3.1,3,Malfunction,Humid,No,85,HIGH,Equipment Failure
+W2674,Nirmala Thakur,43,8.3,Crane Operations,Crane Operator,Afternoon,Crane Area,46.9,67.7,34.5,97.8,7,0.24,13.6,5.0,6,Malfunction,Hot,No,79,HIGH,Explosion Risk
+W2530,Priya Joshi,42,8.8,Steel Melting Shop,Melter,Afternoon,SMS Area,43.0,70.6,20.4,86.3,4,0.58,8.1,11.7,1,Normal,Windy,No,53,MEDIUM,None
+W2551,Meena Jadhav,25,1.3,Steel Melting Shop,Melter,Afternoon,SMS Area,46.3,63.5,31.5,108.5,7,0.4,10.5,2.1,3,Malfunction,Humid,No,80,HIGH,Fire Hazard
+W2500,Pankaj Das,25,0.5,Casting,Casting Operator,Morning,Casting Bay,43.5,62.8,11.0,89.0,6,0.77,7.8,9.9,3,Normal,Clear,No,55,MEDIUM,Dust Exposure
+W2127,Jagdish Deshmukh,31,10.6,Maintenance,Welder,Morning,Maintenance Bay,22.3,32.9,8.0,54.5,1,0.91,5.0,12.0,1,Normal,Humid,No,38,LOW,None
+W2683,Leela Patil,20,1.2,Steel Melting Shop,Melter,Night,SMS Area,45.1,84.8,18.0,92.7,10,0.21,11.4,0.8,3,Malfunction,Hot,Yes,85,HIGH,Fire Hazard
+W2453,Raghav Roy,29,2.5,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,32.7,58.3,21.0,72.3,6,0.73,8.6,9.2,2,Needs Maintenance,Windy,No,66,MEDIUM,Equipment Wear
+W2263,Ajay Gupta,24,2.4,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,32.6,48.4,1.3,58.5,1,0.98,4.9,17.4,0,Normal,Hot,Yes,38,LOW,None
+W2485,Zeenat Bhosale,33,14.3,Blast Furnace,Slag Handler,Night,Blast Furnace,32.5,63.0,12.5,89.8,4,0.77,8.3,11.2,0,Malfunction,Clear,Yes,61,MEDIUM,None
+W2659,Dilip Yadav,35,3.7,Crane Operations,Signal Man,Afternoon,Crane Area,52.7,65.5,39.0,94.4,7,0.25,10.4,2.7,2,Malfunction,Rainy,Yes,70,HIGH,Chemical Spill
+W2719,Chitra Das,43,17.6,Coke Oven,Gas Handler,Night,Coke Oven,43.9,61.6,34.0,88.0,10,0.24,13.2,3.0,3,Malfunction,Humid,Yes,96,HIGH,Equipment Failure
+W2184,Hemant Chavan,51,31.9,Coke Oven,Oven Helper,Night,Coke Oven,31.1,45.7,0.1,58.2,4,0.88,4.4,17.0,0,Normal,Humid,No,14,LOW,None
+W2073,Arjun Reddy,46,1.7,Crane Operations,Signal Man,Night,Crane Area,30.9,34.6,9.1,70.6,4,0.99,6.9,22.3,1,Malfunction,Humid,No,30,LOW,Noise Hazard
+W2092,Vikram Pawar,46,15.0,Storage,Warehouse Handler,Night,Storage Area,25.2,37.5,3.8,50.5,4,0.83,4.8,16.5,1,Needs Maintenance,Clear,No,13,LOW,None
+W2768,Naresh Shinde,27,3.0,Crane Operations,Signal Man,Afternoon,Crane Area,42.6,71.5,25.6,95.8,9,0.45,12.9,4.1,3,Malfunction,Rainy,Yes,82,HIGH,Fire Hazard
+W2373,Chandan More,43,9.4,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,32.0,58.8,8.7,76.1,7,0.71,7.3,10.7,1,Normal,Rainy,No,61,MEDIUM,Noise Hazard
+W2287,Mohan Gupta,50,4.5,Quality Control,QC Inspector,Afternoon,QC Lab,43.8,51.7,11.8,86.7,5,0.63,10.1,4.5,2,Normal,Windy,Yes,47,MEDIUM,Dust Exposure
+W2070,Tushar More,38,10.4,Casting,Ladle Operator,Afternoon,Casting Bay,30.2,46.4,9.0,51.1,4,0.82,7.8,27.8,1,Normal,Humid,No,22,LOW,None
+W2570,Kiran Sharma,21,1.1,Crane Operations,Crane Operator,Afternoon,Crane Area,43.4,84.5,38.5,87.4,8,0.3,12.0,4.4,2,Normal,Windy,Yes,70,HIGH,Gas Leak
+W2303,Leela Mishra,31,1.9,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,40.5,49.1,14.2,83.5,6,0.53,10.5,10.4,3,Normal,Humid,No,53,MEDIUM,Dust Exposure
+W2174,Ashok Yadav,26,5.0,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,27.9,34.6,7.9,67.3,1,0.81,4.3,23.6,0,Normal,Windy,No,17,LOW,None
+W2322,Priya Pawar,36,4.1,Quality Control,QC Inspector,Afternoon,QC Lab,42.8,61.2,9.6,72.1,6,0.77,9.7,10.6,1,Normal,Hot,No,49,MEDIUM,Minor Gas Leak
+W2676,Manoj Roy,44,19.7,Logistics,Driver,Night,Loading Yard,40.0,87.5,36.6,103.6,9,0.18,10.7,0.8,5,Malfunction,Windy,Yes,92,HIGH,Equipment Failure
+W2097,Deepak Pawar,43,20.4,Rolling Mill,Mill Helper,Night,Rolling Mill,23.0,44.7,4.1,74.6,3,0.78,5.6,29.4,0,Normal,Clear,No,34,LOW,None
+W2511,Chandan Menon,22,4.0,Logistics,Driver,Night,Loading Yard,36.1,59.5,19.8,91.8,4,0.77,8.5,5.6,3,Normal,Windy,No,65,MEDIUM,Dust Exposure
+W2735,Vikram Mane,54,22.4,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,50.2,88.0,30.7,88.2,9,0.36,14.6,2.3,3,Normal,Clear,No,89,HIGH,Gas Leak
+W2593,Amit Kumar,38,4.0,Rolling Mill,Mill Helper,Morning,Rolling Mill,53.8,79.5,20.3,95.1,9,0.43,14.7,1.0,6,Needs Maintenance,Windy,Yes,88,HIGH,Gas Leak
+W2709,Ganesh Reddy,58,34.6,Crane Operations,Signal Man,Afternoon,Crane Area,45.4,79.0,22.1,103.7,8,0.35,11.2,1.8,4,Malfunction,Rainy,No,71,HIGH,Chemical Spill
+W2016,Dilip Chauhan,47,12.2,Rolling Mill,Roll Turner,Night,Rolling Mill,25.2,41.5,7.6,55.7,1,0.77,5.2,13.2,0,Normal,Clear,No,37,LOW,None
+W2582,Kavita Singh,55,22.8,Logistics,Driver,Night,Loading Yard,54.7,80.2,36.6,93.1,7,0.4,13.6,3.2,5,Malfunction,Hot,Yes,75,HIGH,Gas Leak
+W2752,Yogesh Patel,25,4.2,Logistics,Driver,Morning,Loading Yard,48.2,72.5,37.3,90.1,7,0.47,13.3,0.7,6,Malfunction,Clear,No,75,HIGH,Structural Risk
+W2157,Mohan Menon,38,19.1,Coke Oven,Coke Oven Operator,Morning,Coke Oven,29.9,44.4,2.3,54.4,4,0.81,4.7,25.6,1,Normal,Rainy,No,36,LOW,None
+W2077,Manoj More,39,19.0,Rolling Mill,Mill Helper,Morning,Rolling Mill,35.0,45.6,7.7,73.6,1,0.96,5.0,19.0,1,Normal,Rainy,No,17,LOW,None
+W2214,Priya Das,28,2.4,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,26.9,36.4,0.7,65.1,4,0.92,6.5,19.3,1,Normal,Windy,No,36,LOW,None
+W2245,Deepak Sharma,26,1.7,Casting,Mould Handler,Afternoon,Casting Bay,30.1,48.2,1.5,51.5,4,0.95,5.8,11.2,0,Normal,Rainy,Yes,16,LOW,None
+W2397,Dinesh Kumar,21,2.2,Coke Oven,Oven Helper,Afternoon,Coke Oven,42.5,57.4,15.7,79.5,6,0.51,7.7,7.6,0,Needs Maintenance,Hot,No,49,MEDIUM,Equipment Wear
+W2041,Raghav Bhat,25,1.4,Coke Oven,Oven Helper,Morning,Coke Oven,33.6,39.5,3.8,52.3,2,0.89,4.1,19.3,0,Normal,Humid,No,27,LOW,None
+W2442,Jaya Bhat,31,12.6,Logistics,Dispatcher,Night,Loading Yard,32.2,60.7,11.5,79.9,6,0.79,8.6,10.7,0,Needs Maintenance,Windy,Yes,51,MEDIUM,Minor Gas Leak
+W2369,Anand Jadhav,51,20.4,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,44.7,61.3,13.0,84.3,7,0.54,10.6,8.0,2,Normal,Clear,No,68,MEDIUM,Equipment Wear
+W2571,Tanuja Joshi,24,5.5,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,41.3,66.3,34.6,86.3,7,0.32,12.7,2.0,5,Normal,Rainy,Yes,74,HIGH,Fire Hazard
+W2348,Krishna Mishra,27,4.6,Crane Operations,Rigger,Afternoon,Crane Area,43.5,61.3,19.6,91.6,5,0.59,10.8,7.1,1,Normal,Humid,No,47,MEDIUM,Heat Stress
+W2135,Shanti Das,32,2.2,Storage,Material Checker,Morning,Storage Area,23.5,46.1,2.7,63.9,2,0.91,7.3,14.1,1,Malfunction,Humid,No,37,LOW,Noise Hazard
+W2459,Mukesh More,48,18.7,Logistics,Dispatcher,Afternoon,Loading Yard,43.2,65.2,14.1,83.4,5,0.55,9.7,5.4,0,Malfunction,Rainy,No,54,MEDIUM,Equipment Wear
+W2350,Vandana Singh,38,19.0,Logistics,Dispatcher,Morning,Loading Yard,42.8,56.9,12.2,75.7,7,0.56,7.2,6.7,3,Needs Maintenance,Humid,No,59,MEDIUM,Noise Hazard
+W2536,Lakshmi Pawar,56,1.1,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,34.8,62.9,13.8,78.9,4,0.77,10.6,11.3,1,Needs Maintenance,Hot,No,44,MEDIUM,Slip Hazard
+W2529,Bharat Kumar,51,10.8,Rolling Mill,Roll Turner,Night,Rolling Mill,44.5,63.0,21.1,75.8,4,0.68,9.7,6.5,2,Needs Maintenance,Windy,No,53,MEDIUM,Slip Hazard
+W2657,Dilip Sawant,46,8.0,Blast Furnace,Furnace Helper,Night,Blast Furnace,47.6,69.4,27.4,101.1,10,0.44,11.4,2.3,5,Malfunction,Windy,No,98,HIGH,Multiple Hazards
+W2665,Vikram Deshmukh,52,9.1,Crane Operations,Signal Man,Afternoon,Crane Area,53.1,65.1,19.2,102.9,10,0.31,15.1,2.2,3,Malfunction,Humid,No,71,HIGH,Fire Hazard
+W2693,Ganesh Pawar,25,2.4,Maintenance,Welder,Afternoon,Maintenance Bay,42.7,71.8,38.9,88.5,9,0.44,10.7,4.9,5,Needs Maintenance,Rainy,No,75,HIGH,Structural Risk
+W2221,Kiran More,43,11.6,Quality Control,Sampler,Afternoon,QC Lab,31.2,33.0,5.7,56.4,1,0.99,5.9,26.1,0,Normal,Rainy,No,31,LOW,None
+W2238,Shanti Sharma,31,12.1,Coke Oven,Oven Helper,Morning,Coke Oven,27.8,46.8,5.2,73.0,4,0.87,8.0,27.0,0,Normal,Windy,No,33,LOW,None
+W2594,Sanjay Pillai,24,1.9,Quality Control,Sampler,Afternoon,QC Lab,40.0,81.4,25.8,91.4,9,0.11,13.2,4.3,2,Malfunction,Clear,No,73,HIGH,Structural Risk
+W2692,Ramesh Singh,29,5.2,Maintenance,Electrician,Afternoon,Maintenance Bay,46.2,61.2,24.0,108.9,8,0.53,12.1,0.7,6,Malfunction,Windy,Yes,85,HIGH,Structural Risk
+W2475,Raghav Das,56,25.8,Maintenance,Welder,Afternoon,Maintenance Bay,42.5,65.9,15.7,71.5,6,0.73,9.3,10.3,2,Needs Maintenance,Rainy,No,59,MEDIUM,Dust Exposure
+W2156,Chitra Das,40,10.8,Crane Operations,Signal Man,Night,Crane Area,28.1,47.2,1.7,74.8,3,0.81,7.8,23.0,0,Normal,Rainy,No,38,LOW,Noise Hazard
+W2166,Rajesh Deshmukh,38,7.7,Storage,Material Checker,Morning,Storage Area,31.8,34.4,8.8,71.8,2,0.76,7.3,12.6,1,Normal,Hot,No,29,LOW,None
+W2298,Tanuja More,28,4.5,Storage,Material Checker,Morning,Storage Area,42.0,45.7,8.9,80.2,4,0.77,9.2,8.0,2,Needs Maintenance,Windy,Yes,46,MEDIUM,Equipment Wear
+W2039,Shanti Sawant,27,4.4,Quality Control,QC Inspector,Afternoon,QC Lab,31.1,49.7,3.6,57.3,3,0.95,7.2,27.3,1,Normal,Windy,No,26,LOW,None
+W2636,Mukesh Pawar,58,5.1,Steel Melting Shop,Melter,Morning,SMS Area,54.7,65.4,35.6,93.4,10,0.43,12.5,3.1,5,Needs Maintenance,Windy,Yes,93,HIGH,Equipment Failure
+W2392,Indira More,35,6.8,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,39.1,71.0,9.1,78.0,4,0.57,7.8,5.1,1,Needs Maintenance,Hot,No,56,MEDIUM,Dust Exposure
+W2025,Tanuja Kumar,41,5.1,Storage,Forklift Operator,Night,Storage Area,22.5,46.5,6.8,50.4,4,0.88,4.9,22.9,1,Needs Maintenance,Rainy,No,12,LOW,None
+W2686,Vinod Pillai,47,20.0,Coke Oven,Oven Helper,Afternoon,Coke Oven,44.8,64.9,35.2,88.1,9,0.39,10.7,0.8,4,Malfunction,Windy,Yes,71,HIGH,Fire Hazard
+W2515,Jaya Kumar,25,4.5,Quality Control,Sampler,Afternoon,QC Lab,36.8,62.9,10.0,82.6,6,0.56,8.1,5.7,0,Needs Maintenance,Clear,Yes,59,MEDIUM,Heat Stress
+W2104,Rajesh Singh,51,24.8,Storage,Forklift Operator,Morning,Storage Area,24.4,31.9,7.4,64.4,4,0.96,4.6,25.9,0,Normal,Hot,No,35,LOW,None
+W2666,Dilip Roy,42,7.8,Storage,Material Checker,Night,Storage Area,42.5,85.1,30.1,89.7,8,0.42,13.1,3.2,5,Malfunction,Hot,Yes,81,HIGH,Gas Leak
+W2418,Gopal Menon,35,16.2,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,35.9,53.8,18.0,88.0,4,0.55,8.5,11.2,2,Normal,Rainy,Yes,54,MEDIUM,Minor Gas Leak
+W2340,Tanuja Yadav,37,16.4,Casting,Mould Handler,Morning,Casting Bay,37.6,63.2,11.9,76.7,5,0.74,8.8,10.4,2,Normal,Windy,No,63,MEDIUM,Heat Stress
+W2100,Priya Patel,29,6.4,Coke Oven,Oven Helper,Afternoon,Coke Oven,25.2,33.2,6.1,57.2,2,0.9,4.6,19.6,0,Normal,Clear,No,22,LOW,None
+W2133,Ganesh Kulkarni,29,7.6,Steel Melting Shop,Tapper,Afternoon,SMS Area,27.5,30.6,2.7,63.5,4,0.91,5.0,12.8,0,Normal,Rainy,No,22,LOW,None
+W2365,Indira Nair,49,27.8,Crane Operations,Rigger,Morning,Crane Area,37.3,46.8,12.9,72.4,4,0.74,10.8,4.6,2,Needs Maintenance,Humid,No,47,MEDIUM,Dust Exposure
+W2401,Meena Jadhav,24,0.7,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,42.3,69.5,21.2,91.1,4,0.66,10.9,10.1,1,Needs Maintenance,Hot,Yes,41,MEDIUM,Equipment Wear
+W2743,Ravi Roy,38,6.0,Steel Melting Shop,Melter,Morning,SMS Area,43.1,83.9,34.2,86.6,10,0.27,11.7,1.9,2,Malfunction,Windy,No,88,HIGH,Explosion Risk
+W2628,Sunil Patil,20,1.2,Rolling Mill,Mill Helper,Morning,Rolling Mill,40.7,65.6,29.9,101.1,8,0.12,15.7,4.3,4,Malfunction,Windy,Yes,96,HIGH,Multiple Hazards
+W2513,Sunil Patel,49,26.7,Maintenance,Welder,Night,Maintenance Bay,37.3,53.9,14.4,86.8,4,0.54,7.8,11.6,3,Needs Maintenance,Windy,Yes,62,MEDIUM,Minor Gas Leak
+W2408,Gaurav Thakur,20,1.6,Coke Oven,Oven Helper,Afternoon,Coke Oven,36.7,62.7,11.4,74.2,4,0.78,7.4,8.0,1,Malfunction,Windy,Yes,49,MEDIUM,Noise Hazard
+W2290,Rekha Bhosale,49,4.9,Coke Oven,Oven Helper,Night,Coke Oven,32.7,56.3,11.6,86.1,4,0.79,8.0,9.2,3,Needs Maintenance,Hot,No,50,MEDIUM,Dust Exposure
+W2366,Chandan Chauhan,53,19.0,Crane Operations,Rigger,Night,Crane Area,44.4,59.1,12.2,71.7,5,0.65,10.2,9.7,2,Needs Maintenance,Rainy,No,66,MEDIUM,Slip Hazard
+W2009,Ravi Thakur,44,15.7,Steel Melting Shop,Tapper,Afternoon,SMS Area,23.2,35.5,0.5,58.1,3,0.85,5.1,26.6,0,Normal,Windy,No,38,LOW,None
+W2610,Naresh Das,57,21.1,Steel Melting Shop,Melter,Night,SMS Area,45.8,79.8,27.7,101.2,7,0.13,14.9,4.7,5,Malfunction,Rainy,Yes,93,HIGH,Chemical Spill
+W2096,Dinesh Gupta,40,9.7,Steel Melting Shop,Melter,Night,SMS Area,24.0,36.9,1.6,54.7,3,0.82,4.7,27.9,0,Normal,Rainy,No,12,LOW,None
+W2323,Ravi Patel,31,9.7,Casting,Mould Handler,Morning,Casting Bay,43.4,60.4,15.2,79.5,4,0.6,8.7,10.2,3,Needs Maintenance,Humid,Yes,45,MEDIUM,Equipment Wear
+W2050,Rahul Bhat,47,19.4,Logistics,Driver,Morning,Loading Yard,27.6,41.2,6.2,65.9,3,0.76,5.5,22.5,0,Needs Maintenance,Windy,No,13,LOW,None
+W2047,Ramesh Chavan,21,2.1,Blast Furnace,Furnace Operator,Morning,Blast Furnace,30.6,37.8,9.5,68.4,4,0.89,6.4,18.4,0,Normal,Hot,No,32,LOW,None
+W2496,Yogesh Singh,50,29.1,Casting,Ladle Operator,Night,Casting Bay,41.2,57.3,17.3,88.4,5,0.55,7.1,10.2,1,Needs Maintenance,Clear,No,68,MEDIUM,Slip Hazard
+W2578,Gopal Pillai,41,16.6,Maintenance,Electrician,Morning,Maintenance Bay,48.7,86.0,24.4,96.7,9,0.38,12.5,2.4,6,Malfunction,Hot,Yes,93,HIGH,Explosion Risk
+W2046,Mukesh Yadav,50,1.1,Steel Melting Shop,Melter,Night,SMS Area,31.0,41.5,1.7,53.9,3,0.81,6.2,24.3,0,Normal,Clear,No,30,LOW,None
+W2579,Nitin Nair,21,2.4,Quality Control,Sampler,Night,QC Lab,45.0,76.9,36.7,90.0,10,0.52,14.1,4.2,3,Malfunction,Hot,Yes,79,HIGH,Equipment Failure
+W2584,Vinod More,33,3.3,Maintenance,Fitter,Afternoon,Maintenance Bay,43.5,78.8,34.4,90.5,10,0.13,10.8,3.2,5,Malfunction,Rainy,No,89,HIGH,Fire Hazard
+W2088,Ganesh More,43,5.8,Steel Melting Shop,Melter,Afternoon,SMS Area,31.0,31.1,8.0,65.7,3,0.77,7.5,28.4,0,Malfunction,Hot,No,38,LOW,Noise Hazard
+W2276,Gopal Nair,40,6.3,Casting,Ladle Operator,Afternoon,Casting Bay,33.2,60.9,14.7,84.1,4,0.52,9.3,8.5,1,Needs Maintenance,Windy,No,53,MEDIUM,Dust Exposure
+W2247,Lakshmi Menon,39,5.8,Coke Oven,Oven Helper,Morning,Coke Oven,25.9,32.8,6.9,51.6,4,0.88,8.0,26.3,1,Normal,Clear,No,13,LOW,None
+W2034,Raghav Joshi,52,10.9,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,28.5,46.2,4.9,54.9,4,0.93,5.1,10.5,1,Normal,Rainy,No,31,LOW,Noise Hazard
+W2207,Jagdish Gupta,48,21.8,Maintenance,Electrician,Afternoon,Maintenance Bay,30.7,42.4,8.7,54.4,1,0.92,7.4,28.9,1,Normal,Rainy,No,10,LOW,None
+W2717,Priya Sawant,52,25.0,Crane Operations,Crane Operator,Afternoon,Crane Area,48.0,79.1,22.3,90.3,10,0.12,11.9,3.0,5,Normal,Humid,No,81,HIGH,Structural Risk
+W2193,Rahul Menon,26,3.8,Quality Control,Sampler,Morning,QC Lab,31.7,41.9,3.5,59.3,4,1.0,4.2,27.3,1,Normal,Rainy,No,24,LOW,None
+W2317,Mukesh More,55,30.2,Quality Control,Lab Technician,Night,QC Lab,32.2,71.0,18.2,76.7,5,0.75,8.1,11.0,1,Needs Maintenance,Windy,No,61,MEDIUM,Slip Hazard
+W2664,Sachin Deshmukh,21,1.6,Logistics,Driver,Afternoon,Loading Yard,44.7,85.8,20.9,102.6,8,0.43,14.1,1.6,2,Malfunction,Windy,Yes,72,HIGH,Chemical Spill
+W2612,Yogesh Chauhan,48,21.1,Maintenance,Welder,Morning,Maintenance Bay,45.1,63.8,26.6,89.1,9,0.43,11.3,0.8,3,Malfunction,Hot,Yes,86,HIGH,Fire Hazard
+W2647,Mukesh Jadhav,44,26.0,Logistics,Loader,Night,Loading Yard,53.4,77.9,35.8,95.7,9,0.44,15.5,3.1,2,Malfunction,Hot,Yes,72,HIGH,Equipment Failure
+W2067,Harish Yadav,40,5.9,Quality Control,QC Inspector,Morning,QC Lab,31.7,46.3,9.6,59.4,1,0.82,7.5,14.5,1,Normal,Humid,No,21,LOW,None
+W2110,Suresh Chauhan,52,3.0,Storage,Material Checker,Afternoon,Storage Area,31.7,30.9,5.7,69.1,1,0.97,5.4,26.4,0,Normal,Humid,No,30,LOW,Noise Hazard
+W2555,Jaya Nair,32,4.5,Quality Control,Lab Technician,Afternoon,QC Lab,48.4,66.9,29.1,103.3,9,0.53,11.3,4.5,6,Malfunction,Humid,No,87,HIGH,Gas Leak
+W2167,Hemant Bhat,33,11.5,Quality Control,Lab Technician,Night,QC Lab,26.4,50.8,1.6,70.4,1,0.96,6.0,10.1,1,Normal,Windy,No,39,LOW,None
+W2289,Jagdish Bhosale,32,7.3,Logistics,Driver,Night,Loading Yard,36.5,69.3,8.3,84.6,6,0.79,9.2,11.5,3,Needs Maintenance,Humid,No,44,MEDIUM,Noise Hazard
+W2246,Naresh Gupta,25,1.5,Maintenance,Electrician,Night,Maintenance Bay,34.9,31.6,7.0,74.6,1,0.81,4.6,12.4,0,Needs Maintenance,Rainy,No,12,LOW,None
+W2029,Kavita Patel,41,18.1,Casting,Ladle Operator,Afternoon,Casting Bay,31.4,55.1,8.9,69.5,3,0.91,4.3,13.2,0,Needs Maintenance,Hot,No,37,LOW,None
+W2344,Ajay Chauhan,34,1.2,Crane Operations,Crane Operator,Morning,Crane Area,32.9,56.1,12.4,84.9,6,0.68,8.5,5.7,3,Needs Maintenance,Windy,No,41,MEDIUM,Heat Stress
+W2618,Jaya Kulkarni,26,6.7,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,47.7,77.4,38.6,101.8,7,0.32,14.9,4.8,3,Needs Maintenance,Windy,No,99,HIGH,Equipment Failure
+W2792,Ashok Chavan,48,7.0,Logistics,Dispatcher,Afternoon,Loading Yard,53.2,75.8,28.3,87.7,10,0.39,15.2,4.2,3,Malfunction,Hot,Yes,83,HIGH,Equipment Failure
+W2638,Vandana Gaikwad,39,12.0,Blast Furnace,Slag Handler,Morning,Blast Furnace,48.2,72.1,29.4,109.9,7,0.16,14.1,2.3,3,Normal,Windy,Yes,94,HIGH,Gas Leak
+W2798,Anil Singh,34,0.9,Quality Control,Lab Technician,Afternoon,QC Lab,46.6,61.2,26.0,105.7,8,0.42,12.8,0.7,4,Needs Maintenance,Humid,Yes,98,HIGH,Multiple Hazards
+W2112,Krishna Bhosale,41,22.6,Maintenance,Fitter,Morning,Maintenance Bay,31.4,50.2,6.4,67.3,2,0.89,5.0,16.9,0,Normal,Windy,No,24,LOW,None
+W2277,Omkar Chauhan,23,2.8,Maintenance,Welder,Morning,Maintenance Bay,39.3,61.3,17.5,87.7,6,0.58,10.3,8.0,3,Needs Maintenance,Clear,No,68,MEDIUM,Equipment Wear
+W2200,Sunil Mishra,58,33.2,Logistics,Driver,Morning,Loading Yard,28.8,39.4,8.3,60.8,3,0.81,6.5,24.1,0,Malfunction,Humid,Yes,19,LOW,None
+W2706,Ajay Gupta,58,11.7,Logistics,Driver,Night,Loading Yard,45.3,87.3,30.5,104.1,8,0.47,12.1,2.5,4,Malfunction,Humid,No,92,HIGH,Equipment Failure
+W2705,Uma Chauhan,22,0.7,Storage,Material Checker,Morning,Storage Area,51.2,87.6,27.3,93.6,9,0.53,12.7,2.7,6,Malfunction,Humid,No,92,HIGH,Chemical Spill
+W2704,Ashok Gupta,42,8.1,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,51.1,77.9,37.4,86.2,9,0.22,12.8,1.5,2,Malfunction,Humid,Yes,72,HIGH,Multiple Hazards
+W2169,Krishna Menon,49,4.5,Quality Control,Lab Technician,Afternoon,QC Lab,32.1,33.0,7.6,63.5,1,0.99,5.4,22.7,1,Normal,Humid,No,10,LOW,None
+W2390,Priya Reddy,25,1.5,Maintenance,Welder,Afternoon,Maintenance Bay,38.0,55.7,12.2,71.4,6,0.57,8.0,7.9,3,Needs Maintenance,Hot,No,51,MEDIUM,Minor Gas Leak
+W2415,Pooja Kumar,51,13.3,Casting,Ladle Operator,Night,Casting Bay,37.5,46.0,9.8,86.8,5,0.5,8.7,8.2,1,Needs Maintenance,Hot,No,50,MEDIUM,Dust Exposure
+W2321,Gopal Deshmukh,55,13.9,Quality Control,QC Inspector,Night,QC Lab,42.3,45.9,16.2,91.9,4,0.76,9.1,4.5,3,Needs Maintenance,Rainy,No,61,MEDIUM,Slip Hazard
+W2699,Deepak Patel,38,2.9,Blast Furnace,Slag Handler,Night,Blast Furnace,45.1,80.5,18.6,102.3,8,0.24,10.3,3.2,2,Needs Maintenance,Humid,Yes,78,HIGH,Fire Hazard
+W2480,Yogesh Verma,27,0.9,Coke Oven,Coke Oven Operator,Afternoon,Coke Oven,38.6,50.1,9.1,85.3,7,0.61,10.3,9.3,2,Needs Maintenance,Humid,No,69,MEDIUM,Equipment Wear
+W2080,Ajay Nair,39,4.6,Steel Melting Shop,Tapper,Afternoon,SMS Area,29.3,54.5,4.0,53.4,1,0.76,7.0,22.4,0,Normal,Humid,No,19,LOW,Noise Hazard
+W2620,Indira Shinde,20,0.9,Maintenance,Electrician,Afternoon,Maintenance Bay,49.7,71.4,19.2,100.0,9,0.51,12.3,1.5,6,Malfunction,Rainy,Yes,92,HIGH,Explosion Risk
+W2573,Mukesh Patil,44,21.0,Coke Oven,Oven Helper,Night,Coke Oven,42.2,68.0,25.9,95.2,10,0.41,10.3,0.7,3,Malfunction,Hot,Yes,78,HIGH,Structural Risk
+W2189,Prakash More,34,5.1,Maintenance,Welder,Morning,Maintenance Bay,28.8,50.5,0.8,51.5,1,0.81,4.6,27.4,1,Normal,Clear,No,11,LOW,None
+W2402,Kamal Roy,57,9.3,Steel Melting Shop,Tapper,Afternoon,SMS Area,34.1,57.9,18.1,75.4,4,0.69,9.7,5.3,0,Malfunction,Hot,Yes,55,MEDIUM,None
+W2737,Savita Mane,32,10.6,Coke Oven,Gas Handler,Morning,Coke Oven,53.6,82.8,32.9,92.5,9,0.18,14.5,2.6,3,Needs Maintenance,Windy,No,88,HIGH,Multiple Hazards
+W2712,Suresh Deshmukh,29,10.4,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,43.1,60.0,18.9,109.4,8,0.21,14.0,4.3,6,Malfunction,Clear,No,76,HIGH,Fire Hazard
+W2634,Kamal Singh,29,2.0,Storage,Forklift Operator,Night,Storage Area,48.2,74.3,38.3,86.8,7,0.23,12.1,4.0,4,Needs Maintenance,Humid,Yes,96,HIGH,Multiple Hazards
+W2411,Leela Bhosale,56,28.8,Casting,Ladle Operator,Morning,Casting Bay,43.6,70.6,20.5,79.2,6,0.73,8.9,8.0,0,Normal,Windy,No,42,MEDIUM,None
+W2217,Omkar Menon,48,8.3,Crane Operations,Rigger,Morning,Crane Area,34.4,30.5,2.0,50.2,1,0.91,7.6,14.9,0,Normal,Humid,No,32,LOW,None
+W2129,Dilip Bhosale,45,20.2,Rolling Mill,Mill Helper,Afternoon,Rolling Mill,25.8,55.1,0.1,52.1,2,0.8,4.1,13.6,1,Normal,Rainy,No,35,LOW,None
+W2708,Sunil Reddy,47,22.1,Logistics,Driver,Night,Loading Yard,52.7,71.9,19.1,95.0,7,0.4,12.7,3.9,3,Malfunction,Clear,Yes,74,HIGH,Structural Risk
+W2535,Kamal Yadav,58,26.2,Rolling Mill,Mill Helper,Night,Rolling Mill,41.8,60.6,20.7,88.0,7,0.73,7.2,4.1,2,Normal,Humid,No,62,MEDIUM,None
+W2095,Deepak Gaikwad,27,7.7,Logistics,Loader,Night,Loading Yard,30.4,46.0,3.6,74.7,2,0.9,4.9,12.0,1,Normal,Windy,No,20,LOW,None
+W2279,Bharat Deshmukh,27,6.3,Maintenance,Welder,Morning,Maintenance Bay,37.7,49.0,12.6,79.5,7,0.53,7.9,8.8,3,Needs Maintenance,Rainy,No,58,MEDIUM,Equipment Wear
+W2161,Jaya Das,31,12.2,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,33.6,56.8,8.6,70.2,1,0.91,6.2,11.7,1,Normal,Clear,No,20,LOW,None
+W2662,Shanti Gaikwad,48,2.1,Casting,Casting Operator,Night,Casting Bay,47.5,79.4,29.2,88.0,7,0.24,14.8,4.4,2,Needs Maintenance,Humid,Yes,79,HIGH,Explosion Risk
+W2233,Kiran Yadav,39,2.1,Logistics,Driver,Morning,Loading Yard,24.3,49.3,2.0,63.4,3,0.77,5.8,25.1,1,Normal,Hot,No,30,LOW,None
+W2314,Indira Bhosale,48,14.0,Logistics,Driver,Night,Loading Yard,43.8,63.1,15.8,72.4,5,0.63,8.8,10.9,3,Needs Maintenance,Windy,No,57,MEDIUM,Minor Gas Leak
+W2514,Vandana Nair,20,1.8,Casting,Ladle Operator,Morning,Casting Bay,34.3,60.3,16.1,80.8,6,0.69,7.9,8.4,0,Needs Maintenance,Humid,No,62,MEDIUM,Equipment Wear
+W2586,Yogesh Nair,25,0.6,Logistics,Dispatcher,Morning,Loading Yard,47.0,60.4,19.8,91.5,10,0.11,13.8,2.4,3,Needs Maintenance,Rainy,Yes,93,HIGH,Chemical Spill
+W2265,Zeenat Joshi,39,5.4,Quality Control,Lab Technician,Morning,QC Lab,33.5,48.1,2.9,70.4,4,0.97,7.4,28.4,0,Normal,Humid,No,12,LOW,None
+W2568,Chandan Mishra,24,4.0,Storage,Forklift Operator,Afternoon,Storage Area,46.0,89.2,30.0,91.9,9,0.42,11.6,4.6,3,Malfunction,Rainy,Yes,82,HIGH,Fire Hazard
+W2466,Kamal Deshmukh,23,0.9,Steel Melting Shop,Melter,Morning,SMS Area,33.9,63.7,10.9,78.6,4,0.77,7.8,8.1,1,Normal,Windy,No,49,MEDIUM,Minor Gas Leak
+W2434,Manoj Pillai,38,12.5,Storage,Forklift Operator,Morning,Storage Area,37.4,65.3,9.4,76.1,5,0.58,8.7,11.8,3,Normal,Windy,No,63,MEDIUM,Equipment Wear
+W2406,Bharat Roy,41,15.3,Casting,Mould Handler,Night,Casting Bay,44.0,71.8,8.6,86.7,7,0.61,8.6,10.0,2,Malfunction,Windy,No,50,MEDIUM,None
+W2012,Suresh Reddy,56,33.2,Storage,Warehouse Handler,Morning,Storage Area,23.0,40.0,1.2,71.6,1,0.91,5.3,11.3,0,Normal,Humid,No,27,LOW,None
+W2165,Rohit More,35,1.5,Storage,Material Checker,Morning,Storage Area,33.1,54.3,7.1,70.9,3,0.92,6.7,22.4,0,Normal,Humid,No,38,LOW,Noise Hazard
+W2516,Sanjay Deshmukh,55,24.8,Coke Oven,Oven Helper,Night,Coke Oven,34.4,67.3,12.0,90.4,5,0.79,9.3,5.1,2,Needs Maintenance,Hot,Yes,55,MEDIUM,Dust Exposure
+W2178,Pooja Pillai,46,15.8,Maintenance,Fitter,Morning,Maintenance Bay,24.4,54.3,7.8,69.3,2,0.96,7.0,22.5,1,Normal,Humid,No,39,LOW,None
+W2619,Mohan More,48,23.0,Casting,Mould Handler,Afternoon,Casting Bay,40.3,89.5,19.9,105.4,8,0.23,10.8,2.5,4,Malfunction,Clear,Yes,97,HIGH,Fire Hazard
+W2033,Tushar Gaikwad,54,24.2,Blast Furnace,Slag Handler,Night,Blast Furnace,25.4,36.8,9.7,59.8,3,0.97,6.5,25.9,1,Normal,Hot,No,20,LOW,None
+W2658,Kiran Mane,46,15.1,Crane Operations,Crane Operator,Afternoon,Crane Area,44.0,66.0,35.2,107.7,10,0.27,14.5,4.5,3,Malfunction,Clear,No,95,HIGH,Gas Leak
+W2724,Mohan Pawar,47,5.4,Steel Melting Shop,Tapper,Afternoon,SMS Area,53.8,75.1,25.2,103.4,8,0.12,12.8,2.0,3,Malfunction,Hot,Yes,73,HIGH,Structural Risk
+W2160,Nitin Joshi,23,4.6,Crane Operations,Rigger,Morning,Crane Area,29.0,46.6,5.8,52.3,2,0.97,5.1,12.6,0,Needs Maintenance,Windy,No,38,LOW,None
+W2114,Naresh Jadhav,58,30.6,Storage,Material Checker,Afternoon,Storage Area,29.6,44.2,6.1,50.5,2,0.97,7.7,21.3,1,Normal,Clear,No,31,LOW,None
+W2800,Tanuja Sharma,31,5.9,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,54.6,70.8,28.5,93.9,8,0.41,14.0,3.7,5,Malfunction,Windy,Yes,79,HIGH,Chemical Spill
+W2014,Prakash Reddy,24,2.4,Maintenance,Fitter,Night,Maintenance Bay,31.3,51.3,5.6,69.3,2,0.87,6.1,18.6,0,Normal,Windy,No,11,LOW,None
+W2661,Hemant Gupta,48,17.6,Logistics,Loader,Morning,Loading Yard,52.9,82.9,21.2,102.3,7,0.53,14.1,2.0,5,Malfunction,Clear,No,72,HIGH,Explosion Risk
+W2455,Harish Bhosale,22,0.9,Rolling Mill,Mill Helper,Night,Rolling Mill,42.6,63.5,9.5,76.4,4,0.59,8.0,8.1,2,Normal,Rainy,Yes,46,MEDIUM,Noise Hazard
+W2346,Ajay Thakur,34,8.5,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,44.5,55.4,8.5,70.7,7,0.62,7.6,4.2,3,Malfunction,Rainy,Yes,68,MEDIUM,Noise Hazard
+W2422,Chitra Gupta,40,10.9,Steel Melting Shop,Tapper,Night,SMS Area,38.6,55.0,21.1,88.2,4,0.71,9.9,7.7,1,Needs Maintenance,Windy,No,57,MEDIUM,Dust Exposure
+W2684,Jaya Bhat,49,22.5,Quality Control,Sampler,Afternoon,QC Lab,42.8,76.7,24.4,95.4,7,0.27,15.3,4.6,4,Needs Maintenance,Rainy,Yes,100,HIGH,Multiple Hazards
+W2307,Mukesh Chavan,55,31.3,Steel Melting Shop,SMS Operator,Night,SMS Area,41.2,53.5,14.6,88.1,4,0.64,8.4,8.0,1,Normal,Clear,No,55,MEDIUM,None
+W2541,Rahul Joshi,43,3.9,Blast Furnace,Furnace Helper,Afternoon,Blast Furnace,46.0,69.8,18.2,105.7,9,0.46,10.6,3.1,3,Needs Maintenance,Windy,Yes,96,HIGH,Gas Leak
+W2144,Vikram Shinde,43,13.1,Coke Oven,Oven Helper,Morning,Coke Oven,29.0,54.4,7.3,70.2,2,0.91,6.8,27.0,1,Normal,Rainy,No,14,LOW,None
+W2482,Anand Menon,26,7.4,Coke Oven,Gas Handler,Night,Coke Oven,35.5,50.2,17.7,74.8,7,0.68,8.1,9.3,2,Needs Maintenance,Rainy,Yes,43,MEDIUM,Slip Hazard
+W2770,Rahul Bhosale,31,5.5,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,40.1,79.4,29.2,96.1,10,0.54,13.4,4.4,5,Malfunction,Clear,Yes,98,HIGH,Fire Hazard
+W2154,Shanti Das,23,3.7,Quality Control,Sampler,Night,QC Lab,25.0,31.2,0.2,74.7,3,0.86,5.5,23.6,1,Normal,Hot,No,15,LOW,None
+W2427,Nitin Yadav,55,18.9,Logistics,Driver,Night,Loading Yard,41.2,67.1,15.7,91.3,5,0.52,9.0,9.7,2,Normal,Clear,Yes,40,MEDIUM,None
+W2583,Dilip Kulkarni,36,3.1,Steel Melting Shop,Tapper,Afternoon,SMS Area,50.2,77.3,27.4,91.9,7,0.45,11.4,3.6,2,Needs Maintenance,Hot,Yes,99,HIGH,Structural Risk
+W2013,Dilip Kumar,54,26.6,Quality Control,Sampler,Night,QC Lab,26.0,39.1,7.3,65.9,3,0.97,5.9,12.4,1,Malfunction,Hot,No,24,LOW,Noise Hazard
+W2791,Dinesh Verma,31,3.7,Coke Oven,Coke Oven Operator,Morning,Coke Oven,48.2,64.0,33.2,104.9,7,0.17,10.6,1.2,5,Normal,Windy,Yes,90,HIGH,Multiple Hazards
+W2251,Kiran Thakur,28,4.5,Blast Furnace,Furnace Operator,Night,Blast Furnace,29.0,36.0,0.1,56.0,2,0.99,7.2,29.2,0,Malfunction,Windy,No,21,LOW,None
+W2081,Mukesh Jadhav,45,7.8,Storage,Warehouse Handler,Night,Storage Area,31.2,36.0,1.4,50.4,4,0.84,6.4,17.8,1,Needs Maintenance,Clear,No,35,LOW,None
+W2145,Omkar Kulkarni,46,7.3,Storage,Forklift Operator,Morning,Storage Area,25.2,43.7,2.2,74.7,3,0.99,4.2,24.1,0,Needs Maintenance,Rainy,No,26,LOW,None
+W2375,Meena Bhat,40,17.4,Casting,Mould Handler,Afternoon,Casting Bay,43.0,53.5,19.0,89.6,4,0.63,10.6,7.0,3,Needs Maintenance,Rainy,Yes,46,MEDIUM,None
+W2787,Kiran Kumar,31,0.5,Steel Melting Shop,Tapper,Night,SMS Area,43.5,74.8,24.8,89.5,7,0.33,11.9,1.7,6,Malfunction,Hot,Yes,86,HIGH,Equipment Failure
+W2031,Yogesh Roy,45,18.5,Storage,Forklift Operator,Night,Storage Area,29.1,49.4,6.5,55.6,1,0.93,4.9,16.5,0,Needs Maintenance,Rainy,No,28,LOW,Noise Hazard
+W2162,Kamal Bhosale,28,8.6,Quality Control,Sampler,Afternoon,QC Lab,27.3,40.4,2.6,68.1,2,0.87,4.3,14.4,0,Normal,Rainy,No,30,LOW,None
+W2609,Omkar Nair,57,8.9,Maintenance,Fitter,Afternoon,Maintenance Bay,55.0,73.6,25.8,95.0,10,0.15,15.3,2.4,2,Malfunction,Windy,Yes,97,HIGH,Multiple Hazards
+W2489,Chitra Verma,26,0.8,Rolling Mill,Mill Helper,Morning,Rolling Mill,36.1,62.7,11.2,70.3,6,0.73,9.5,10.1,3,Needs Maintenance,Windy,No,60,MEDIUM,Dust Exposure
+W2076,Ganesh Kulkarni,24,1.8,Maintenance,Welder,Night,Maintenance Bay,28.1,41.6,2.7,51.4,2,0.97,7.3,30.0,0,Normal,Rainy,No,30,LOW,None
+W2596,Yogesh Kulkarni,48,10.1,Coke Oven,Coke Oven Operator,Night,Coke Oven,45.8,67.2,20.1,92.9,8,0.14,11.1,4.9,3,Needs Maintenance,Windy,No,79,HIGH,Equipment Failure
+W2679,Ganesh Nair,52,21.3,Crane Operations,Signal Man,Afternoon,Crane Area,42.8,61.2,26.6,105.1,10,0.25,12.7,3.5,5,Malfunction,Humid,No,80,HIGH,Equipment Failure
+W2109,Anand Mane,56,22.7,Logistics,Loader,Night,Loading Yard,30.1,44.9,8.9,69.7,3,0.79,5.2,15.0,0,Normal,Rainy,No,30,LOW,None
+W2056,Gopal Bhat,31,2.9,Coke Oven,Coke Oven Operator,Night,Coke Oven,32.4,37.9,1.8,68.8,3,0.95,8.0,18.3,1,Malfunction,Humid,No,19,LOW,None
+W2381,Deepak Gupta,24,5.7,Casting,Ladle Operator,Afternoon,Casting Bay,38.1,68.8,11.0,84.9,4,0.68,8.2,5.1,0,Normal,Windy,No,42,MEDIUM,Heat Stress
+W2765,Anand Roy,28,5.1,Blast Furnace,Furnace Helper,Night,Blast Furnace,46.7,80.8,34.1,109.9,7,0.23,13.2,2.9,5,Malfunction,Windy,Yes,96,HIGH,Multiple Hazards
+W2027,Ganesh Chavan,43,14.8,Casting,Mould Handler,Morning,Casting Bay,34.0,54.6,2.6,66.5,2,0.95,6.2,20.6,0,Normal,Humid,No,35,LOW,Noise Hazard
+W2387,Chitra Pawar,44,21.6,Crane Operations,Crane Operator,Morning,Crane Area,33.6,45.5,18.8,87.8,4,0.54,8.1,4.1,3,Normal,Rainy,No,65,MEDIUM,Equipment Wear
+W2147,Nirmala Singh,26,3.7,Maintenance,Electrician,Afternoon,Maintenance Bay,34.0,57.2,9.4,61.9,4,0.97,7.4,16.4,1,Normal,Rainy,No,27,LOW,None
+W2121,Tushar Singh,46,2.0,Maintenance,Electrician,Night,Maintenance Bay,22.2,48.6,1.8,74.0,2,0.79,5.7,11.7,1,Malfunction,Rainy,No,10,LOW,None
+W2758,Nirmala Gupta,55,14.5,Storage,Warehouse Handler,Afternoon,Storage Area,40.4,83.5,18.2,104.0,9,0.5,12.6,2.9,4,Needs Maintenance,Clear,Yes,95,HIGH,Fire Hazard
+W2058,Jagdish Das,48,10.6,Logistics,Loader,Morning,Loading Yard,31.8,32.9,9.0,62.6,4,0.96,5.3,27.9,0,Needs Maintenance,Rainy,No,12,LOW,None
+W2230,Ramesh Pawar,45,8.3,Logistics,Dispatcher,Morning,Loading Yard,26.6,31.9,5.2,51.7,4,0.95,4.9,20.8,1,Normal,Hot,No,29,LOW,None
+W2216,Rajesh Patil,27,2.8,Quality Control,Sampler,Night,QC Lab,27.2,46.2,5.3,65.2,1,0.94,7.3,24.4,1,Normal,Rainy,Yes,13,LOW,None
+W2249,Amit Bhosale,41,3.3,Maintenance,Fitter,Afternoon,Maintenance Bay,27.8,35.4,3.7,60.4,2,0.96,6.9,25.4,1,Needs Maintenance,Clear,No,10,LOW,None
+W2741,Mohan More,44,2.0,Crane Operations,Rigger,Afternoon,Crane Area,45.8,84.9,20.9,108.4,8,0.44,15.6,3.5,3,Needs Maintenance,Hot,Yes,97,HIGH,Explosion Risk
+W2565,Ashok Chauhan,24,4.1,Maintenance,Electrician,Afternoon,Maintenance Bay,42.4,67.0,18.5,105.9,9,0.54,10.8,1.5,5,Needs Maintenance,Windy,Yes,83,HIGH,Structural Risk
+W2148,Ravi Thakur,52,15.6,Quality Control,Lab Technician,Night,QC Lab,32.8,31.0,6.0,55.8,1,0.78,4.3,23.9,0,Malfunction,Rainy,No,35,LOW,Noise Hazard
+W2472,Vinod Patel,47,17.7,Steel Melting Shop,Melter,Night,SMS Area,33.0,55.1,19.3,79.5,5,0.8,9.2,6.6,2,Needs Maintenance,Humid,No,51,MEDIUM,Heat Stress
+W2302,Rajesh Gupta,22,0.5,Steel Melting Shop,Tapper,Morning,SMS Area,43.8,52.5,21.8,73.1,6,0.56,7.7,11.2,2,Malfunction,Hot,No,48,MEDIUM,Dust Exposure
+W2143,Balaji Menon,30,5.6,Maintenance,Fitter,Afternoon,Maintenance Bay,26.7,32.6,9.2,53.4,2,0.99,5.8,13.7,1,Normal,Humid,No,32,LOW,None
+W2370,Sanjay Shinde,52,9.9,Storage,Forklift Operator,Morning,Storage Area,37.8,60.8,16.7,71.6,5,0.7,8.0,9.7,0,Normal,Windy,No,57,MEDIUM,Heat Stress
+W2358,Vikram Sawant,27,6.9,Steel Melting Shop,Tapper,Afternoon,SMS Area,37.3,67.3,18.7,82.6,4,0.79,7.8,4.9,1,Normal,Hot,No,65,MEDIUM,Equipment Wear
+W2062,Anand Reddy,36,14.3,Maintenance,Fitter,Night,Maintenance Bay,33.5,39.8,1.2,53.6,2,0.94,6.5,12.0,1,Normal,Windy,No,14,LOW,Noise Hazard
+W2113,Rohit Chauhan,38,8.1,Logistics,Driver,Afternoon,Loading Yard,24.4,55.4,5.8,60.0,1,0.87,7.8,13.1,1,Normal,Windy,No,31,LOW,None
+W2137,Kavita Chauhan,55,20.2,Crane Operations,Rigger,Afternoon,Crane Area,24.3,55.6,4.2,59.6,2,0.88,4.2,13.3,0,Normal,Windy,No,32,LOW,None
+W2486,Raghav Gupta,31,3.7,Logistics,Driver,Afternoon,Loading Yard,45.0,67.3,19.8,75.5,7,0.67,7.3,4.8,2,Normal,Clear,No,61,MEDIUM,None
+W2572,Gopal Roy,27,4.9,Rolling Mill,Roll Turner,Night,Rolling Mill,45.9,75.9,21.6,99.3,9,0.46,14.6,1.2,5,Needs Maintenance,Windy,Yes,73,HIGH,Explosion Risk
+W2372,Nitin Chauhan,36,3.8,Logistics,Driver,Afternoon,Loading Yard,38.5,52.7,9.9,83.9,6,0.52,10.0,6.5,3,Malfunction,Hot,Yes,45,MEDIUM,Minor Gas Leak
+W2018,Amit Mane,35,3.2,Quality Control,QC Inspector,Afternoon,QC Lab,29.0,52.6,9.0,58.0,2,0.78,4.9,18.5,1,Needs Maintenance,Humid,No,10,LOW,Noise Hazard
+W2209,Zeenat Pillai,45,1.3,Casting,Mould Handler,Night,Casting Bay,31.0,48.9,2.2,66.5,4,0.85,6.6,12.1,1,Normal,Hot,No,16,LOW,None
+W2790,Pankaj Bhat,36,13.1,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,46.9,75.9,18.8,101.0,9,0.14,12.6,1.8,4,Normal,Windy,Yes,70,HIGH,Explosion Risk
+W2371,Bharat Sawant,31,6.2,Quality Control,Lab Technician,Morning,QC Lab,42.7,66.7,15.7,81.4,7,0.54,10.1,6.2,2,Normal,Windy,Yes,46,MEDIUM,Minor Gas Leak
+W2241,Raghav Bhat,35,3.0,Crane Operations,Signal Man,Afternoon,Crane Area,26.5,57.3,6.4,70.6,2,0.78,7.4,28.5,1,Normal,Clear,No,10,LOW,Noise Hazard
+W2090,Mukesh Shinde,55,7.6,Crane Operations,Crane Operator,Morning,Crane Area,28.3,47.3,3.7,61.6,3,0.94,4.1,15.0,0,Needs Maintenance,Hot,No,18,LOW,Noise Hazard
+W2720,Zeenat Deshmukh,29,3.2,Blast Furnace,Slag Handler,Afternoon,Blast Furnace,49.0,65.0,26.4,100.4,9,0.54,14.4,4.7,3,Needs Maintenance,Hot,No,96,HIGH,Fire Hazard
+W2225,Balaji Shinde,34,7.2,Storage,Material Checker,Morning,Storage Area,30.1,42.6,5.9,54.2,1,0.93,7.5,14.3,0,Normal,Clear,No,17,LOW,None
+W2763,Mohan Verma,47,15.3,Maintenance,Welder,Night,Maintenance Bay,54.5,88.3,25.4,99.3,9,0.51,10.0,4.1,2,Normal,Hot,Yes,80,HIGH,Explosion Risk
+W2778,Uma Kumar,25,6.1,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,52.7,73.8,22.8,88.3,9,0.53,10.4,1.4,3,Malfunction,Humid,Yes,71,HIGH,Chemical Spill
+W2540,Balaji Chavan,53,29.7,Quality Control,Sampler,Night,QC Lab,41.5,62.8,21.0,88.1,4,0.67,9.6,11.2,3,Needs Maintenance,Windy,Yes,66,MEDIUM,Noise Hazard
+W2432,Indira Menon,58,25.9,Steel Melting Shop,Melter,Afternoon,SMS Area,37.3,46.8,19.0,76.3,7,0.63,9.7,6.7,0,Normal,Rainy,No,66,MEDIUM,Heat Stress
+W2733,Manoj Bhosale,48,28.7,Quality Control,Lab Technician,Afternoon,QC Lab,53.7,78.3,30.0,91.2,8,0.25,15.1,3.0,3,Malfunction,Windy,No,91,HIGH,Multiple Hazards
+W2595,Tushar Gupta,40,3.8,Coke Oven,Gas Handler,Morning,Coke Oven,54.4,77.0,29.3,87.1,10,0.35,12.3,3.2,5,Needs Maintenance,Humid,Yes,91,HIGH,Gas Leak
+W2086,Shanti Kulkarni,34,10.5,Quality Control,Lab Technician,Night,QC Lab,28.2,48.7,1.7,54.8,3,0.76,4.7,15.6,1,Normal,Humid,No,11,LOW,None
+W2394,Prakash Deshmukh,47,9.7,Crane Operations,Crane Operator,Morning,Crane Area,40.8,52.0,12.8,90.2,4,0.59,8.9,11.1,3,Normal,Rainy,Yes,41,MEDIUM,Equipment Wear
+W2236,Sachin Gaikwad,47,8.3,Rolling Mill,Rolling Mill Operator,Morning,Rolling Mill,31.8,33.6,8.3,69.6,1,0.93,4.1,16.1,1,Normal,Rainy,No,25,LOW,Noise Hazard
+W2550,Chandan Joshi,47,5.9,Crane Operations,Signal Man,Morning,Crane Area,46.1,64.8,32.4,109.3,9,0.35,14.3,0.8,3,Malfunction,Humid,Yes,91,HIGH,Gas Leak
+W2546,Leela Patil,20,1.3,Rolling Mill,Rolling Mill Operator,Night,Rolling Mill,48.7,70.8,36.1,105.5,9,0.31,12.1,2.1,3,Normal,Hot,Yes,93,HIGH,Gas Leak
+W2505,Rajesh Yadav,35,12.4,Maintenance,Welder,Night,Maintenance Bay,44.6,56.9,11.9,87.6,6,0.6,8.2,5.9,3,Needs Maintenance,Windy,No,50,MEDIUM,Noise Hazard
+W2547,Naresh More,50,12.0,Crane Operations,Signal Man,Night,Crane Area,52.1,69.8,22.6,87.1,10,0.31,12.9,4.3,2,Malfunction,Hot,Yes,82,HIGH,Structural Risk
+W2552,Rajesh Reddy,47,21.2,Logistics,Loader,Afternoon,Loading Yard,48.3,72.1,36.3,105.4,9,0.38,12.2,1.6,5,Malfunction,Windy,Yes,100,HIGH,Structural Risk
+W2510,Kiran Singh,47,21.5,Maintenance,Electrician,Morning,Maintenance Bay,37.4,57.4,18.2,82.6,6,0.7,10.1,10.9,3,Normal,Hot,No,58,MEDIUM,Noise Hazard
+W2563,Sachin Patel,39,7.9,Quality Control,Sampler,Afternoon,QC Lab,44.6,76.4,27.2,89.0,10,0.18,12.5,3.9,2,Needs Maintenance,Hot,Yes,79,HIGH,Equipment Failure
+W2429,Tanuja Patil,34,9.7,Logistics,Loader,Morning,Loading Yard,34.0,53.4,12.1,89.2,6,0.7,10.2,6.0,0,Normal,Clear,No,56,MEDIUM,None
+W2393,Arjun Jadhav,39,19.7,Crane Operations,Rigger,Morning,Crane Area,40.1,66.1,16.1,73.2,4,0.74,9.5,7.1,2,Needs Maintenance,Clear,Yes,51,MEDIUM,Heat Stress
+W2252,Shanti Patil,52,11.3,Maintenance,Electrician,Afternoon,Maintenance Bay,28.3,33.1,5.5,61.4,1,0.96,4.4,19.8,1,Normal,Hot,No,35,LOW,None
+W2670,Arjun Kumar,45,5.4,Coke Oven,Gas Handler,Morning,Coke Oven,44.5,83.3,26.6,88.5,7,0.1,13.3,4.9,2,Malfunction,Rainy,Yes,74,HIGH,Equipment Failure
+W2142,Chandan Kulkarni,21,1.7,Crane Operations,Signal Man,Night,Crane Area,27.7,36.9,8.2,70.0,3,0.92,5.1,21.8,1,Normal,Windy,No,31,LOW,None
+W2342,Bharat Reddy,57,25.8,Casting,Ladle Operator,Afternoon,Casting Bay,39.8,64.1,17.6,78.2,7,0.55,8.7,5.1,0,Needs Maintenance,Hot,No,61,MEDIUM,Noise Hazard
+W2652,Mukesh Shinde,20,0.7,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,50.2,88.0,39.9,103.0,10,0.23,15.3,0.7,2,Malfunction,Hot,Yes,78,HIGH,Multiple Hazards
+W2617,Kiran Bhosale,29,9.5,Blast Furnace,Slag Handler,Night,Blast Furnace,41.9,86.3,39.4,89.4,7,0.42,10.2,2.3,2,Normal,Windy,Yes,84,HIGH,Explosion Risk
+W2424,Kiran Gaikwad,23,3.3,Crane Operations,Signal Man,Afternoon,Crane Area,36.5,54.1,21.7,88.8,6,0.71,9.9,8.5,1,Needs Maintenance,Clear,No,61,MEDIUM,Noise Hazard
+W2711,Balaji Pawar,34,9.9,Crane Operations,Signal Man,Afternoon,Crane Area,47.1,86.9,29.6,102.7,9,0.21,12.7,1.1,3,Malfunction,Windy,Yes,97,HIGH,Structural Risk
+W2493,Arjun Bhosale,26,5.2,Storage,Material Checker,Afternoon,Storage Area,44.8,62.5,19.3,85.7,4,0.68,7.2,7.6,3,Normal,Humid,Yes,46,MEDIUM,Heat Stress
+W2435,Indira Patil,54,5.2,Rolling Mill,Rolling Mill Operator,Afternoon,Rolling Mill,32.9,59.0,10.5,91.4,7,0.53,8.6,9.9,0,Needs Maintenance,Rainy,No,62,MEDIUM,Noise Hazard
+W2507,Tushar Kulkarni,49,5.9,Casting,Casting Operator,Afternoon,Casting Bay,33.9,54.3,20.1,73.4,7,0.52,8.9,6.4,1,Normal,Hot,No,46,MEDIUM,Slip Hazard
+W2327,Prakash Menon,40,8.7,Logistics,Dispatcher,Morning,Loading Yard,38.1,46.2,10.0,76.1,6,0.79,8.3,7.9,2,Needs Maintenance,Humid,No,64,MEDIUM,Slip Hazard
+W2362,Kiran Shinde,45,9.9,Casting,Casting Operator,Afternoon,Casting Bay,44.4,45.2,22.0,84.9,5,0.75,8.2,4.1,0,Normal,Humid,Yes,42,MEDIUM,Equipment Wear
+W2395,Tanuja Sharma,43,19.4,Maintenance,Welder,Morning,Maintenance Bay,41.2,46.7,10.1,70.2,7,0.69,8.8,5.1,0,Normal,Hot,Yes,64,MEDIUM,Dust Exposure
+W2187,Priya Bhat,55,14.7,Maintenance,Fitter,Morning,Maintenance Bay,22.7,45.2,7.1,71.8,3,0.93,7.2,16.8,1,Normal,Windy,No,31,LOW,None
+W2131,Dilip Patel,48,10.9,Logistics,Dispatcher,Morning,Loading Yard,29.7,37.5,6.2,60.2,4,0.89,5.7,15.9,1,Normal,Rainy,No,11,LOW,None
+W2331,Leela Reddy,36,7.6,Rolling Mill,Roll Turner,Afternoon,Rolling Mill,38.6,68.6,14.9,85.4,7,0.8,7.5,6.2,2,Needs Maintenance,Humid,No,57,MEDIUM,Heat Stress
+W2093,Ganesh Pawar,53,10.9,Crane Operations,Signal Man,Night,Crane Area,23.6,54.9,5.9,67.0,1,0.95,6.0,11.7,1,Needs Maintenance,Clear,No,13,LOW,None
+W2149,Hemant Sharma,32,8.6,Quality Control,Lab Technician,Afternoon,QC Lab,26.4,50.3,0.7,57.9,1,0.88,7.2,16.4,0,Normal,Windy,No,35,LOW,None
+W2286,Rekha Chavan,32,5.1,Logistics,Dispatcher,Night,Loading Yard,40.5,70.8,9.0,71.3,7,0.58,8.0,6.0,2,Normal,Hot,No,66,MEDIUM,Dust Exposure
+W2745,Dinesh Sawant,56,4.0,Blast Furnace,Furnace Helper,Morning,Blast Furnace,53.0,65.4,38.8,90.5,10,0.25,14.5,2.3,3,Normal,Humid,Yes,85,HIGH,Fire Hazard
+W2438,Sunil Pawar,48,9.0,Steel Melting Shop,Melter,Morning,SMS Area,44.4,53.0,9.3,83.2,5,0.69,9.6,6.1,1,Needs Maintenance,Clear,No,40,MEDIUM,Minor Gas Leak
+W2592,Raghav Mane,51,1.8,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,44.9,80.0,30.2,93.6,10,0.16,10.6,4.2,5,Malfunction,Windy,No,97,HIGH,Fire Hazard
+W2116,Indira Das,32,3.6,Crane Operations,Rigger,Morning,Crane Area,31.6,56.2,9.3,61.3,1,0.78,7.9,26.8,1,Needs Maintenance,Hot,No,34,LOW,None
+W2069,Chitra Patel,39,11.8,Logistics,Driver,Night,Loading Yard,23.0,45.5,9.7,63.1,1,0.91,6.8,19.1,0,Malfunction,Humid,Yes,24,LOW,Noise Hazard
+W2490,Zeenat Thakur,37,3.3,Blast Furnace,Furnace Operator,Afternoon,Blast Furnace,32.5,67.6,16.7,82.4,4,0.69,10.5,8.7,3,Needs Maintenance,Humid,No,63,MEDIUM,None
+W2739,Vinod Gupta,45,0.7,Logistics,Dispatcher,Afternoon,Loading Yard,43.1,63.9,22.5,104.2,8,0.29,13.4,0.6,4,Needs Maintenance,Rainy,Yes,84,HIGH,Fire Hazard
+W2458,Vikram Singh,50,29.0,Maintenance,Fitter,Morning,Maintenance Bay,37.1,59.9,15.0,74.3,7,0.76,9.7,10.7,0,Needs Maintenance,Clear,Yes,62,MEDIUM,Equipment Wear
+W2400,Ravi Jadhav,54,28.8,Coke Oven,Gas Handler,Morning,Coke Oven,35.4,56.8,16.3,71.6,7,0.69,10.9,5.5,1,Normal,Windy,Yes,60,MEDIUM,Slip Hazard
+W2152,Jagdish Verma,57,20.4,Blast Furnace,Slag Handler,Night,Blast Furnace,27.2,43.4,6.3,71.8,4,1.0,7.1,18.4,0,Normal,Clear,No,34,LOW,None
+W2328,Gaurav Das,22,1.5,Quality Control,Sampler,Night,QC Lab,34.5,61.5,11.9,74.6,6,0.65,7.0,4.1,0,Malfunction,Hot,Yes,64,MEDIUM,Equipment Wear
+W2151,Nirmala Das,56,10.8,Quality Control,Sampler,Morning,QC Lab,33.4,44.8,9.4,70.0,3,1.0,5.4,25.3,0,Malfunction,Rainy,No,35,LOW,Noise Hazard
+W2672,Prakash Patel,32,0.8,Coke Oven,Gas Handler,Afternoon,Coke Oven,47.6,64.2,39.6,91.2,7,0.13,14.0,3.2,3,Malfunction,Clear,No,73,HIGH,Equipment Failure
+W2153,Prakash Menon,56,33.2,Casting,Mould Handler,Morning,Casting Bay,27.5,50.7,2.4,52.8,1,0.84,5.1,15.9,1,Normal,Hot,No,32,LOW,None
+W2003,Hemant Mishra,26,1.2,Casting,Casting Operator,Morning,Casting Bay,24.4,35.1,3.0,63.1,3,0.86,5.2,22.2,1,Needs Maintenance,Rainy,No,27,LOW,None
+W2079,Zeenat Singh,49,28.0,Maintenance,Electrician,Night,Maintenance Bay,23.5,48.8,5.2,69.3,2,0.88,7.4,21.0,0,Normal,Windy,No,28,LOW,None
+W2729,Suresh Chauhan,41,18.6,Steel Melting Shop,Tapper,Morning,SMS Area,52.7,67.9,27.3,86.0,10,0.3,13.5,3.1,3,Malfunction,Humid,Yes,86,HIGH,Equipment Failure
+W2272,Harish Mane,20,1.7,Storage,Material Checker,Night,Storage Area,34.4,54.6,19.0,82.2,7,0.5,10.0,4.3,0,Needs Maintenance,Windy,Yes,58,MEDIUM,Equipment Wear
+W2378,Arjun Kulkarni,38,9.5,Maintenance,Fitter,Morning,Maintenance Bay,41.1,53.0,9.5,87.2,6,0.69,7.2,6.9,3,Normal,Hot,No,67,MEDIUM,Heat Stress
+W2678,Sunil Pillai,44,15.1,Steel Melting Shop,SMS Operator,Afternoon,SMS Area,49.3,81.6,20.4,85.9,7,0.55,11.4,0.7,3,Needs Maintenance,Rainy,Yes,86,HIGH,Equipment Failure
+W2512,Kamal Reddy,25,4.1,Rolling Mill,Mill Helper,Morning,Rolling Mill,38.4,65.0,14.9,80.6,5,0.75,8.4,10.9,1,Needs Maintenance,Humid,Yes,42,MEDIUM,Heat Stress
+W2278,Ramesh Bhosale,32,11.8,Blast Furnace,Furnace Operator,Morning,Blast Furnace,33.0,46.6,12.7,87.3,7,0.71,10.2,8.1,0,Malfunction,Clear,No,48,MEDIUM,Slip Hazard
+W2107,Sachin Reddy,41,18.0,Storage,Material Checker,Morning,Storage Area,31.7,44.1,2.3,72.5,1,0.85,6.2,28.1,0,Needs Maintenance,Windy,No,33,LOW,Noise Hazard
+W2357,Pooja Gaikwad,55,17.1,Crane Operations,Rigger,Afternoon,Crane Area,41.9,55.4,15.2,80.8,7,0.67,10.5,11.8,2,Malfunction,Windy,No,64,MEDIUM,Dust Exposure
+W2294,Leela Menon,39,19.9,Casting,Casting Operator,Afternoon,Casting Bay,38.3,49.5,21.2,88.7,6,0.7,8.8,7.3,3,Malfunction,Windy,No,50,MEDIUM,Minor Gas Leak

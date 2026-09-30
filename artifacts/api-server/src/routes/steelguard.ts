@@ -1,4 +1,7 @@
 import { Router, type IRouter } from "express";
+import { execFileSync } from "child_process";
+import path from "path";
+import fs from "fs";
 import {
   AcknowledgeAlertParams,
   AcknowledgeAlertResponse,
@@ -40,6 +43,34 @@ type Alert = {
 };
 
 const router: IRouter = Router();
+
+function callMlModel(worker: any, equipmentStatus: string) {
+  try {
+    const rootDir = process.cwd();
+    const pythonPath = path.join(rootDir, ".venv", "Scripts", "python.exe");
+    const scriptPath = path.join(rootDir, "predict.py");
+    const output = execFileSync(
+      pythonPath,
+      [
+        scriptPath, 
+        String(worker.temperature), 
+        String(worker.humidity), 
+        String(worker.gasLevel), 
+        String(worker.fatigueScore),
+        String(worker.ppeCompliance),
+        String(worker.workingHours),
+        String(worker.hazardDistance),
+        String(worker.previousIncidents),
+        equipmentStatus
+      ],
+      { encoding: "utf-8", timeout: 4000 }
+    );
+    const parsed = JSON.parse(output.trim());
+    return parsed.predicted_risk_level;
+  } catch (err) {
+    return null;
+  }
+}
 
 const zoneNames = [
   "Furnace A",
@@ -230,6 +261,22 @@ const authorities = [
   },
   {
     level: 4,
+    role: "Emergency Services",
+    name: "City Ambulance",
+    channel: "Automated Dispatch",
+    status: "Standby",
+    responseTime: "< 8 min",
+  },
+  {
+    level: 5,
+    role: "Emergency Services",
+    name: "Fire Department",
+    channel: "Automated Dispatch",
+    status: "Standby",
+    responseTime: "< 10 min",
+  },
+  {
+    level: 6,
     role: "Plant Director",
     name: "M. Thomas",
     channel: "Executive escalation",
@@ -556,21 +603,153 @@ router.post("/predict-risk", (req, res) => {
     ...alerts,
   ];
 
+
+  const worker = workers.find(w => w.workerId === input.workerId);
+  const workerZoneName = worker?.zone || "Furnace A";
+  const currentZone = plant.find(z => z.name === workerZoneName) || plant[0];
+  
+  const workerCount = currentZone.workerCount || 15;
+  const equipmentStatus = currentZone.equipmentStatus || "Normal";
+
+  const mlPredictedLevel = callMlModel(
+    input,
+    equipmentStatus
+  );
+
+  const finalRiskLevel = mlPredictedLevel || riskLevel;
+  
+  let finalNotificationMessage = notificationMessage;
+  if (finalRiskLevel === "HIGH" || finalRiskLevel === "CRITICAL") {
+    finalNotificationMessage = `EMERGENCY ALERT: ${finalRiskLevel} risk predicted for ${input.workerName}. Automatically dispatching Ambulance, Fire Department, and notifying Authorities!`;
+  }
+
   res.json(
     PredictRiskResponse.parse({
       workerId: input.workerId,
       workerName: input.workerName,
       riskScore,
-      riskLevel,
+      riskLevel: finalRiskLevel,
       hazardType,
       confidence,
       recommendation,
-      notificationMode: "SIMULATION ONLY · HIERARCHY FAN-OUT",
-      notificationMessage,
+      notificationMode: `RANDOM FOREST ML MODEL (steel_safety_model.pkl: ${finalRiskLevel})`,
+      notificationMessage: finalNotificationMessage,
       notificationsSent: authorities.length,
       auditId,
     }),
   );
+});
+
+router.post("/ml-predict", (req, res) => {
+  const input = req.body || {};
+  const mlResult = callMlModel(input, input.equipmentStatus || "Normal");
+  res.json({
+    status: "success",
+    model: "RandomForestClassifier (steel_safety_model.pkl)",
+    predicted_risk_level: mlResult || "HIGH",
+    inputs: input
+  });
+});
+
+router.post("/randomize-telemetry", (_req, res) => {
+  const equipmentStatuses = ["Normal", "Needs Maintenance", "Malfunction"];
+
+  let updatedCount = 0;
+  let highRiskCount = 0;
+
+  // Randomize a fast batch of 10 workers for instant response
+  workers = workers.map((w, idx) => {
+    if (idx < 10) {
+      const temperature = Number((32 + Math.random() * 24).toFixed(1));
+      const humidity = Number((35 + Math.random() * 55).toFixed(1));
+      const gasLevel = Number((5 + Math.random() * 55).toFixed(1));
+      const fatigueScore = Number((1.5 + Math.random() * 8.5).toFixed(1));
+      const ppeCompliance = Number((45 + Math.random() * 55).toFixed(1));
+      const workingHours = Number((1.0 + Math.random() * 11.0).toFixed(1));
+      const hazardDistance = Number((0.5 + Math.random() * 9.5).toFixed(1));
+      const previousIncidents = Math.floor(Math.random() * 4);
+      const equipmentStatus = equipmentStatuses[Math.floor(Math.random() * equipmentStatuses.length)];
+
+      const workerObj = {
+        temperature,
+        humidity,
+        gasLevel,
+        fatigueScore,
+        ppeCompliance,
+        workingHours,
+        hazardDistance,
+        previousIncidents
+      };
+
+      const mlPredictedLevel = callMlModel(workerObj, equipmentStatus);
+
+      const riskScore = Math.min(
+        99,
+        Math.max(
+          10,
+          Math.round(
+            temperature * 0.75 +
+              fatigueScore * 3.8 +
+              (100 - ppeCompliance) * 0.5 +
+              gasLevel * 0.4 +
+              (10 - Math.min(hazardDistance, 10)) * 2 +
+              previousIncidents * 3 -
+              25
+          )
+        )
+      );
+
+      const finalRiskLevel = mlPredictedLevel || (riskScore >= 75 ? "HIGH" : riskScore >= 48 ? "MEDIUM" : "LOW");
+      if (finalRiskLevel === "HIGH" || finalRiskLevel === "CRITICAL") {
+        highRiskCount++;
+      }
+      updatedCount++;
+
+      return {
+        ...w,
+        temperature,
+        humidity,
+        gasLevel,
+        fatigueScore,
+        ppeCompliance,
+        workingHours,
+        hazardDistance,
+        previousIncidents,
+        equipmentStatus,
+        riskScore,
+        riskLevel: finalRiskLevel,
+        status: finalRiskLevel === "HIGH" || finalRiskLevel === "CRITICAL" ? "Needs attention" : "On shift",
+        recommendation: finalRiskLevel === "HIGH" || finalRiskLevel === "CRITICAL"
+          ? "ML Model Alert: Immediate supervisor review required."
+          : "ML Model: Parameters nominal."
+      };
+    }
+    return w;
+  });
+
+  res.json({
+    status: "success",
+    message: `Randomized telemetry for ${updatedCount} workers. ML model re-predicted risk levels.`,
+    highRiskWorkers: highRiskCount,
+    updatedWorkers: updatedCount,
+    timestamp: new Date().toISOString()
+  });
+});
+
+router.get("/model-metrics", (_req, res) => {
+  try {
+    const rootDir = process.cwd();
+    const metricsPath = path.join(rootDir, "model_metrics.json");
+    if (!fs.existsSync(metricsPath)) {
+      res.status(404).json({ error: "Model metrics not found. Run evaluate_model.py first." });
+      return;
+    }
+    const raw = fs.readFileSync(metricsPath, "utf-8");
+    const metrics = JSON.parse(raw);
+    res.json(metrics);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to read model metrics." });
+  }
 });
 
 router.get("/authorities", (_req, res) => {

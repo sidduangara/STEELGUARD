@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react';
-import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
+import { useEffect, useMemo, useState } from 'react';
+import { QueryClient, QueryClientProvider, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link, Route, Switch, useLocation, useParams } from 'wouter';
 import {
   Activity, AlertTriangle, BarChart3, Bell, Check, CheckCircle2, ChevronRight,
   ClipboardCheck, Gauge, HardHat, Info, LayoutDashboard, LifeBuoy, ListFilter, Map, Menu,
-  Network, OctagonAlert, Power, RefreshCcw, Search, Settings2, ShieldCheck, Users, Wifi, X,
+  Network, OctagonAlert, Power, RefreshCcw, RefreshCw, Search, Settings2, ShieldCheck, Users, Wifi, X, Zap,
 } from 'lucide-react';
 import {
   getGetAlertsQueryKey, getGetDashboardQueryKey, getGetEmergencyStatusQueryKey, getGetPlantQueryKey, getGetWorkerQueryKey, getGetWorkersQueryKey, getHealthCheckQueryKey,
@@ -16,6 +16,7 @@ import type { Alert, Analytics, Authority, Dashboard, EmergencyStatus, PlantZone
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { useToast } from '@/hooks/use-toast';
 
 const queryClient = new QueryClient();
 
@@ -87,14 +88,398 @@ function Dashboard() {
   const alerts = useGetAlerts({ query: { queryKey: getGetAlertsQueryKey(), refetchInterval: 5000 } });
   const plant = useGetPlant({ query: { queryKey: getGetPlantQueryKey(), refetchInterval: 5000 } });
   const d = dashboard.data as Dashboard | undefined;
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  const [isRandomizing, setIsRandomizing] = useState(false);
+  const [autoSimulate, setAutoSimulate] = useState(false);
+
+  useEffect(() => {
+    if (!d) return;
+    if (d.highRiskWorkers && d.highRiskWorkers > 0) {
+      toast({
+        title: '🚨 High Risk Detected on Dashboard',
+        description: `${d.highRiskWorkers} worker(s) are at HIGH/CRITICAL risk right now. Immediate action required!`,
+        variant: 'destructive',
+        duration: 8000,
+      });
+    } else if (d.totalWorkers && d.totalWorkers > 0) {
+      toast({
+        title: '✅ All Workers Safe',
+        description: 'No high-risk workers detected in the current snapshot.',
+        variant: 'default',
+        duration: 4000,
+      });
+    }
+  }, [d?.highRiskWorkers]);
+
+  const handleRandomize = async () => {
+    setIsRandomizing(true);
+    try {
+      const res = await fetch('/api/randomize-telemetry', { method: 'POST' });
+      const data = await res.json();
+      queryClient.invalidateQueries({ queryKey: getGetDashboardQueryKey() });
+      queryClient.invalidateQueries({ queryKey: getGetPlantQueryKey() });
+      queryClient.invalidateQueries({ queryKey: getGetWorkersQueryKey() });
+      toast({
+        title: '⚡ Live Sensor Data Randomized & ML Model Executed',
+        description: `Updated sensor values for ${data.updatedWorkers} workers. ML model predicted ${data.highRiskWorkers} HIGH/CRITICAL risk cases.`,
+        variant: data.highRiskWorkers > 0 ? 'destructive' : 'default',
+        duration: 4000,
+      });
+    } catch (e) {
+      // ignore
+    } finally {
+      setIsRandomizing(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!autoSimulate) return;
+    const interval = setInterval(() => {
+      handleRandomize();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [autoSimulate]);
+
+  const modelMetrics = useQuery<any>({ queryKey: ['model-metrics'], queryFn: () => fetch('/api/steelguard/model-metrics').then(r => r.json()), staleTime: 60000 });
+  const m = modelMetrics.data;
+
   const openAlerts = (alerts.data || []).filter((a) => a.status !== 'ACKNOWLEDGED');
-  return <div className="space-y-7">
-     <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><div className="steel-label flex items-center gap-2"><span className="size-2 rounded-full bg-emerald-400 status-pulse" /> Live simulated status</div><h2 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">See the risk before it becomes an incident.</h2><p className="mt-2 max-w-2xl text-sm text-muted-foreground">A single operational view of workforce condition, plant zones, and response readiness.</p></div><div className="flex items-center gap-3"><Link href="/emergency" data-testid="button-dashboard-emergency" className="inline-flex items-center gap-2 rounded border border-red-400/50 bg-red-400/10 px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-red-300 hover:bg-red-400/20"><OctagonAlert size={14} /> Emergency control</Link><div className="font-mono text-xs text-muted-foreground">LAST SYNC / {formatTime(d?.updatedAt)}</div></div></div>
-    <StateBlock loading={dashboard.isLoading} error={dashboard.isError} onRetry={() => dashboard.refetch()}>{d && <><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5"><Metric label="Workers tracked" value={d.totalWorkers} sub="Digital twins online" icon={Users} /><Metric label="High-risk workers" value={d.highRiskWorkers} sub={`${d.totalWorkers ? Math.round(d.highRiskWorkers / d.totalWorkers * 100) : 0}% of active workforce`} icon={AlertTriangle} accent="red" /><Metric label="Active alerts" value={d.activeAlerts} sub="Awaiting acknowledgement" icon={Bell} accent="cyan" /><Metric label="Average risk score" value={d.averageRiskScore} sub="Model score / 100" icon={Gauge} /><Metric label="PPE compliance" value={`${d.ppeCompliance}%`} sub="Across current shift" icon={HardHat} accent="cyan" /></div>
-      <div className="grid gap-5 xl:grid-cols-[1.35fr_.8fr]"><div className="steel-panel scanline p-5"><SectionTitle eyebrow="Risk telemetry / 07 day window" title="Risk score and alert velocity" action={<Badge tone="low">Within simulation</Badge>} /><div className="grid gap-5 sm:grid-cols-[1fr_180px]"><div><div className="relative h-44"><div className="absolute inset-x-0 top-0 border-t border-border/60" /><div className="absolute inset-x-0 top-1/2 border-t border-border/60" /><div className="absolute inset-x-0 bottom-0 border-t border-border/60" /><svg viewBox="0 0 500 150" preserveAspectRatio="none" className="absolute inset-0 h-full w-full"><polyline fill="none" stroke="#e8a93a" strokeWidth="3" points={(d.riskTrend || []).map((p, i, arr) => `${i * (500 / Math.max(arr.length - 1, 1))},${150 - p.score * 1.22}`).join(' ')} /></svg><div className="absolute bottom-0 left-0 right-0 flex justify-between font-mono text-[9px] text-muted-foreground">{(d.riskTrend || []).map((p) => <span key={p.label}>{p.label}</span>)}</div></div></div><div><div className="steel-label mb-3">Risk distribution</div><div className="space-y-3">{(d.riskDistribution || []).map((r) => <div key={r.name}><div className="mb-1 flex justify-between text-xs"><span>{r.name}</span><span className="font-mono text-muted-foreground">{r.value}</span></div><div className="h-1.5 bg-muted"><div className="h-full" style={{ width: `${Math.min(100, r.value)}%`, background: r.color || '#e8a93a' }} /></div></div>)}</div></div></div></div><div className="steel-panel p-5"><SectionTitle eyebrow="Escalation queue" title="Recent alerts" action={<Link href="/alerts" data-testid="link-view-alerts" className="text-xs text-primary hover:underline">View all <ChevronRight className="inline" size={13} /></Link>} /><div className="space-y-3">{openAlerts.slice(0, 4).map((a) => <div key={a.id} data-testid={`card-alert-${a.id}`} className="border-l-2 border-primary/70 bg-muted/60 p-3"><div className="flex justify-between gap-2"><Badge tone={toneClass(a.severity).replace('tone-', '')}>{a.severity}</Badge><span className="font-mono text-[10px] text-muted-foreground">{formatTime(a.timestamp)}</span></div><div className="mt-2 text-sm font-semibold">{a.title}</div><div className="mt-1 text-xs text-muted-foreground">{a.zone} / risk {a.riskScore}</div></div>)}{!openAlerts.length && <p className="py-6 text-center text-sm text-muted-foreground">No open alerts in the current cycle.</p>}</div></div></div>
-      <div className="grid gap-5 lg:grid-cols-[1fr_1fr_.75fr]"><div className="steel-panel p-5"><SectionTitle eyebrow="Plant digital twin" title="Zones under watch" action={<Link href="/plant" data-testid="link-view-plant" className="text-xs text-primary">Open map <ChevronRight className="inline" size={13} /></Link>} /><div className="grid grid-cols-2 gap-2">{(plant.data || []).slice(0, 6).map((z) => <div key={z.id} className="border border-border bg-muted/40 p-3"><div className="flex items-center justify-between"><span className="text-xs font-medium">{z.name}</span><span className={cn('size-2 rounded-full', riskTone(z.hazardLevel) === 'low' ? 'bg-emerald-400' : riskTone(z.hazardLevel) === 'medium' ? 'bg-primary' : 'bg-red-400')} /></div><div className="mt-2 font-mono text-lg">{z.riskScore}</div><div className="text-[10px] text-muted-foreground">{z.workerCount} workers / {z.equipmentStatus}</div></div>)}</div></div><div className="steel-panel p-5"><SectionTitle eyebrow="Response readiness" title="Control posture" /><div className="space-y-4"><div className="flex justify-between text-sm"><span className="text-muted-foreground">Authority chain</span><span className="text-emerald-300">Ready</span></div><div className="h-2 bg-muted"><div className="h-full w-[82%] bg-accent" /></div><div className="flex justify-between text-sm"><span className="text-muted-foreground">Notification paths</span><span className="text-emerald-300">4 / 4 online</span></div><div className="h-2 bg-muted"><div className="h-full w-full bg-emerald-400" /></div><div className="border border-primary/30 bg-primary/5 p-3 text-xs leading-5 text-muted-foreground"><Info size={14} className="mr-1 inline text-primary" /> All telemetry and recommended actions are synthetic prototype data.</div></div></div><div className="steel-panel border-primary/30 p-5"><div className="steel-label">Incidents / this cycle</div><div className="mt-3 text-5xl font-semibold text-primary">{d.incidents}</div><div className="mt-2 text-xs text-muted-foreground">Simulated events recorded</div><div className="mt-7 flex items-center gap-2 text-xs text-muted-foreground"><ClipboardCheck size={14} className="text-primary" /> Audit logging active</div></div></div></>}</StateBlock>
-  </div>;
+
+  // Heatmap helper for confusion matrix cell background intensity
+  const getHeatmapBg = (i: number, j: number, val: number, rowTotal: number) => {
+    if (i === j) {
+      // Correct predictions (diagonal) -> Emerald intensity
+      const ratio = rowTotal > 0 ? val / rowTotal : 0;
+      if (ratio > 0.9) return 'bg-emerald-500/25 border-emerald-500/50 text-emerald-300 font-bold';
+      if (ratio > 0.7) return 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400 font-semibold';
+      return 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400';
+    } else {
+      // Misclassifications (off-diagonal) -> Red intensity
+      if (val === 0) return 'bg-muted/20 border-border/40 text-muted-foreground';
+      return 'bg-red-500/20 border-red-500/40 text-red-300 font-bold';
+    }
+  };
+
+  return (
+    <div className="space-y-7">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <div className="steel-label flex items-center gap-2">
+            <span className="size-2 rounded-full bg-emerald-400 status-pulse" /> Live simulated status
+          </div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">See the risk before it becomes an incident.</h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">A single operational view of workforce condition, plant zones, and response readiness.</p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={handleRandomize}
+            disabled={isRandomizing}
+            className="inline-flex items-center gap-2 rounded border border-primary/50 bg-primary/10 px-3.5 py-2 text-xs font-bold uppercase tracking-[.08em] text-primary hover:bg-primary/20 transition-colors"
+          >
+            <Zap size={14} className={isRandomizing ? 'animate-pulse text-amber-400' : 'text-primary'} />
+            {isRandomizing ? 'Predicting...' : '⚡ Randomize Telemetry (Run ML Model)'}
+          </button>
+          
+          <button
+            onClick={() => setAutoSimulate(!autoSimulate)}
+            className={cn(
+              'inline-flex items-center gap-2 rounded border px-3.5 py-2 text-xs font-bold uppercase tracking-[.08em] transition-colors',
+              autoSimulate
+                ? 'border-emerald-500/80 bg-emerald-500/20 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]'
+                : 'border-muted-foreground/30 bg-muted/20 text-muted-foreground hover:bg-muted/40'
+            )}
+          >
+            <RefreshCw size={14} className={autoSimulate ? 'animate-spin text-emerald-400' : ''} />
+            {autoSimulate ? 'Auto-Live Stream ON (4s)' : 'Auto-Live Stream OFF'}
+          </button>
+
+          <Link href="/emergency" data-testid="button-dashboard-emergency" className="inline-flex items-center gap-2 rounded border border-red-400/50 bg-red-400/10 px-3 py-2 text-xs font-bold uppercase tracking-[.08em] text-red-300 hover:bg-red-400/20">
+            <OctagonAlert size={14} /> Emergency control
+          </Link>
+        </div>
+      </div>
+
+      <StateBlock loading={dashboard.isLoading} error={dashboard.isError} onRetry={() => dashboard.refetch()}>
+        {d && (
+          <div className="space-y-5">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+              <Metric label="Workers tracked" value={d.totalWorkers} sub="Digital twins online" icon={Users} />
+              <Metric label="High-risk workers" value={d.highRiskWorkers} sub={`${d.totalWorkers ? Math.round(d.highRiskWorkers / d.totalWorkers * 100) : 0}% of active workforce`} icon={AlertTriangle} accent="red" />
+              <Metric label="Active alerts" value={d.activeAlerts} sub="Awaiting acknowledgement" icon={Bell} accent="cyan" />
+              <Metric label="Average risk score" value={d.averageRiskScore} sub="Model score / 100" icon={Gauge} />
+              <Metric label="PPE compliance" value={`${d.ppeCompliance}%`} sub="Across current shift" icon={HardHat} accent="cyan" />
+            </div>
+
+            <div className="grid gap-5 xl:grid-cols-[1.35fr_.8fr]">
+              <div className="steel-panel scanline p-5">
+                <SectionTitle eyebrow="Risk telemetry / 07 day window" title="Risk score and alert velocity" action={<Badge tone="low">Within simulation</Badge>} />
+                <div className="grid gap-5 sm:grid-cols-[1fr_180px]">
+                  <div>
+                    <div className="relative h-44">
+                      <div className="absolute inset-x-0 top-0 border-t border-border/60" />
+                      <div className="absolute inset-x-0 top-1/2 border-t border-border/60" />
+                      <div className="absolute inset-x-0 bottom-0 border-t border-border/60" />
+                      <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+                        <polyline fill="none" stroke="#e8a93a" strokeWidth="3" points={(d.riskTrend || []).map((p, i, arr) => `${i * (500 / Math.max(arr.length - 1, 1))},${150 - p.score * 1.22}`).join(' ')} />
+                      </svg>
+                      <div className="absolute bottom-0 left-0 right-0 flex justify-between font-mono text-[9px] text-muted-foreground">
+                        {(d.riskTrend || []).map((p) => <span key={p.label}>{p.label}</span>)}
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="steel-label mb-3">Risk distribution</div>
+                    <div className="space-y-3">
+                      {(d.riskDistribution || []).map((r) => (
+                        <div key={r.name}>
+                          <div className="mb-1 flex justify-between text-xs">
+                            <span>{r.name}</span>
+                            <span className="font-mono text-muted-foreground">{r.value}</span>
+                          </div>
+                          <div className="h-1.5 bg-muted">
+                            <div className="h-full" style={{ width: `${Math.min(100, r.value)}%`, background: r.color || '#e8a93a' }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="steel-panel p-5">
+                <SectionTitle eyebrow="Escalation queue" title="Recent alerts" action={<Link href="/alerts" data-testid="link-view-alerts" className="text-xs text-primary hover:underline">View all <ChevronRight className="inline" size={13} /></Link>} />
+                <div className="space-y-3">
+                  {openAlerts.slice(0, 4).map((a) => (
+                    <div key={a.id} data-testid={`card-alert-${a.id}`} className="border-l-2 border-primary/70 bg-muted/60 p-3">
+                      <div className="flex justify-between gap-2">
+                        <Badge tone={toneClass(a.severity).replace('tone-', '')}>{a.severity}</Badge>
+                        <span className="font-mono text-[10px] text-muted-foreground">{formatTime(a.timestamp)}</span>
+                      </div>
+                      <div className="mt-2 text-sm font-semibold">{a.title}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{a.zone} / risk {a.riskScore}</div>
+                    </div>
+                  ))}
+                  {!openAlerts.length && <p className="py-6 text-center text-sm text-muted-foreground">No open alerts in the current cycle.</p>}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-[1fr_1fr_.75fr]">
+              <div className="steel-panel p-5">
+                <SectionTitle eyebrow="Plant digital twin" title="Zones under watch" action={<Link href="/plant" data-testid="link-view-plant" className="text-xs text-primary">Open map <ChevronRight className="inline" size={13} /></Link>} />
+                <div className="grid grid-cols-2 gap-2">
+                  {(plant.data || []).slice(0, 6).map((z) => (
+                    <div key={z.id} className="border border-border bg-muted/40 p-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium">{z.name}</span>
+                        <span className={cn('size-2 rounded-full', riskTone(z.hazardLevel) === 'low' ? 'bg-emerald-400' : riskTone(z.hazardLevel) === 'medium' ? 'bg-primary' : 'bg-red-400')} />
+                      </div>
+                      <div className="mt-2 font-mono text-lg">{z.riskScore}</div>
+                      <div className="text-[10px] text-muted-foreground">{z.workerCount} workers / {z.equipmentStatus}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="steel-panel p-5">
+                <SectionTitle eyebrow="Response readiness" title="Control posture" />
+                <div className="space-y-4">
+                  <div className="flex justify-between text-sm"><span className="text-muted-foreground">Authority chain</span><span className="text-emerald-300">Ready</span></div>
+                  <div className="h-2 bg-muted"><div className="h-full w-[82%] bg-accent" /></div>
+                  <div className="flex justify-between text-sm"><span className="text-muted-foreground">Notification paths</span><span className="text-emerald-300">4 / 4 online</span></div>
+                  <div className="h-2 bg-muted"><div className="h-full w-full bg-emerald-400" /></div>
+                  <div className="border border-primary/30 bg-primary/5 p-3 text-xs leading-5 text-muted-foreground">
+                    <Info size={14} className="mr-1 inline text-primary" /> All telemetry and recommended actions are synthetic prototype data.
+                  </div>
+                </div>
+              </div>
+
+              <div className="steel-panel border-primary/30 p-5">
+                <div className="steel-label">Incidents / this cycle</div>
+                <div className="mt-3 text-5xl font-semibold text-primary">{d.incidents}</div>
+                <div className="mt-2 text-xs text-muted-foreground">Simulated events recorded</div>
+                <div className="mt-7 flex items-center gap-2 text-xs text-muted-foreground">
+                  <ClipboardCheck size={14} className="text-primary" /> Audit logging active
+                </div>
+              </div>
+            </div>
+
+            {m && !m.error && (
+              <div className="steel-panel p-5 space-y-6">
+                <SectionTitle eyebrow="ML pipeline / evaluation on X_test" title="Model performance & feature extraction" action={<Badge tone="low">{m.algorithm}</Badge>} />
+                
+                {/* Visual Performance Metrics Cards with Progress Bars */}
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  <div className="border border-border bg-muted/40 p-4 rounded-sm space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="steel-label">Accuracy</span>
+                      <span className="font-mono text-xs text-emerald-400 font-bold">{(m.accuracy * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="mt-2 text-3xl font-semibold text-primary font-mono">{(m.accuracy * 100).toFixed(1)}%</div>
+                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-emerald-400 rounded-full" style={{ width: `${(m.accuracy * 100).toFixed(1)}%` }} />
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">{m.testSize} test samples</div>
+                  </div>
+
+                  <div className="border border-border bg-muted/40 p-4 rounded-sm space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="steel-label">Precision</span>
+                      <span className="font-mono text-xs text-cyan-400 font-bold">{(m.precision * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="mt-2 text-3xl font-semibold text-accent font-mono">{(m.precision * 100).toFixed(1)}%</div>
+                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-cyan-400 rounded-full" style={{ width: `${(m.precision * 100).toFixed(1)}%` }} />
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">Macro average</div>
+                  </div>
+
+                  <div className="border border-border bg-muted/40 p-4 rounded-sm space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="steel-label">Recall</span>
+                      <span className="font-mono text-xs text-amber-400 font-bold">{(m.recall * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="mt-2 text-3xl font-semibold text-accent font-mono">{(m.recall * 100).toFixed(1)}%</div>
+                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-400 rounded-full" style={{ width: `${(m.recall * 100).toFixed(1)}%` }} />
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">Macro average</div>
+                  </div>
+
+                  <div className="border border-border bg-muted/40 p-4 rounded-sm space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="steel-label">F1 Score</span>
+                      <span className="font-mono text-xs text-primary font-bold">{(m.f1Score * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="mt-2 text-3xl font-semibold text-primary font-mono">{(m.f1Score * 100).toFixed(1)}%</div>
+                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-primary rounded-full" style={{ width: `${(m.f1Score * 100).toFixed(1)}%` }} />
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">Macro average</div>
+                  </div>
+                </div>
+
+                <div className="grid gap-6 lg:grid-cols-3">
+                  {/* Per-class Metrics with Visual Progress Bars */}
+                  <div className="space-y-3">
+                    <div className="steel-label flex items-center justify-between">
+                      <span>Per-class metrics visualization</span>
+                      <span className="text-[10px] text-muted-foreground">P / R / F1</span>
+                    </div>
+                    <div className="overflow-hidden border border-border rounded-sm bg-muted/20">
+                      <div className="grid grid-cols-5 gap-0 bg-muted/60 px-3 py-2 steel-label text-[10px] border-b border-border">
+                        <span>Class</span><span>Precision</span><span>Recall</span><span>F1</span><span>Support</span>
+                      </div>
+                      {(m.perClass || []).map((pc: any) => (
+                        <div key={pc.label} className="grid grid-cols-5 gap-0 border-t border-border px-3 py-3 items-center text-sm">
+                          <span>
+                            <Badge tone={pc.label === 'HIGH' ? 'high' : pc.label === 'LOW' ? 'low' : 'medium'}>{pc.label}</Badge>
+                          </span>
+                          <div className="space-y-1">
+                            <span className="font-mono text-xs block">{(pc.precision * 100).toFixed(0)}%</span>
+                            <div className="h-1.5 w-12 bg-muted rounded-full overflow-hidden">
+                              <div className="h-full bg-emerald-400" style={{ width: `${(pc.precision * 100).toFixed(0)}%` }} />
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-mono text-xs block">{(pc.recall * 100).toFixed(0)}%</span>
+                            <div className="h-1.5 w-12 bg-muted rounded-full overflow-hidden">
+                              <div className="h-full bg-amber-400" style={{ width: `${(pc.recall * 100).toFixed(0)}%` }} />
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <span className="font-mono text-xs block">{(pc.f1Score * 100).toFixed(0)}%</span>
+                            <div className="h-1.5 w-12 bg-muted rounded-full overflow-hidden">
+                              <div className="h-full bg-cyan-400" style={{ width: `${(pc.f1Score * 100).toFixed(0)}%` }} />
+                            </div>
+                          </div>
+                          <span className="font-mono text-xs text-muted-foreground">{pc.support}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Confusion Matrix Heatmap Grid */}
+                  <div className="space-y-3">
+                    <div className="steel-label flex items-center justify-between">
+                      <span>Confusion Matrix Heatmap</span>
+                      <div className="flex gap-2 text-[10px]">
+                        <span className="flex items-center gap-1"><span className="size-2 bg-emerald-500/50 rounded-sm" /> Correct</span>
+                        <span className="flex items-center gap-1"><span className="size-2 bg-red-500/50 rounded-sm" /> Error</span>
+                      </div>
+                    </div>
+                    
+                    <div className="overflow-hidden border border-border rounded-sm bg-muted/20 p-3">
+                      <div className="grid grid-cols-4 gap-2 text-center text-xs">
+                        <div className="p-2 font-mono text-[10px] text-muted-foreground flex items-center justify-center">Actual \ Pred</div>
+                        {(m.labels || []).map((l: string) => (
+                          <div key={l} className="p-2 font-bold text-xs steel-label bg-muted/40 rounded-sm">{l}</div>
+                        ))}
+                        
+                        {(m.confusionMatrix || []).map((row: number[], i: number) => {
+                          const rowTotal = row.reduce((a, b) => a + b, 0);
+                          return (
+                            <React.Fragment key={m.labels[i]}>
+                              <div className="p-3 font-bold text-xs steel-label bg-muted/40 rounded-sm flex items-center justify-center">{m.labels[i]}</div>
+                              {row.map((val: number, j: number) => (
+                                <div 
+                                  key={j} 
+                                  className={cn(
+                                    'p-3 rounded-sm border font-mono text-sm transition-all flex flex-col items-center justify-center',
+                                    getHeatmapBg(i, j, val, rowTotal)
+                                  )}
+                                >
+                                  <span>{val}</span>
+                                  <span className="text-[9px] opacity-75 font-sans font-normal">
+                                    {rowTotal > 0 ? `${((val / rowTotal) * 100).toFixed(0)}%` : '0%'}
+                                  </span>
+                                </div>
+                              ))}
+                            </React.Fragment>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Feature Importance Ranking Chart */}
+                  <div className="space-y-3">
+                    <div className="steel-label flex items-center justify-between">
+                      <span>Feature Importance Ranking</span>
+                      <span className="text-[10px] text-muted-foreground">Random Forest %</span>
+                    </div>
+                    <div className="overflow-hidden border border-border rounded-sm bg-muted/20 p-3 space-y-2">
+                      {(m.featureImportances || []).slice(0, 6).map((fi: any) => (
+                        <div key={fi.feature} className="space-y-1">
+                          <div className="flex justify-between text-xs">
+                            <span className="font-mono text-muted-foreground text-[11px]">{fi.feature}</span>
+                            <span className="font-mono text-xs font-semibold text-primary">{fi.importance}%</span>
+                          </div>
+                          <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-primary rounded-full" 
+                              style={{ width: `${Math.min(100, fi.importance * 4)}%` }} 
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-[10px] text-muted-foreground">Dataset: {m.datasetSize} rows / Train: {m.trainSize} / Test: {m.testSize} / Split: 80/20 (random_state=42) / Algorithm: {m.algorithm}</div>
+              </div>
+            )}
+          </div>
+        )}
+      </StateBlock>
+    </div>
+  );
 }
+
 
 function WorkerDetail({ workerId, onClose }: { workerId: string; onClose: () => void }) {
   const queryClient = useQueryClient();
@@ -102,10 +487,32 @@ function WorkerDetail({ workerId, onClose }: { workerId: string; onClose: () => 
   const update = useUpdateWorker();
   const remove = useDeleteWorker();
   const predict = usePredictRisk();
+  const { toast } = useToast();
   const w = worker.data as Worker | undefined;
   const [prediction, setPrediction] = useState<RiskPrediction>();
   const [zone, setZone] = useState('');
   const [shift, setShift] = useState('');
+  
+  // Show toast when worker risk level is known
+  useEffect(() => {
+    if (!w) return;
+    if (w.riskLevel === 'HIGH' || w.riskLevel === 'CRITICAL') {
+      toast({
+        title: '🚨 Worker HIGH Risk',
+        description: `Worker ${w.name} is at ${w.riskLevel} risk level.`,
+        variant: 'destructive',
+        duration: 8000,
+      });
+    } else if (w.riskLevel === 'LOW') {
+      toast({
+        title: 'Worker Low Risk',
+        description: `Worker ${w.name} is at low risk.`,
+        variant: 'default',
+        duration: 4000,
+      });
+    }
+  }, [w]);
+  
   if (!workerId) return null;
   return (
     <div className="fixed inset-y-0 right-0 z-50 w-full max-w-md overflow-y-auto border-l border-border bg-card p-5 shadow-2xl rise-in sm:p-7">
@@ -160,6 +567,13 @@ function WorkerDetail({ workerId, onClose }: { workerId: string; onClose: () => 
                     setPrediction(result);
                     queryClient.invalidateQueries({ queryKey: getGetAlertsQueryKey() });
                     queryClient.invalidateQueries({ queryKey: getGetDashboardQueryKey() });
+                    
+                    toast({
+                      title: result.riskLevel === 'HIGH' || result.riskLevel === 'CRITICAL' ? "🚨 EMERGENCY ALERT" : "Prediction Complete",
+                      description: result.notificationMessage,
+                      variant: result.riskLevel === 'HIGH' || result.riskLevel === 'CRITICAL' ? "destructive" : "default",
+                      duration: 8000,
+                    });
                   },
                 })}
                 className="mt-4 inline-flex items-center gap-2 rounded bg-accent px-3 py-2 text-xs font-bold text-accent-foreground hover:brightness-110"
